@@ -1,0 +1,16 @@
+@import "bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+main, header, footer{
+  @extend .container-fluid;
+}
+.breadcrumb > li + li:before {
+  content: "/ ";
+  font-weight: 600;
+}
+
+.nav.nav-tabs{
+  li.active a{
+    &:focus, &:active{
+      outline: none;
+    }
+  }
+}

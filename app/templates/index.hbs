@@ -1,0 +1,14 @@
+<h1>Choose Your User:</h1>
+<ul>
+  {{#each model as |user|}}
+    <li>
+      {{#if user.isTeacher}}
+        {{#link-to 'teacher' user}}
+          {{user.fullName}} | {{user.role}}
+        {{/link-to}}
+      {{else}}
+        {{user.fullName}} | {{user.role}}
+      {{/if}}
+    </li>
+  {{/each}}
+</ul>

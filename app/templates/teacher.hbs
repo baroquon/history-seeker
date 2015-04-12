@@ -1,0 +1,16 @@
+<div class='page-header'>
+  <h2>{{model.fullName}}</h2>
+</div>
+<div class='row'>
+  <div class='col-md-2'>
+    <ul class="list-unstyled">
+      <li>{{#link-to 'teacher.add-student'}}{{fa-icon "plus"}} add student{{/link-to}}</li>
+      <li>{{#link-to 'teacher.add-fact'}}{{fa-icon "plus"}} add fact{{/link-to}}</li>
+      <li>{{#link-to 'teacher.add-exam-template'}}{{fa-icon "plus"}} add exam template{{/link-to}}</li>
+      <li>{{#link-to 'teacher.add-curriculum'}}{{fa-icon "plus"}} add curriculum{{/link-to}}</li>
+    </ul>
+  </div>
+  <div class='col-md-10'>
+    {{outlet}}
+  </div>
+</div>
