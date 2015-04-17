@@ -7,6 +7,9 @@ moduleForModel('curriculum', {
   // Specify the other units that are required for this test.
   needs: [
     'model:fact',
+    'model:user',
+    'model:exam',
+    'model:exam-template',
     'model:exam-question',
   ]
 });

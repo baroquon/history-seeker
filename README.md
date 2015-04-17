@@ -16,7 +16,7 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone <repository-url>` this repository
-* change into the new directory
+* cd historicity
 * `npm install`
 * `bower install`
 
@@ -43,11 +43,27 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 Specify what it takes to deploy your app.
 
-## Further Reading / Useful Links
+## Data Model
 
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+User
+  |- first_name
+  |- middle_name
+  |- last_name
+  |- date_of_birth
+  |- role
+  |- notes
+  |- students: hasMany('user', { inverse: teacher})
+  |- teacher: belongsTo('user', { inverse: students })
+  |- curriculum: hasMany('curriculum')
 
+Fact
+  |- title
+  |- description
+  |- start_date
+  |- end_date
+  |- lat
+  |- lng
+
+curriculum
+   |- title
+   |- hasMany('facts')
