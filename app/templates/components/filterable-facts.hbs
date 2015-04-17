@@ -1,26 +1,60 @@
-{{input
-  type='date'
-  value=newFromDate
-  class='form-control'
-}}
-{{input
-  type='date'
-  value=newToDate
-  class='form-control'
-}}
-{{input
-  type='text'
-	placeholder='Search...'
-  value=filter
-  class='form-control'
-}}
-{{#each rangeFilteredContent as |fact|}}
-  <li>
-	  {{fact.title}}	
-	  |
-		{{fact.description}}
-		|
-		{{ago fact.start_date}}
-
-  </li>
-{{/each}}
+<div class='row'>
+  <div class='col-md-12'>
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Choose Some Facts:</div>
+			<div class="panel-body">
+				<div class='row'>
+				  <div class='col-md-3'>
+						{{bootstrap-datepicker
+							placeholder='From Date'
+						  value=newFromDate
+							startView="decade"
+						  class='form-control'
+						}}
+					</div>
+				  <div class='col-md-3'>
+						{{bootstrap-datepicker
+						  placeholder='To Date'
+							startView="decade"
+						  value=newToDate
+						  class='form-control'
+						}}
+					</div>
+					<div class='col-md-3 col-md-offset-3'>
+						{{input
+						  type='text'
+							placeholder='Search'
+						  value=filter
+						  class='form-control'
+						}}
+				  </div>
+				</div>
+			</div>
+		  <table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>What Happened</th>
+						<th>When it Happened</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each rangeFilteredContent as |fact|}}
+					  <tr>
+							<td>
+							  {{fact.title}}
+							</td>	
+							<td>
+								{{fact.description}}
+							</td>
+							<td>
+								{{ago fact.start_date}}
+							</td>
+						</tr>
+			    {{/each}}
+				</tbody>
+		  </table>
+		</div>
+  </div>
+</div>

@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	filter: '',
+	minFromDate:new Date().setFullYear(01),
+	maxToDate: new Date(),
 	fromDate: Ember.computed('newFromDate', function() {
     return new Date(this.get('newFromDate'));
   }),
