@@ -1,3 +1,7 @@
 {{partial 'back-to-teacher'}}
-{{outlet}}
+{{#each facts as |fact|}}
+  {{fact.title}}
+	<br>
+	{{fact.description}}
+{{/each}}
 
