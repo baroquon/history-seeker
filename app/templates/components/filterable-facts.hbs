@@ -1,10 +1,20 @@
 {{input
+  type='date'
+  value=newFromDate
+  class='form-control'
+}}
+{{input
+  type='date'
+  value=newToDate
+  class='form-control'
+}}
+{{input
   type='text'
 	placeholder='Search...'
   value=filter
   class='form-control'
 }}
-{{#each filteredContent as |fact|}}
+{{#each rangeFilteredContent as |fact|}}
   <li>
 	  {{fact.title}}	
 	  |
