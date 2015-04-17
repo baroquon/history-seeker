@@ -1,0 +1,16 @@
+{{input
+  type='text'
+	placeholder='Search...'
+  value=filter
+  class='form-control'
+}}
+{{#each filteredContent as |fact|}}
+  <li>
+	  {{fact.title}}	
+	  |
+		{{fact.description}}
+		|
+		{{ago fact.start_date}}
+
+  </li>
+{{/each}}

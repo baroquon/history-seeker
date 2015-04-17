@@ -1,7 +1,4 @@
 {{partial 'back-to-teacher'}}
-{{#each facts as |fact|}}
-  {{fact.title}}
-	<br>
-	{{fact.description}}
-{{/each}}
+{{filterable-facts facts=facts}}
+
 
