@@ -1,4 +1,16 @@
 {{partial 'back-to-teacher'}}
+<div class='form-group'>
+	<label for='new-curriculum-title'>
+		Title
+	</label>
+	{{input
+	  type='text'
+	  name='new-curriculum-title'
+	  class='form-control'
+	  value=newTitle}}
+</div>
+{{newTitle}}
 {{filterable-facts facts=facts}}
-
-
+<div class='form-group'>
+  <button class='btn btn-primary' {{action 'saveNewCurriculum'}}>Save Curriculum</button>
+</div>

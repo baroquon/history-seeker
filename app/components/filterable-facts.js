@@ -42,5 +42,11 @@ export default Ember.Component.extend({
 		} else {
 			return facts;
 		}
-	})
+	}),
+	actions: {
+		addFactToCurriculum: function(fact, selected){
+			//TODO: this should send an action to the controller that adds the selected fact to the newly created curriculum
+			console.log(selected);
+		}
+	}
 });
