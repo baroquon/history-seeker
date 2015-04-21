@@ -22,6 +22,16 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
+In order to run locally you must modify the application adapter `app/adapters/application.js` by changing the host from `https://intense-castle-9219.herokuapp.com` to `http://localhost:3000`
+
+You will need to clone the rails backend:
+* `git clone https://github.com/isotope11/history_seeker_rails_api_brandon.git`
+* `cd history_seeker_rails_api_brandon`
+* `bundle`
+* `rake db:setup`
+* change the origin in `config/application.rb` from `development.historicity.divshot.io` to `localhost:4200` // TODO: make this simpler
+* `rails s`
+
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
@@ -41,7 +51,9 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+ember divshot push
+
+http://development.historicity.divshot.io/
 
 ## Data Model
 ```
