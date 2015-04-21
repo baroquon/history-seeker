@@ -5,8 +5,7 @@ export default Ember.Component.extend({
   isSelected: false,
   observeSelected: Ember.observer('isSelected', function(){
     var fact = this.get('fact'),
-		    selected = this.get('isSelected');
-
+        selected = this.get('isSelected');
     this.sendAction('addFactToCurriculum', fact, selected);
-	}),
+  }),
 });

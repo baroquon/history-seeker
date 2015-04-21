@@ -15,7 +15,7 @@ export default Ember.Component.extend(Ember.SortableMixin, {
   filteredContent: Ember.computed('arrangedContent', 'filter', function() {
     var filter = this.get('filter'),
         rx = new RegExp(filter, 'gi'),
-		    facts = this.get('arrangedContent');
+        facts = this.get('arrangedContent');
 
     if(!!filter){
       return facts.filter(function(fact) {
