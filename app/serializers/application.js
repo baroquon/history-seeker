@@ -2,6 +2,7 @@ import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
   attrs: {
-    students: { embedded: 'always' }
+    students: { embedded: 'always' },
+    curriculums: { embedded: 'always' }
   },
 });
