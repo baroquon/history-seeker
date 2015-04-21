@@ -21,10 +21,10 @@ export default Ember.Controller.extend({
         title: title,
         user: teacher
       });
+
       this.get('factsToAdd').forEach(function(fact){
         curriculum.get('facts').addObject(fact);
       });
-
       curriculum.save();
     }
   }

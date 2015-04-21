@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
         last_name: lastName,
         date_of_birth: date_of_birth,
         role: 'student',
-        teacher_id: teacher
+        teacher: teacher
       });
 
       new_student.save();

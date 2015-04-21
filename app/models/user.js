@@ -14,11 +14,11 @@ export default DS.Model.extend({
   }),
 
   // Relationships
-  teacher_id: DS.belongsTo('user', {
+  teacher: DS.belongsTo('user', {
     inverse: 'students',
   }),
   students: DS.hasMany('user', {
-    inverse: 'teacher_id',
+    inverse: 'teacher',
     async: true
   }),
   exams: DS.hasMany('exam', {async: true}),
