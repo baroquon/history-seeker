@@ -26,6 +26,9 @@ export default Ember.Controller.extend({
         curriculum.get('facts').addObject(fact);
       });
       curriculum.save();
+
+      this.set('newTitle', '')
+          .set('factsToAdd', []);
     }
   }
 });
