@@ -44,7 +44,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 Specify what it takes to deploy your app.
 
 ## Data Model
-
+```
 User
   |- first_name
   |- middle_name
@@ -67,3 +67,4 @@ Fact
 curriculum
    |- title
    |- hasMany('facts')
+```
