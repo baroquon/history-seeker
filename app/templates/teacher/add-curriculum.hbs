@@ -11,7 +11,12 @@
   }}
 </div>
 {{newTitle}}
-{{filterable-facts content=facts}}
+{{filterable-facts content=facts addFactToCurriculum='addFactToCurriculum'}}
+<ul>
+  {{#each factsToAdd as |addedFact|}}
+    <li>{{addedFact.title}}</li>
+  {{/each}}
+</ul>
 <div class='form-group'>
   <button class='btn btn-primary' {{action 'saveNewCurriculum'}}>Save Curriculum</button>
 </div>

@@ -1,9 +1,5 @@
 import DS from 'ember-data';
 
-export default DS.RESTAdapter.extend({
+export default DS.ActiveModelAdapter.extend({
   host: 'http://localhost:3000',
-  buildURL: function(record, suffix) {
-    var s = this._super(record, suffix);
-    return s + ".json";
-  }
 });

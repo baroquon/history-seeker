@@ -23,7 +23,7 @@ export default DS.Model.extend({
   }),
   exams: DS.hasMany('exam', {async: true}),
   exam_templates: DS.hasMany('exam-template'),
-  curriculums: DS.hasMany('curriculum'),
+  curriculums: DS.hasMany('curriculum', { async: true }),
 
   // Computed Properties
   fullName: Ember.computed('first_name', 'last_name', function() {

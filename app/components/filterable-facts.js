@@ -11,11 +11,6 @@ export default Ember.Component.extend(Ember.SortableMixin, {
     return new Date(this.get('newToDate'));
   }),
 
-  arrangedContent: Ember.computed('content', function() {
-    var content = this.get('content');
-    return content;
-  }),
-
   // This function handles the search filter
   filteredContent: Ember.computed('arrangedContent', 'filter', function() {
     var filter = this.get('filter'),
@@ -48,10 +43,12 @@ export default Ember.Component.extend(Ember.SortableMixin, {
       return facts;
     }
   }),
+  // This action is triggered when one the facts is selected or unselected
+  // the action is then sent up the chain to the controller with the fact object
+  // and its selected state (checked = true, unchecked = false)
   actions: {
     addFactToCurriculum: function(fact, selected){
-      //TODO: this should send an action to the controller that adds the selected fact to the newly created curriculum
-      console.log(selected);
+      this.sendAction('addFactToCurriculum', fact, selected);
     }
   }
 });

@@ -4,6 +4,9 @@
       {{#each model.curriculums as |curriculum|}}
           <li class='list-group-item'>
             {{curriculum.title}}
+            {{#each curriculum.facts as |fact|}}
+              {{fact.title}}
+            {{/each}}
           </li>
       {{/each}}
     </ul>
