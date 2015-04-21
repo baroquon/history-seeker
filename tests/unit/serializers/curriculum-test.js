@@ -5,7 +5,14 @@ import {
 
 moduleForModel('curriculum', {
   // Specify the other units that are required for this test.
-  needs: ['serializer:curriculum']
+  needs: [
+    'serializer:curriculum',
+    'model:user',
+    'model:exam',
+    'model:exam-template',
+    'model:exam-question',
+    'model:fact'
+  ]
 });
 
 // Replace this with your real tests.

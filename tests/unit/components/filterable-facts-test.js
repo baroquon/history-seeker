@@ -5,7 +5,7 @@ import {
 
 moduleForComponent('filterable-facts', {
   // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: ['component:bootstrap-datepicker']
 });
 
 test('it renders', function(assert) {
