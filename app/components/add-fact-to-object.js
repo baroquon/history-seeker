@@ -6,10 +6,9 @@ export default Ember.Component.extend({
 
   // This function resets the checkboxes to unchecked if a new model is saved.
   resetOnSave: Ember.observer('resetChecks', function() {
-    var reset = this.get('resetChecks')
+    var reset = this.get('resetChecks');
     if(reset){
       this.set('isSelected', false);
-
     }
   }),
 
