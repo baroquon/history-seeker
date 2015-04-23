@@ -42,7 +42,7 @@
         </thead>
         <tbody>
           {{#each rangeFilteredContent as |fact|}}
-            {{add-fact-to-object fact=fact resetChecks=resetChecks addFactToCurriculum="addFactToCurriculum"}}
+            {{add-fact-to-object action='showModal' fact=fact resetChecks=resetChecks addFactToCurriculum="addFactToCurriculum"}}
           {{/each}}
         </tbody>
       </table>

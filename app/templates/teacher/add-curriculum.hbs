@@ -11,7 +11,7 @@
   }}
 </div>
 {{newTitle}}
-{{filterable-facts content=facts resetChecks=resetChecks addFactToCurriculum='addFactToCurriculum'}}
+{{filterable-facts action='showModal' content=facts resetChecks=resetChecks addFactToCurriculum='addFactToCurriculum'}}
 <ul>
   {{#each factsToAdd as |addedFact|}}
     <li>{{addedFact.title}}</li>

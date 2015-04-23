@@ -16,5 +16,7 @@ export default Router.map(function() {
     this.route('add-fact');
     this.route('add-curriculum');
   });
-  this.resource('facts', function() {});
+  this.resource('facts', function() {
+    this.route('show', { path: ':fact_id' });
+  });
 });

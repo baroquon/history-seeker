@@ -40,6 +40,6 @@ export default Ember.Controller.extend({
       this.set('newTitle', '')
           .set('resetChecks', true)
           .set('factsToAdd', []);
-    }
+    },
   }
 });

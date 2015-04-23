@@ -49,6 +49,9 @@ export default Ember.Component.extend(Ember.SortableMixin, {
   actions: {
     addFactToCurriculum: function(fact, selected){
       this.sendAction('addFactToCurriculum', fact, selected);
+    },
+    showModal: function(template, factObject){
+      this.sendAction('action', template, factObject);
     }
   }
 });

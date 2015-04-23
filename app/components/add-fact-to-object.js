@@ -18,4 +18,10 @@ export default Ember.Component.extend({
         selected = this.get('isSelected');
     this.sendAction('addFactToCurriculum', fact, selected);
   }),
+
+  actions: {
+    showModal: function(template, factObject){
+      this.sendAction('action', template, factObject);
+    }
+  }
 });

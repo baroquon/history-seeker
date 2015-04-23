@@ -5,7 +5,9 @@
   }}
 </td>
 <td>
-  {{fact.title}}
+  <button {{action 'showModal' 'facts.show' fact}}>
+    {{fact.title}}
+  </button>
 </td>
 <td>
   {{fact.description}}
