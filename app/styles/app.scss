@@ -2,3 +2,19 @@
 
 body{
 }
+
+// buttons
+button, a{
+  &:active, &:focus{
+    outline: 0 none;
+  }
+}
+.styless-button{
+  background: transparent none;
+  border: 0 none transparent;
+  text-align: left;
+  color: $brand-primary;
+  &:hover{
+    text-decoration: underline;
+  }
+}

@@ -43,13 +43,15 @@ export default Ember.Component.extend(Ember.SortableMixin, {
       return facts;
     }
   }),
-  // This action is triggered when one the facts is selected or unselected
-  // the action is then sent up the chain to the controller with the fact object
-  // and its selected state (checked = true, unchecked = false)
   actions: {
+    // This action is triggered when one the facts is selected or unselected
+    // the action is then sent up the chain to the controller with the fact object
+    // and its selected state (checked = true, unchecked = false)
     addFactToCurriculum: function(fact, selected){
       this.sendAction('addFactToCurriculum', fact, selected);
     },
+    // This action triggers the modal show on the application route and feeds it
+    // the selected fact object as its model and the facts.show as its template
     showModal: function(template, factObject){
       this.sendAction('action', template, factObject);
     }
