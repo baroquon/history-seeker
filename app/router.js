@@ -7,8 +7,6 @@ var Router = Ember.Router.extend({
 
 export default Router.map(function() {
   this.route("about");
-  this.route("signup");
-  this.route("login");
   this.route('teacher', { path: 'teacher/:user_id' }, function() {
     this.route('index', { path: '/' }, function(){
       this.route('index', { path: '/' });
@@ -30,5 +28,10 @@ export default Router.map(function() {
   });
   this.resource('facts', function() {
     this.route('show', { path: ':fact_id' });
+  });
+
+  this.route('session', function() {
+    this.route('new', { path: '/' });
+    this.route('signup');
   });
 });
