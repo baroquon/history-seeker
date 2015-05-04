@@ -1,2 +1,71 @@
 {{partial 'back-to-teacher'}}
-{{outlet}}
+<div class='row'>
+  <div class='col-md-12'>
+    <div class="form-group">
+      <label for="first_name">Title</label>
+      {{input
+        type='text'
+        value=newTitle
+        placeholder='Fact Title'
+        class='form-control'
+        }}
+    </div>
+  </div>
+  <div class='col-md-12'>
+    <div class="form-group">
+      <label for="middle_name">Description</label>
+      {{textarea
+        value=newDescription
+        class='form-control'
+        }}
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <div class="form-group">
+      <label for="start_date">Start Date</label>
+      {{bootstrap-datepicker
+        value=newStartDate
+        startView=2
+        autoclose=true
+        placeholder='Start Date'
+        class='form-control'
+        }}
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <div class="form-group">
+      <label for="end_date">End Date</label>
+      {{bootstrap-datepicker
+        value=newEndDate
+        startView=2
+        autoclose=true
+        placeholder='End Date'
+        class='form-control'
+        }}
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <div class="form-group">
+      <label for="last_name">Latitude</label>
+      {{input
+        type='text'
+        value=newLat
+        placeholder='Latitude'
+        class='form-control'
+        }}
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <div class="form-group">
+      <label for="last_name">Longitude</label>
+      {{input
+        type='text'
+        value=newLng
+        placeholder='Longitude'
+        class='form-control'
+        }}
+    </div>
+  </div>
+</div>
+<button class='btn btn-primary' {{action 'createFact'}}>Create Fact</button>
+

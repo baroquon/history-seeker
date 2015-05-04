@@ -21,7 +21,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
       'font-src': "'self' data: fonts.gstatic.com",
-      'connect-src': "'self' localhost:3000",
+      'connect-src': "'self' localhost:3000 intense-castle-9219.herokuapp.com",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com localhost:4200",
       'frame-src': ""

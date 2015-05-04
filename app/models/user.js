@@ -14,16 +14,16 @@ export default DS.Model.extend({
   }),
 
   // Relationships
-  teacher_id: DS.belongsTo('user', {
+  teacher: DS.belongsTo('user', {
     inverse: 'students',
   }),
   students: DS.hasMany('user', {
-    inverse: 'teacher_id',
+    inverse: 'teacher',
     async: true
   }),
   exams: DS.hasMany('exam', {async: true}),
   exam_templates: DS.hasMany('exam-template'),
-  curriculums: DS.hasMany('curriculum'),
+  curriculums: DS.hasMany('curriculum', { async: true }),
 
   // Computed Properties
   fullName: Ember.computed('first_name', 'last_name', function() {

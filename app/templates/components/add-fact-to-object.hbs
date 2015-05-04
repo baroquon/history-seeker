@@ -1,0 +1,21 @@
+<td>
+  {{input
+    type='checkbox'
+	  checked=isSelected
+  }}
+</td>
+<td>
+  <button class='styless-button' {{action 'showModal' 'facts.show' fact }} >
+    {{fact.title}}
+  </button>
+</td>
+<td>
+  <button class='styless-button' {{action 'showModal' 'facts.show' fact }} >
+    {{fact.description}}
+  </button>
+</td>
+<td>
+  <button class='styless-button' {{action 'showModal' 'facts.show' fact }} >
+    {{ago fact.start_date}}
+  </button>
+</td>

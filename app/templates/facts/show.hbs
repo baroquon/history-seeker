@@ -1,0 +1,32 @@
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" {{action 'closeModal'}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{model.title}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          {{model.description}}
+        </p>
+        <p>
+          A Map Will Go Here.
+        </p>
+        <p>
+          <strong>Latitude:</strong> {{model.lat}}
+          <strong>Longitude:</strong> {{model.lng}}
+        </p>
+        <p>
+          <strong>
+            Started:
+          </strong>
+          {{moment model.start_date "MMMM Do YYYY"}}
+          <strong>
+            Ended:
+          </strong>
+          {{moment model.end_date "MMMM Do YYYY"}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

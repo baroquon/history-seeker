@@ -39,9 +39,9 @@ test('A Teacher can have many students', function(assert) {
 
 test('A Student can have one teacher', function(assert) {
   var user = this.store().modelFor('user');
-  var relationship = Ember.get(user, 'relationshipsByName').get('teacher_id');
+  var relationship = Ember.get(user, 'relationshipsByName').get('teacher');
 
-  assert.equal(relationship.key, 'teacher_id');
+  assert.equal(relationship.key, 'teacher');
   assert.equal(relationship.kind, 'belongsTo');
 });
 

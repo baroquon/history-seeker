@@ -1,3 +1,22 @@
 {{partial 'back-to-teacher'}}
-{{outlet}}
-
+<div class='form-group'>
+  <label for='new-curriculum-title'>
+    Title
+  </label>
+  {{input
+    type='text'
+    name='new-curriculum-title'
+    class='form-control'
+    value=newTitle
+  }}
+</div>
+{{newTitle}}
+{{filterable-facts action='showModal' content=facts resetChecks=resetChecks addFactToCurriculum='addFactToCurriculum'}}
+<ul>
+  {{#each factsToAdd as |addedFact|}}
+    <li>{{addedFact.title}}</li>
+  {{/each}}
+</ul>
+<div class='form-group'>
+  <button class='btn btn-primary' {{action 'saveNewCurriculum'}}>Save Curriculum</button>
+</div>

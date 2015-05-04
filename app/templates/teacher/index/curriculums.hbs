@@ -1,1 +1,11 @@
-{{outlet}}
+<div class="tab-pane active">
+  <div class="panel panel-default">
+    <ul class="list-group">
+      {{#each model.curriculums as |curriculum|}}
+          <li class='list-group-item'>
+            {{curriculum.title}}
+          </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

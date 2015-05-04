@@ -14,3 +14,7 @@ main, header, footer{
     }
   }
 }
+
+.modal{
+  display: block; // using bootstraps markup for modals but we'll use ember to show it
+}
