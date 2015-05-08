@@ -15,4 +15,4 @@ export default function(){
     this.toRoute(['teacher.index', 'teacher.add-student', 'teacher.add-fact', 'teacher.add-curriculum']),
     this.use('toDown')
   );
-};
+}

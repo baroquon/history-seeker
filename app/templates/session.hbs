@@ -1,11 +1,22 @@
 {{#pre-auth-wrapper}}
-  {{partial '_pre-auth-back-header'}}
+  {{pre-auth-back-header}}
   <section class="content-section single-content text-center">
     <div class="login-section">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            {{partial '_auth-nav'}}
+            <ul class="nav nav-tabs">
+              {{#link-to 'session.new' tagName='li' href=false}}
+                {{#link-to 'session.new'}}
+                  Login
+                {{/link-to}}
+              {{/link-to}}
+              {{#link-to 'session.signup' tagName='li' href=false}}
+                {{#link-to 'session.signup'}}
+                  Sign Up
+                {{/link-to}}
+              {{/link-to}}
+            </ul>
             {{liquid-outlet}}
           </div>
         </div>

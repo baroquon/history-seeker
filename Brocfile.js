@@ -8,6 +8,6 @@ var extraAssets = new Funnel('bower_components/bootstrap-sass-official/assets/fo
     srcDir: '/',
     destDir: 'fonts/bootstrap'
 });
-
+app.import('bower_components/jquery.easing/js/jquery.easing.min.js');
 module.exports = app.toTree(extraAssets);
 
