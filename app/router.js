@@ -34,4 +34,5 @@ export default Router.map(function() {
     this.route('new', { path: '/' });
     this.route('signup');
   });
+  this.route('login');
 });
