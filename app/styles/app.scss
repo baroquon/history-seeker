@@ -8,6 +8,7 @@ body{
 
 // buttons
 button, a{
+  cursor: pointer;
   &:active, &:focus{
     outline: 0 none;
   }

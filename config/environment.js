@@ -30,6 +30,7 @@ module.exports = function(environment) {
 
   ENV['simple-auth'] = {
     crossOriginWhitelist: ['*'],
+    serverTokenRevocationEndpoint: '/revoke',
     authorizer: 'simple-auth-authorizer:devise'
   }
 
