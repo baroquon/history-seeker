@@ -7,7 +7,7 @@ var Router = Ember.Router.extend({
 
 export default Router.map(function() {
   this.route("about");
-  this.route('teacher', { path: 'teacher/:user_id' }, function() {
+  this.route('teacher', { path: 'teacher' }, function() {
     this.route('index', { path: '/' }, function(){
       this.route('index', { path: '/' });
       this.route('contexts');
