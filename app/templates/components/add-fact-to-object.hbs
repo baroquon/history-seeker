@@ -1,9 +1,11 @@
-<td>
-  {{input
-    type='checkbox'
-	  checked=isSelected
-  }}
-</td>
+{{#if isForm}}
+  <td>
+    {{input
+      type='checkbox'
+      checked=isSelected
+    }}
+  </td>
+{{/if}}
 <td>
   <button class='styless-button' {{action 'showModal' 'facts.show' fact }} >
     {{fact.title}}

@@ -34,7 +34,9 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th>Add to Curriculum</th>
+            {{#if isForm}}
+              <th>Add to Curriculum</th>
+            {{/if}}
             <th>Title</th>
             <th>What Happened</th>
             <th>When it Happened</th>
@@ -42,7 +44,7 @@
         </thead>
         <tbody>
           {{#each rangeFilteredContent as |fact|}}
-            {{add-fact-to-object action='showModal' fact=fact resetChecks=resetChecks addFactToCurriculum="addFactToCurriculum"}}
+            {{add-fact-to-object action='showModal' fact=fact resetChecks=resetChecks addFactToCurriculum="addFactToCurriculum" isForm=isForm}}
           {{/each}}
         </tbody>
       </table>

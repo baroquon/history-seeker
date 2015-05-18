@@ -21,11 +21,11 @@
           <li>{{#link-to 'user.add-fact'}}{{fa-icon "plus"}} add fact{{/link-to}}</li>
           <li>{{#link-to 'user.add-curriculum'}}{{fa-icon "plus"}} add curriculum{{/link-to}}</li>
         {{else}}
-          I&apos;m a student
           {{#each current_user.teacher.curriculums as |curriculum|}}
             <li>{{#link-to 'user.curriculum.show' curriculum}}{{fa-icon "plus"}} Curriculum {{curriculum.title}}{{/link-to}}</li>
           {{/each}}
         {{/if}}
+        <li>{{#link-to 'user.all-facts'}}{{fa-icon "plus"}} all facts{{/link-to}}</li>
       </ul>
     </div>
     <div class='col-md-10'>
