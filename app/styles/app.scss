@@ -1,3 +1,6 @@
+// Color Variables / Theme Variables
+$brand-primary: #659D32;
+
 @import "bootstrap_imports";
 
 body{
@@ -5,6 +8,7 @@ body{
 
 // buttons
 button, a{
+  cursor: pointer;
   &:active, &:focus{
     outline: 0 none;
   }

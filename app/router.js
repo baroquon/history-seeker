@@ -6,7 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function() {
-  this.route('teacher', { path: 'teacher/:user_id' }, function() {
+  this.route("about");
+  this.route('teacher', { path: 'teacher' }, function() {
     this.route('index', { path: '/' }, function(){
       this.route('index', { path: '/' });
       this.route('contexts');
@@ -16,7 +17,21 @@ export default Router.map(function() {
     this.route('add-fact');
     this.route('add-curriculum');
   });
+  this.route('student', { path: 'student/:user_id' }, function() {
+    this.route('index', { path: '/' }, function(){
+      this.route('index', { path: '/' });
+    });
+    this.route('curriculums', function() {
+      this.route('show', { path: ':curriculum_id' });
+    });
+    this.route('facts');
+  });
   this.resource('facts', function() {
     this.route('show', { path: ':fact_id' });
+  });
+
+  this.route('session', function() {
+    this.route('new', { path: '/' });
+    this.route('signup');
   });
 });

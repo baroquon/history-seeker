@@ -1,0 +1,22 @@
+<form {{action "authenticate" on="submit"}}>
+  <div  class="form-group input-group-lg">
+    <label for='email' class='sr-only'>Email</label>
+    {{input
+      value=identification
+      placeholder="E-mail"
+      type="text"
+      class="form-control"
+      name="email"}}
+  </div>
+  <div class="form-group input-group-lg">
+    <label for='password' class='sr-only'>Password</label>
+    {{input value=password class="form-control" placeholder="Password" type="password" name="password"}}
+  </div>
+  <div class="form-group input-group-lg">
+    <div class='row'>
+      <div class='col-md-6'>
+        <button class="form-control btn" type="submit">Login</button>
+      </div>
+    </div>
+  </div>
+</form>
