@@ -18,6 +18,7 @@ export default DS.Model.extend({
 
   // Relationships
   teacher: DS.belongsTo('user', {
+    async: true,
     inverse: 'students',
   }),
   students: DS.hasMany('user', {
