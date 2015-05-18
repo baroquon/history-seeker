@@ -9,6 +9,9 @@ export default DS.Model.extend({
   notes: DS.attr('string'),
   date_of_birth: DS.attr('date'),
   role: DS.attr('string'),
+  email: DS.attr('string'),
+  password: DS.attr(), // this isn't right
+  password_confirmation: DS.attr(),
   createdAt: DS.attr('date', {
     defaultValue: function() { return new Date(); }
   }),

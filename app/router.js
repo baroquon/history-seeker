@@ -8,11 +8,8 @@ var Router = Ember.Router.extend({
 export default Router.map(function() {
   this.route("about");
   this.route('teacher', { path: 'teacher' }, function() {
-    this.route('index', { path: '/' }, function(){
-      this.route('index', { path: '/' });
-      this.route('contexts');
-      this.route('curriculums');
-    });
+    this.route('index', { path: '/' });
+    this.route('curriculums');
     this.route('add-student');
     this.route('add-fact');
     this.route('add-curriculum');
