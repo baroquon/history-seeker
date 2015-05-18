@@ -5,7 +5,6 @@ export default Ember.Controller.extend({
   current_user: Ember.computed.alias('controllers.current-user.current_user'),
   actions: {
     createStudent: function(){
-      // This no longer works since I implemented authentication for users
       var firstName = this.get('newFirstName'),
           lastName = this.get('newLastName'),
           middleName = this.get('newMiddleName'),
