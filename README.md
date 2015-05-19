@@ -2,7 +2,7 @@
 
 This is an application that easily allows students and teacher to explore
 history and collect historical 'facts' into an organized grouping called a
-curriculum. Teachers can create new 'facts' or chose existing ones.
+curriculum. Teachers can create new 'facts' or choose existing ones.
 
 ## Prerequisites
 

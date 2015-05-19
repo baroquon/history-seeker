@@ -1,0 +1,36 @@
+<div class="{{containerClass}}">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+      <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand page-scroll" href="#page-top">
+      <i class="fa fa-history"></i> <span class="light">history</span>Seeker
+    </a>
+  </div>
+  <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+    <ul class="nav navbar-nav">
+      {{#if session.isAuthenticated}}
+        {{#if isTeacher}}
+          <li>{{#link-to 'user.index'}}Students{{/link-to}}</li>
+          <li>{{#link-to 'user.curriculums'}}Curriculums{{/link-to}}</li>
+        {{/if}}
+        <li>{{#link-to 'user.all-facts'}}All Facts{{/link-to}}</li>
+      {{else}}
+        <li class="hidden">
+          <a href="#page-top"></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#about">About</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#how-it-works">How It Works</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#contact">Contact</a>
+        </li>
+
+      {{/if}}
+    </ul>
+  </div>
+  {{auth-menu session=session}}
+</div>

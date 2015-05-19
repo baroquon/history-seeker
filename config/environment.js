@@ -30,6 +30,8 @@ module.exports = function(environment) {
 
   ENV['simple-auth'] = {
     crossOriginWhitelist: ['*'],
+    routeIfAlreadyAuthenticated: 'user',
+    authenticationRoute: 'session.new',
     authorizer: 'simple-auth-authorizer:devise'
   }
 

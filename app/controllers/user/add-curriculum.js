@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  needs: 'current-user',
+  current_user: Ember.computed.alias('controllers.current-user.current_user'),
   factsToAdd: [],
   resetChecks: false,
   facts: Ember.computed(function(){
@@ -24,7 +26,7 @@ export default Ember.Controller.extend({
     },
     saveNewCurriculum: function(){
       var title = this.get('newTitle'),
-          teacher = this.get('model');
+          teacher = this.get('current_user');
 
       var curriculum = this.store.createRecord('curriculum', {
         title: title,

@@ -45,5 +45,27 @@
         }}
     </div>
   </div>
+  <div class='col-md-4'>
+    <div class="form-group">
+      <label for="last_name">Email</label>
+      {{input
+        type='text'
+        value=newEmail
+        placeholder='Email'
+        class='form-control'
+        }}
+    </div>
+  </div>
+  <div class='col-md-4'>
+    <div class="form-group">
+      <label for="last_name">Password</label>
+      {{input
+        type='password'
+        value=newPassword
+        placeholder='Password'
+        class='form-control'
+        }}
+    </div>
+  </div>
 </div>
 <button class='btn btn-primary' {{action 'createStudent'}}>Create Student</button>

@@ -1,0 +1,11 @@
+{{#if isTeacher}}
+  <ul class="list-group">
+    {{#each current_user.students as |student|}}
+        <li class='list-group-item'>
+          {{student.fullName}}
+        </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <h3> Teacher: {{current_user.teacher.fullName}} </h3>
+{{/if}}

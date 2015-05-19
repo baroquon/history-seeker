@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend(Ember.SortableMixin, {
   filter: '',
+  isForm: true,
   minFromDate:new Date().setFullYear(01),
   maxToDate: new Date(),
   fromDate: Ember.computed('newFromDate', function() {
