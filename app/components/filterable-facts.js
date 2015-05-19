@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend(Ember.SortableMixin, {
   filter: '',
   isForm: true,
+  listView: true,
   minFromDate:new Date().setFullYear(01),
   maxToDate: new Date(),
   fromDate: Ember.computed('newFromDate', function() {
@@ -55,6 +56,9 @@ export default Ember.Component.extend(Ember.SortableMixin, {
     // the selected fact object as its model and the facts.show as its template
     showModal: function(template, factObject){
       this.sendAction('action', template, factObject);
+    },
+    switchView: function(){
+      this.toggleProperty('listView');
     }
   }
 });
