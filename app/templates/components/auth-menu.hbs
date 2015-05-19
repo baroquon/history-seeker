@@ -1,16 +1,18 @@
 <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
   <ul class="nav navbar-nav">
-    <li>
-      {{#if session.isAuthenticated}}
+    {{#if session.isAuthenticated}}
+      <li>
         <a {{action 'invalidateSession'}}>Logout</a>
-      {{else}}
+      </li>
+    {{else}}
+      <li>
         {{#link-to "session.new"}}Login{{/link-to}}
-      {{/if}}
-    </li>
-    <li>
-      {{#link-to 'session.signup'}}
-        Sign Up
-      {{/link-to}}
-    </li>
+      </li>
+      <li>
+        {{#link-to 'session.signup'}}
+          Sign Up
+        {{/link-to}}
+      </li>
+    {{/if}}
   </ul>
 </div>

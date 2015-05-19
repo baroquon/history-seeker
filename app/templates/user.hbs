@@ -1,9 +1,5 @@
 <header>
-  <h1>
-    {{#link-to 'index'}}
-      <i class="fa fa-history"></i> <span class="light">history</span>Seeker
-    {{/link-to}}
-  </h1>
+  {{navigation-component session=session current_user=current_user}}
 </header>
 <main>
   <div class='page-header'>
