@@ -11,8 +11,6 @@
     <div class='col-md-2'>
       <ul class="list-unstyled">
         {{#if isTeacher}}
-          <li>{{#link-to 'user.index'}}{{fa-icon "plus"}} Students{{/link-to}}</li>
-          <li>{{#link-to 'user.curriculums'}}{{fa-icon "plus"}} Curriculums{{/link-to}}</li>
           <li>{{#link-to 'user.add-student'}}{{fa-icon "plus"}} add student{{/link-to}}</li>
           <li>{{#link-to 'user.add-fact'}}{{fa-icon "plus"}} add fact{{/link-to}}</li>
           <li>{{#link-to 'user.add-curriculum'}}{{fa-icon "plus"}} add curriculum{{/link-to}}</li>
@@ -21,7 +19,6 @@
             <li>{{#link-to 'user.curriculum.show' curriculum}}{{fa-icon "plus"}} Curriculum {{curriculum.title}}{{/link-to}}</li>
           {{/each}}
         {{/if}}
-        <li>{{#link-to 'user.all-facts'}}{{fa-icon "plus"}} all facts{{/link-to}}</li>
       </ul>
     </div>
     <div class='col-md-10'>
