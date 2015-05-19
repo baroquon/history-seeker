@@ -2,12 +2,13 @@
   <div class='col-md-12'>
     <div class="btn-group fact-component" role="group" aria-label="...">
       <button class='btn btn-default' {{action 'switchView'}}>
-        <i class="fa fa-bars"></i>
-        List View
-      </button>
-      <button class='btn btn-default' {{action 'switchView'}}>
-        <i class="fa fa-map-marker"></i>
-        Map View
+        {{#if listView}}
+          <i class="fa fa-map-marker"></i>
+          Map View
+        {{else}}
+          <i class="fa fa-bars"></i>
+          List View
+        {{/if}}
       </button>
     </div>
     <div class="panel panel-default">
