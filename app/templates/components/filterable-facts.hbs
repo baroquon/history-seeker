@@ -1,8 +1,24 @@
 <div class='row'>
   <div class='col-md-12'>
+    <div class="btn-group fact-component" role="group" aria-label="...">
+      <button class='btn btn-default'>
+        <i class="fa fa-bars"></i>
+        List View
+      </button>
+      <button class='btn btn-default'>
+        <i class="fa fa-map-marker"></i>
+        Map View
+      </button>
+    </div>
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">Choose Some Facts:</div>
+      <div class="panel-heading">
+        {{#if isForm}}
+          Choose Some Facts:
+        {{else}}
+          Here is a list of facts:
+        {{/if}}
+      </div>
       <div class="panel-body">
         <div class='row'>
           <div class='col-md-3'>
