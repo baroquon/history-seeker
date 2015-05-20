@@ -38,7 +38,7 @@ module.exports = function(environment) {
   ENV['simple-auth-devise'] = {
     tokenAttributeName: 'token',
     identificationAttributeName: 'email',
-    serverTokenEndpoint: 'http://localhost:3000/users/sign_in',
+    serverTokenEndpoint: 'https://intense-castle-9219.herokuapp.com/users/sign_in',
     authorizer: 'devise'
   }
 
