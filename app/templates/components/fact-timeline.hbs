@@ -16,6 +16,13 @@
           <p>
             {{fact.description}}
           </p>
+          {{#if fact.hasLink}}
+            <p>
+              <a href='{{fact.additional_info_link}}' target='_blank'>
+                Click here for Additional Information.
+              </a>
+            </p>
+          {{/if}}
         </div>
       </div>
       </li>
