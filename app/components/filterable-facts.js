@@ -3,7 +3,16 @@ import Ember from 'ember';
 export default Ember.Component.extend(Ember.SortableMixin, {
   filter: '',
   isForm: true,
-  listView: true,
+  viewType: 'list',
+  listType: Ember.computed('viewType', function(){
+    return this.get('viewType') === 'list';
+  }),
+  mapType: Ember.computed('viewType', function(){
+    return this.get('viewType') === 'map';
+  }),
+  timeType: Ember.computed('viewType', function(){
+    return this.get('viewType') === 'time';
+  }),
   minFromDate:new Date().setFullYear(01),
   maxToDate: new Date(),
   fromDate: Ember.computed('newFromDate', function() {
@@ -62,8 +71,8 @@ export default Ember.Component.extend(Ember.SortableMixin, {
     showModal: function(template, factObject){
       this.sendAction('action', template, factObject);
     },
-    switchView: function(){
-      this.toggleProperty('listView');
+    switchView: function(viewType){
+      this.set('viewType', viewType);
     }
   }
 });
