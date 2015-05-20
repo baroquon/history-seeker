@@ -1,10 +1,12 @@
 <div class="tab-pane active">
   <div class="panel panel-default">
     <ul class="list-group">
-      {{#each current_user.curriculums as |curriculum|}}
-          <li class='list-group-item'>
+      {{#each curriculums as |curriculum|}}
+        <li class='list-group-item'>
+          {{#link-to 'user.curriculum.show' curriculum}}
             {{curriculum.title}}
-          </li>
+          {{/link-to}}
+        </li>
       {{/each}}
     </ul>
   </div>

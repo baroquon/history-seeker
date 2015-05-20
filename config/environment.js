@@ -19,10 +19,10 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' maps.gstatic.com maps.googleapis.com mt0.googleapis.com mt1.googleapis.com",
       'font-src': "'self' data: fonts.gstatic.com",
       'connect-src': "'self' localhost:3000 intense-castle-9219.herokuapp.com",
-      'img-src': "'self'",
+      'img-src': "'self' maps.gstatic.com csi.gstatic.com maps.googleapis.com mt0.googleapis.com mt1.googleapis.com mt.googleapis.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com localhost:4200",
       'frame-src': ""
     }

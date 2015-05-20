@@ -45,6 +45,11 @@ export default Ember.Component.extend(Ember.SortableMixin, {
       return facts;
     }
   }),
+  pageName: 'locations',
+  zoom: 12,
+  centerLat: 33.5206608,
+  centerLng: -86.80249,
+  locations: Ember.computed.alias('rangeFilteredContent'),
   actions: {
     // This action is triggered when one the facts is selected or unselected
     // the action is then sent up the chain to the controller with the fact object
