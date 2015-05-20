@@ -26,11 +26,13 @@
           </strong>
           {{moment model.end_date "MMMM Do YYYY"}}
         </p>
+        {{#if model.hasLink}}
           <p>
             <a href='{{model.additional_info_link}}' target='_blank'>
               Click here for Additional Information.
             </a>
           </p>
+        {{/if}}
       </div>
     </div>
   </div>
