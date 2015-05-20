@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend(Ember.SortableMixin, {
   filter: '',
+  sortProperties: ["start_date"],
   isForm: true,
   viewType: 'list',
   listType: Ember.computed('viewType', function(){
