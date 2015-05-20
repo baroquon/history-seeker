@@ -46,7 +46,7 @@
   </div>
   <div class='col-md-6'>
     <div class="form-group">
-      <label for="last_name">Latitude</label>
+      <label for="lat">Latitude</label>
       {{input
         type='text'
         value=newLat
@@ -57,11 +57,22 @@
   </div>
   <div class='col-md-6'>
     <div class="form-group">
-      <label for="last_name">Longitude</label>
+      <label for="lng">Longitude</label>
       {{input
         type='text'
         value=newLng
         placeholder='Longitude'
+        class='form-control'
+        }}
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <div class="form-group">
+      <label for="additional_info_link">Link to Additional Information</label>
+      {{input
+        type='text'
+        value=newAdditionalInfoLink
+        placeholder='Link to Additional Information'
         class='form-control'
         }}
     </div>

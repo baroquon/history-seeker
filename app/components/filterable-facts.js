@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend(Ember.SortableMixin, {
   filter: '',
   isForm: true,
+  listView: true,
   minFromDate:new Date().setFullYear(01),
   maxToDate: new Date(),
   fromDate: Ember.computed('newFromDate', function() {
@@ -44,6 +45,11 @@ export default Ember.Component.extend(Ember.SortableMixin, {
       return facts;
     }
   }),
+  pageName: 'locations',
+  zoom: 12,
+  centerLat: 33.5206608,
+  centerLng: -86.80249,
+  locations: Ember.computed.alias('rangeFilteredContent'),
   actions: {
     // This action is triggered when one the facts is selected or unselected
     // the action is then sent up the chain to the controller with the fact object
@@ -55,6 +61,9 @@ export default Ember.Component.extend(Ember.SortableMixin, {
     // the selected fact object as its model and the facts.show as its template
     showModal: function(template, factObject){
       this.sendAction('action', template, factObject);
+    },
+    switchView: function(){
+      this.toggleProperty('listView');
     }
   }
 });

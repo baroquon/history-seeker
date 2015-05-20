@@ -5,6 +5,7 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   start_date: DS.attr('date'),
   end_date: DS.attr('date'),
+  additional_info_link: DS.attr('string'),
   testable: DS.attr('boolean'),
   lat: DS.attr('number'),
   lng: DS.attr('number'),
@@ -17,4 +18,9 @@ export default DS.Model.extend({
   historical_events: DS.hasMany('fact', {
     inverse: 'context'
   }),
+
+  // computed
+  hasLink: Ember.computed('additional_info_link', function(){
+    return !!this.get('additional_info_link');
+  })
 });

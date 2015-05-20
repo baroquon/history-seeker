@@ -12,8 +12,8 @@
       {{#if session.isAuthenticated}}
         {{#if isTeacher}}
           <li>{{#link-to 'user.index'}}Students{{/link-to}}</li>
-          <li>{{#link-to 'user.curriculums'}}Curriculums{{/link-to}}</li>
         {{/if}}
+        <li>{{#link-to 'user.curriculums'}}Curriculums{{/link-to}}</li>
         <li>{{#link-to 'user.all-facts'}}All Facts{{/link-to}}</li>
       {{else}}
         <li class="hidden">

@@ -9,9 +9,21 @@
         <p>
           {{model.description}}
         </p>
-        <p>
-          A Map Will Go Here.
-        </p>
+        <div class='map-container'>
+          {{google-map lat=model.lat
+                     lng=model.lng
+                     zoom=zoom
+                     markers=markers
+                     gopt_zoomControl=false}}
+
+          <div class="controls">
+            <label>
+              {{zoom}}
+              Zoom:
+              {{input type="range" value=zoom min=0 max=18 step=1}}
+            </label>
+          </div>
+        </div>
         <p>
           <strong>Latitude:</strong> {{model.lat}}
           <strong>Longitude:</strong> {{model.lng}}
@@ -26,6 +38,13 @@
           </strong>
           {{moment model.end_date "MMMM Do YYYY"}}
         </p>
+        {{#if model.hasLink}}
+          <p>
+            <a href='{{model.additional_info_link}}' target='_blank'>
+              Click here for Additional Information.
+            </a>
+          </p>
+        {{/if}}
       </div>
     </div>
   </div>

@@ -13,7 +13,6 @@ export default Ember.Component.extend({
   }),
   isTeacher: Ember.computed('current_user.role', function(){
     let role = this.get('current_user.role');
-    console.log(role);
     return role==='teacher';
   }),
   containerClass: Ember.computed('session', function(){
