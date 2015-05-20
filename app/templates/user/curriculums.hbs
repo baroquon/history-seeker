@@ -1,13 +1,23 @@
 <div class="tab-pane active">
   <div class="panel panel-default">
     <ul class="list-group">
-      {{#each curriculums as |curriculum|}}
-        <li class='list-group-item'>
-          {{#link-to 'user.curriculum.show' curriculum}}
-            {{curriculum.title}}
-          {{/link-to}}
-        </li>
-      {{/each}}
+      {{#if isTeacher}}
+        {{#each current_user.curriculums as |curriculum|}}
+          <li class='list-group-item'>
+            {{#link-to 'user.curriculum.show' curriculum}}
+              {{curriculum.title}}
+            {{/link-to}}
+          </li>
+        {{/each}}
+      {{else}}
+        {{#each current_user.teacher.curriculums as |curriculum|}}
+          <li class='list-group-item'>
+            {{#link-to 'user.curriculum.show' curriculum}}
+              {{curriculum.title}}
+            {{/link-to}}
+          </li>
+        {{/each}}
+      {{/if}}
     </ul>
   </div>
 </div>

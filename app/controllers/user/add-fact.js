@@ -8,7 +8,8 @@ export default Ember.Controller.extend({
           start_date = this.get('newStartDate'),
           end_date = this.get('newEndDate'),
           lng = this.get('newLng'),
-          lat = this.get('newLat');
+          lat = this.get('newLat'),
+          additional_info_link = this.get('newAdditionalInfoLink');
 
       var new_fact = this.store.createRecord('fact', {
         title: title,
@@ -16,7 +17,8 @@ export default Ember.Controller.extend({
         start_date: start_date,
         end_date: end_date,
         lng: lng,
-        lat: lat
+        lat: lat,
+        additional_info_link: additional_info_link
       });
 
       new_fact.save();
@@ -26,7 +28,8 @@ export default Ember.Controller.extend({
           .set('newStartDate', '')
           .set('newEndDate', '')
           .set('newLng', '')
-          .set('newLat', '');
+          .set('newLat', '')
+          .set('newAdditionalInfoLink', '');
     }
   }
 });
