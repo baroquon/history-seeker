@@ -1,23 +1,30 @@
 <div class="panel-body">
   <ul class="timeline">
-    {{#each facts as |fact index|}}
+    {{#each facts as |fact|}}
       <li>
-      <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title">{{fact.title}}</h4>
-          <p>
-            <small class="text-muted"><i class="glyphicon glyphicon-time"></i>
-              {{ago fact.start_date}}
-            </small>
-          </p>
+        <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">{{fact.title}}</h4>
+            <p>
+              <small class="text-muted"><i class="glyphicon glyphicon-time"></i>
+                {{ago fact.start_date}}
+              </small>
+            </p>
+          </div>
+          <div class="timeline-body">
+            <p>
+              {{markdown-section content=fact.description}}
+            </p>
+            {{#if fact.hasLink}}
+              <p>
+                <a href='{{fact.additional_info_link}}' target='_blank'>
+                  Click here for Additional Information.
+                </a>
+              </p>
+            {{/if}}
+          </div>
         </div>
-        <div class="timeline-body">
-          <p>
-            {{fact.description}}
-          </p>
-        </div>
-      </div>
       </li>
     {{/each}}
   </ul>

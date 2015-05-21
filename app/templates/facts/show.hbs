@@ -7,11 +7,11 @@
       </div>
       <div class="modal-body">
         <p>
-          {{model.description}}
+          {{markdown-section content=model.description}}
         </p>
         <div class='map-container'>
-          {{google-map lat=model.lat
-                     lng=model.lng
+          {{google-map lat=unboundLat
+                     lng=unboundLng
                      zoom=zoom
                      markers=markers
                      gopt_zoomControl=false}}
