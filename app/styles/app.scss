@@ -14,6 +14,11 @@ button, a{
     outline: 0 none;
   }
 }
+
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus{
+  outline: 0 none;
+}
+
 .styless-button{
   background: transparent none;
   border: 0 none transparent;

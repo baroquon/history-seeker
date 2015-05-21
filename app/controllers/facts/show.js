@@ -6,5 +6,11 @@ export default Ember.Controller.extend({
     return [
       fact
     ]
-  })
+  }),
+  unboundLat: Ember.computed('model.lat', function(){
+    return this.get('model.lat');
+  }),
+  unboundLng: Ember.computed('model.lng', function(){
+    return this.get('model.lng');
+  }),
 });
