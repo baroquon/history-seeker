@@ -110,7 +110,8 @@
             }
         }
 
-
+// ultimately I would like to have these colors tied into a tagging system of some kind
+// a person would be green and have a person icon, war would be red with explotion icon etc.
 li{
   &:nth-child(2n){
     .timeline-badge{
