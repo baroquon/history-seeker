@@ -27,6 +27,13 @@ button, a{
   &:hover{
     text-decoration: underline;
   }
+  *{
+    font-size: 16px;
+    font-weight: 400;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
 }
 .fact-component{
   margin-bottom: 1em;

@@ -41,6 +41,7 @@
     "ember-data": "1.0.0-beta.16.1",
     "ember-export-application-global": "^1.0.2",
     "ember-google-map": "0.0.21",
+    "ember-marked": "0.0.5",
     "ember-moment": "1.1.1",
     "express": "^4.12.3",
     "glob": "^4.5.3",
