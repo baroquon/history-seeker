@@ -1,8 +1,13 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend(Ember.SortableMixin, {
+export default Ember.Component.extend({
   filter: '',
-  sortProperties: ["start_date"],
+  sorted: Ember.computed('content', function(){
+    return Ember.ArrayController.create({
+      content : this.get('content'),
+      sortProperties: ["start_date"]
+    });
+  }),
   isForm: true,
   viewType: 'list',
   listType: Ember.computed('viewType', function(){
@@ -24,10 +29,10 @@ export default Ember.Component.extend(Ember.SortableMixin, {
   }),
 
   // This function handles the search filter
-  filteredContent: Ember.computed('arrangedContent', 'filter', function() {
+  filteredContent: Ember.computed('sorted.arrangedContent', 'filter', function() {
     var filter = this.get('filter'),
         rx = new RegExp(filter, 'gi'),
-        facts = this.get('arrangedContent');
+        facts = this.get('sorted.arrangedContent');
 
     if(!!filter){
       return facts.filter(function(fact) {
