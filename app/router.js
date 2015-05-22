@@ -10,7 +10,6 @@ export default Router.map(function() {
   this.route('user', function() {
     this.route('index', { path: '/' });
     this.route('curriculums');
-    this.route('add-student');
     this.route('add-fact');
     this.route('add-curriculum');
 

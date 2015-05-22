@@ -12,7 +12,6 @@
       <ul class="list-unstyled">
         {{#if isTeacher}}
           <li>{{#link-to 'user.add-fact'}}{{fa-icon "plus"}} add fact{{/link-to}}</li>
-          <li>{{#link-to 'user.add-curriculum'}}{{fa-icon "plus"}} add curriculum{{/link-to}}</li>
         {{else}}
           <li><h4>Curriculums</h4></li>
           {{#each current_user.teacher.curriculums as |curriculum|}}

@@ -9,6 +9,11 @@
             {{/link-to}}
           </li>
         {{/each}}
+        <li class='list-group-item'>
+          {{#link-to 'user.add-curriculum'}}
+            {{fa-icon "plus"}} add curriculum
+          {{/link-to}}
+        </li>
       {{else}}
         {{#each current_user.teacher.curriculums as |curriculum|}}
           <li class='list-group-item'>

@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
-  needs: 'current-user',
-  current_user: Ember.computed.alias('controllers.current-user.current_user'),
+export default Ember.Component.extend({
   actions: {
     createStudent: function(){
       var firstName = this.get('newFirstName'),
@@ -33,6 +31,7 @@ export default Ember.Controller.extend({
           .set('newEmail', '')
           .set('newPassword', '')
           .set('newDateOfBirth', '');
+      this.sendAction();
     }
   }
 });
