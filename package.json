@@ -44,7 +44,7 @@
     "ember-moment": "1.1.1",
     "express": "^4.12.4",
     "glob": "^5.0.10",
-    "liquid-fire": "0.20.0",
+    "liquid-fire": "ef4/liquid-fire",
     "morgan": "^1.5.3"
   }
 }
