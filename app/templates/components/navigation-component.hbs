@@ -1,13 +1,13 @@
-<div class="{{containerClass}}">
+<div class="container-fluid">
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+    <button {{action 'mobileToggle'}} type="button" class="navbar-toggle {{if mobileShow 'active'}}" >
       <i class="fa fa-bars"></i>
     </button>
     {{#link-to 'index' class='navbar-brand'}}
       <i class="fa fa-history"></i> <span class="light">history</span>Seeker
     {{/link-to}}
   </div>
-  <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+  <div class="{{if mobileShow 'in' '' }} collapse navbar-collapse">
     <ul class="nav navbar-nav">
       {{#if session.isAuthenticated}}
         {{#if isTeacher}}
@@ -31,6 +31,6 @@
 
       {{/if}}
     </ul>
+    {{auth-menu session=session}}
   </div>
-  {{auth-menu session=session}}
 </div>

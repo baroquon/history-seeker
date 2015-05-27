@@ -10,19 +10,7 @@
           {{markdown-section content=model.description}}
         </p>
         <div class='map-container'>
-          {{google-map lat=unboundLat
-                     lng=unboundLng
-                     zoom=zoom
-                     markers=markers
-                     gopt_zoomControl=false}}
-
-          <div class="controls">
-            <label>
-              {{zoom}}
-              Zoom:
-              {{input type="range" value=zoom min=0 max=18 step=1}}
-            </label>
-          </div>
+          {{ol3-map}}
         </div>
         <p>
           <strong>Latitude:</strong> {{model.lat}}

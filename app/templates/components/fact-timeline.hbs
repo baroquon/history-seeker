@@ -2,13 +2,15 @@
   <ul class="timeline">
     {{#each facts as |fact|}}
       <li>
-        <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+        <div class="timeline-badge">{{fa-icon 'check'}}</div>
         <div class="timeline-panel">
           <div class="timeline-heading">
             <h4 class="timeline-title">{{fact.title}}</h4>
             <p>
-              <small class="text-muted"><i class="glyphicon glyphicon-time"></i>
-                {{ago fact.start_date}}
+              <small class="text-muted">
+                {{fa-icon 'clock-o'}}
+                {{ago fact.start_date}} -
+                {{moment fact.start_date "MMM Do[,] YYYY"}}
               </small>
             </p>
           </div>
