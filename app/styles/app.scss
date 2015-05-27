@@ -42,3 +42,18 @@ button, a{
 .create-new-fact-button{
   margin: 1em 0;
 }
+.facts-list-container{
+  max-height: 400px;
+  overflow-x: scroll;
+  .panel-body{
+    transition: 1s all;
+    &.scrolled{
+      transition: 1s all;
+      background-color: #eee;
+      box-shadow: 0 3px 4px #999;
+      position: absolute;
+      top: 50px;
+      left: 15px;
+    }
+  }
+}

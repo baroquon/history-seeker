@@ -14,15 +14,13 @@
         Timeline View
       </button>
     </div>
-    <div class="panel panel-default">
+    <div class="panel panel-default facts-list-container">
       <!-- Default panel contents -->
-      <div class="panel-heading">
-        {{#if isForm}}
+      {{#if isForm}}
+        <div class="panel-heading">
           Choose Some Facts:
-        {{else}}
-          Here is a list of facts:
-        {{/if}}
-      </div>
+        </div>
+      {{/if}}
       <div class="panel-body">
         <div class='row'>
           <div class='col-md-3'>

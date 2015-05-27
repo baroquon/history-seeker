@@ -19,10 +19,10 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' maps.gstatic.com maps.googleapis.com mt0.googleapis.com mt1.googleapis.com cdnjs.cloudflare.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' cdnjs.cloudflare.com api.tiles.mapbox.com",
       'font-src': "'self' data: fonts.gstatic.com",
-      'connect-src': "'self' localhost:3000 intense-castle-9219.herokuapp.com",
-      'img-src': "'self' maps.gstatic.com csi.gstatic.com maps.googleapis.com mt0.googleapis.com mt1.googleapis.com mt.googleapis.com",
+      'connect-src': "'self' intense-castle-9219.herokuapp.com",
+      'img-src': "'self' developer.mapquest.com otile0-s.mqcdn.com otile1-s.mqcdn.com otile2-s.mqcdn.com otile3-s.mqcdn.com otile4-s.mqcdn.com data:",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com localhost:4200 cdnjs.cloudflare.com",
       'frame-src': ""
     }

@@ -80,5 +80,19 @@ export default Ember.Component.extend({
     switchView: function(viewType){
       this.set('viewType', viewType);
     }
+  },
+  didInsertElement: function(){
+    Ember.run.once(this, function(){
+      Ember.$('.facts-list-container').scroll(function(){
+        let containerTop = Ember.$(this).scrollTop();
+        let thisWidth = Ember.$(this).width();
+        if(containerTop>50){
+          Ember.$('.facts-list-container .panel-body').addClass('scrolled');
+          Ember.$('.facts-list-container .panel-body').css('width', thisWidth );
+        } else {
+          Ember.$('.facts-list-container .panel-body').removeClass('scrolled');
+        }
+      });
+    });
   }
 });
