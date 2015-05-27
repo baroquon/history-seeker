@@ -8,19 +8,17 @@
     </h2>
   </div>
   <div class='row'>
-    <div class='col-md-2'>
-      <ul class="list-unstyled">
-        {{#if isTeacher}}
-          <li>{{#link-to 'user.add-fact'}}{{fa-icon "plus"}} add fact{{/link-to}}</li>
-        {{else}}
+    {{#unless isTeacher}}
+      <div class='col-md-2'>
+        <ul class="list-unstyled">
           <li><h4>Curriculums</h4></li>
           {{#each current_user.teacher.curriculums as |curriculum|}}
             <li>{{#link-to 'user.curriculum.show' curriculum}}{{curriculum.title}}{{/link-to}}</li>
           {{/each}}
-        {{/if}}
-      </ul>
-    </div>
-    <div class='col-md-10'>
+        </ul>
+      </div>
+    {{/unless}}
+    <div class="{{if isTeacher 'col-md-12' 'col-md-10'}}">
       {{outlet}}
     </div>
   </div>

@@ -1,5 +1,3 @@
-// Color Variables / Theme Variables
-$brand-primary: #659D32;
 
 @import "bootstrap_imports";
 @import "timeline";
@@ -41,4 +39,7 @@ button, a{
 .map-canvas {
   width: 100%;
   height: 400px;
+}
+.create-new-fact-button{
+  margin: 1em 0;
 }

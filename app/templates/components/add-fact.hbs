@@ -1,0 +1,93 @@
+<button class='btn btn-primary create-new-fact-button' {{action 'toggleCreating'}}>
+  {{#if isCreating}}
+    Cancel New Fact
+  {{else}}
+    Add New Fact
+  {{/if}}
+</button>
+{{#liquid-if isCreating}}
+  <div class='panel panel-default'>
+    <div class='panel-body'>
+      <div class='row'>
+        <div class='col-md-12'>
+          <div class="form-group">
+            <label for="first_name">Title</label>
+            {{input
+              type='text'
+              value=newTitle
+              placeholder='Fact Title'
+              class='form-control'
+              }}
+          </div>
+        </div>
+        <div class='col-md-12'>
+          <div class="form-group">
+            <label for="middle_name">Description</label>
+            {{textarea
+              value=newDescription
+              class='form-control'
+              }}
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="form-group">
+            <label for="start_date">Start Date</label>
+            {{bootstrap-datepicker
+              value=newStartDate
+              startView=2
+              autoclose=true
+              placeholder='Start Date'
+              class='form-control'
+              }}
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="form-group">
+            <label for="end_date">End Date</label>
+            {{bootstrap-datepicker
+              value=newEndDate
+              startView=2
+              autoclose=true
+              placeholder='End Date'
+              class='form-control'
+              }}
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="form-group">
+            <label for="lat">Latitude</label>
+            {{input
+              type='text'
+              value=newLat
+              placeholder='Latitude'
+              class='form-control'
+              }}
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="form-group">
+            <label for="lng">Longitude</label>
+            {{input
+              type='text'
+              value=newLng
+              placeholder='Longitude'
+              class='form-control'
+              }}
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="form-group">
+            <label for="additional_info_link">Link to Additional Information</label>
+            {{input
+              type='text'
+              value=newAdditionalInfoLink
+              placeholder='Link to Additional Information'
+              class='form-control'
+              }}
+          </div>
+        </div>
+      </div>
+      <button class='btn btn-primary create-new-fact-button' {{action 'createFact'}}>Create Fact</button>
+    </div>
+  </div>
+{{/liquid-if}}
