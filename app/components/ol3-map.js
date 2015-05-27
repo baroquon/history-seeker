@@ -1,4 +1,5 @@
 import Ember from 'ember';
+/* global ol */
 
 export default Ember.Component.extend({
   didInsertElement: function(){

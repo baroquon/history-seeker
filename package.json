@@ -20,6 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
+    "broccoli-funnel": "^0.2.3",
     "broccoli-sass": "0.6.4",
     "divshot": "0.4.8",
     "ember-cli": "0.2.5",
