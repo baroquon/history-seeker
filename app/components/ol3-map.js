@@ -4,43 +4,35 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   didInsertElement: function(){
     Ember.run.once(this, function(){
+      var layerStyle = new ol.style.Style({
+        image: new ol.style.Circle({
+          radius: 5,
+          fill: new ol.style.Fill({
+            color: 'rgba(255, 0, 0, 0.4)'
+          }),
+          stroke: new ol.style.Stroke({
+            color: 'rgba(255, 204, 0, 0.2)',
+            width: 1
+          })
+        })
+      });
 
-      var styleCache = {};
-      var styleFunction = function(feature, resolution) {
-        // 2012_Earthquakes_Mag5.kml stores the magnitude of each earthquake in a
-        // standards-violating <magnitude> tag in each Placemark.  We extract it from
-        // the Placemark's name instead.
-        var name = feature.get('name');
-        var magnitude = parseFloat(name.substr(2));
-        var radius = 5 + 20 * (magnitude - 5);
-        var style = styleCache[radius];
-        if (!style) {
-          style = [new ol.style.Style({
+      var markerSource = new ol.source.Vector();
 
-            image: new ol.style.Circle({
-              radius: radius,
-              fill: new ol.style.Fill({
-                color: 'rgba(255, 153, 0, 0.4)'
-              }),
-              stroke: new ol.style.Stroke({
-                color: 'rgba(255, 204, 0, 0.2)',
-                width: 1
-              })
-            })
-          })];
-          styleCache[radius] = style;
+      this.get('facts').slice(0, 8).forEach(function(fact){
+        try{
+          markerSource.addFeature(new ol.Feature({
+            geometry: new ol.geom.Point([fact.get('lng'), fact.get('lat')]).transform('EPSG:4326', 'EPSG:3857')
+          }));
+        } catch(e) {
+          console.log('dangit, had an error at this [lat, long]:');
+          console.log([fact.get('lat'), fact.get('lng')]);
         }
-        return style;
-      };
+      });
 
       var vector = new ol.layer.Vector({
-        source: new ol.source.Vector({
-          url: '/assets/2012_Earthquakes_Mag5.kml',
-          format: new ol.format.KML({
-            extractStyles: false
-          })
-        }),
-        style: styleFunction
+        source: markerSource,
+        style: layerStyle
       });
 
       var map = new ol.Map({
