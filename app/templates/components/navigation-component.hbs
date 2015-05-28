@@ -11,10 +11,16 @@
     <ul class="nav navbar-nav">
       {{#if session.isAuthenticated}}
         {{#if isTeacher}}
-          <li>{{#link-to 'user.index'}}Students{{/link-to}}</li>
+          {{#link-to 'user.index' tagName='li' href=false}}
+            {{link-to 'Students' 'user.index'}}
+          {{/link-to}}
         {{/if}}
-        <li>{{#link-to 'user.curriculums'}}Curriculums{{/link-to}}</li>
-        <li>{{#link-to 'user.all-facts'}}All Facts{{/link-to}}</li>
+        {{#link-to 'user.curriculums' tagName='li' href=false}}
+          {{link-to 'Curriculums' 'user.curriculums'}}
+        {{/link-to}}
+        {{#link-to 'user.all-facts' tagName='li' href=false}}
+          {{link-to 'All Facts' 'user.all-facts'}}
+        {{/link-to}}
       {{else}}
         <li class="hidden">
           <a href="#page-top"></a>
