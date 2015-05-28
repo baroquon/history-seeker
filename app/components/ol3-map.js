@@ -33,7 +33,7 @@ export default Ember.Component.extend({
       })
     });
   },
-  addPoints: function(facts, tearDown){
+  addPoints: function(facts){
     var markerSource = new ol.source.Vector();
 
     facts.slice(0, 8).forEach(function(fact){
