@@ -80,6 +80,10 @@ button, a{
   text-align: center;
   text-shadow: 0px 2px 0px #fff;
 }
+h2.brand-heading{
+  font-size: 3em;
+  margin-bottom: 1em;
+}
 .intro-text{
   text-align: center;
   font-size: 2em;
@@ -88,4 +92,38 @@ button, a{
 }
 // end
 
+// Social footer buttons
+ul.banner-social-buttons {
+  text-align: center;
+  margin-top: 0;
+  .btn{
+    border-radius: 50%;
+    background-color: lighten($dark-gray, 40%);
+    font-size: 4em;
+    padding: 5px;
+    transition: 1s all;
+    &:hover{
+      transition: 1s all;
+      background-color: $brand-primary;
+    }
+  }
+}
 
+@media(max-width:1199px) {
+  ul.banner-social-buttons {
+    margin-top: 15px;
+  }
+}
+
+@media(max-width:767px) {
+  ul.banner-social-buttons li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  ul.banner-social-buttons li:last-child {
+    margin-bottom: 0;
+  }
+}
+// end social footer buttons
