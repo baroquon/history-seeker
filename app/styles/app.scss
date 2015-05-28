@@ -1,7 +1,10 @@
+$dark-gray: #555;
+
 @import "bootstrap_imports";
 @import "timeline";
 
 body{
+  color: $dark-gray;
 }
 
 // buttons
@@ -36,7 +39,6 @@ button, a{
   margin-bottom: 1em;
 }
 .map {
-  height: 500px;
   width: 100%;
 }
 .create-new-fact-button{
@@ -58,3 +60,69 @@ button, a{
     }
   }
 }
+
+// Mailchimp form
+.mailing-list{
+  .input-grouping{
+    margin: 1em 0;
+    clear: both;
+  }
+}
+// end mc
+
+// index header
+.brand-heading{
+  font-size: 5em;
+  font-weight: 800;
+  margin: 1em 0 0;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0px 2px 0px #fff;
+}
+h2.brand-heading{
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+.intro-text{
+  text-align: center;
+  font-size: 2em;
+  margin: 0 0 2em;
+  text-shadow: 0px 2px 0px #fff;
+}
+// end
+
+// Social footer buttons
+ul.banner-social-buttons {
+  text-align: center;
+  margin-top: 0;
+  .btn{
+    border-radius: 50%;
+    background-color: lighten($dark-gray, 40%);
+    font-size: 4em;
+    padding: 5px;
+    transition: 1s all;
+    &:hover{
+      transition: 1s all;
+      background-color: $brand-primary;
+    }
+  }
+}
+
+@media(max-width:1199px) {
+  ul.banner-social-buttons {
+    margin-top: 15px;
+  }
+}
+
+@media(max-width:767px) {
+  ul.banner-social-buttons li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  ul.banner-social-buttons li:last-child {
+    margin-bottom: 0;
+  }
+}
+// end social footer buttons

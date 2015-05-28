@@ -11,23 +11,29 @@
     <ul class="nav navbar-nav">
       {{#if session.isAuthenticated}}
         {{#if isTeacher}}
-          <li>{{#link-to 'user.index'}}Students{{/link-to}}</li>
+          {{#link-to 'user.index' tagName='li' href=false}}
+            {{link-to 'Students' 'user.index'}}
+          {{/link-to}}
         {{/if}}
-        <li>{{#link-to 'user.curriculums'}}Curriculums{{/link-to}}</li>
-        <li>{{#link-to 'user.all-facts'}}All Facts{{/link-to}}</li>
+        {{#link-to 'user.curriculums' tagName='li' href=false}}
+          {{link-to 'Curriculums' 'user.curriculums'}}
+        {{/link-to}}
+        {{#link-to 'user.all-facts' tagName='li' href=false}}
+          {{link-to 'All Facts' 'user.all-facts'}}
+        {{/link-to}}
       {{else}}
         <li class="hidden">
           <a href="#page-top"></a>
         </li>
-        <li>
-          <a class="page-scroll" href="#about">About</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#how-it-works">How It Works</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#contact">Contact</a>
-        </li>
+        {{#link-to 'about' tagName='li' href=false}}
+          {{link-to 'About' 'about'}}
+        {{/link-to}}
+        {{#link-to 'how-it-works' tagName='li' href=false}}
+          {{link-to 'How it Works' 'how-it-works'}}
+        {{/link-to}}
+        {{#link-to 'contact' tagName='li' href=false}}
+          {{link-to 'Contact' 'contact'}}
+        {{/link-to}}
 
       {{/if}}
     </ul>

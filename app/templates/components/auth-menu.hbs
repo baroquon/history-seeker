@@ -4,9 +4,9 @@
       <a {{action 'invalidateSession'}}>Logout</a>
     </li>
   {{else}}
-    <li>
+    {{#link-to 'session.new' tagName='li' href=false}}
       {{#link-to "session.new"}}Login{{/link-to}}
-    </li>
+    {{/link-to}}
     <li>
       {{#link-to 'session.signup'}}
         Sign Up
