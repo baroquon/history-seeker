@@ -2,6 +2,7 @@ $dark-gray: #555;
 
 @import "bootstrap_imports";
 @import "timeline";
+@import "video";
 
 body{
   color: $dark-gray;
@@ -79,6 +80,10 @@ button, a{
   text-align: center;
   text-shadow: 0px 2px 0px #fff;
 }
+h1.brand-heading{
+  color: #fff;
+  text-shadow: 0px 2px 0px #444;
+}
 h2.brand-heading{
   font-size: 3em;
   margin-bottom: 1em;
@@ -88,10 +93,18 @@ h2.brand-heading{
   font-size: 2em;
   margin: 0 0 2em;
   text-shadow: 0px 2px 0px #fff;
+  &.index-paragraph{
+    color: #fff;
+    text-shadow: 0px 2px 0px #444;
+  }
 }
+
 // end
 
 // Social footer buttons
+footer{
+  margin-top: 1em;
+}
 ul.banner-social-buttons {
   text-align: center;
   margin-top: 0;
