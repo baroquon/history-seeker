@@ -87,10 +87,10 @@ export default Ember.Component.extend({
         let containerTop = Ember.$(this).scrollTop();
         let thisWidth = Ember.$(this).width();
         if(containerTop>50){
-          Ember.$('.facts-list-container .panel-body').addClass('scrolled');
-          Ember.$('.facts-list-container .panel-body').css('width', thisWidth );
+          Ember.$('.facts-list-container .panel-top').addClass('scrolled');
+          Ember.$('.facts-list-container .panel-top').css('width', thisWidth );
         } else {
-          Ember.$('.facts-list-container .panel-body').removeClass('scrolled');
+          Ember.$('.facts-list-container .panel-top').removeClass('scrolled');
         }
       });
     });
