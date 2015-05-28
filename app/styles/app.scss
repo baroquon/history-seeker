@@ -1,7 +1,10 @@
+$dark-gray: #555;
+
 @import "bootstrap_imports";
 @import "timeline";
 
 body{
+  color: $dark-gray;
 }
 
 // buttons
@@ -58,3 +61,31 @@ button, a{
     }
   }
 }
+
+// Mailchimp form
+.mailing-list{
+  .input-grouping{
+    margin: 1em 0;
+    clear: both;
+  }
+}
+// end mc
+
+// index header
+.brand-heading{
+  font-size: 5em;
+  font-weight: 800;
+  margin: 1em 0 0;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0px 2px 0px #fff;
+}
+.intro-text{
+  text-align: center;
+  font-size: 2em;
+  margin: 0 0 2em;
+  text-shadow: 0px 2px 0px #fff;
+}
+// end
+
+

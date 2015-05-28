@@ -54,8 +54,9 @@ export default Ember.Component.extend({
 
   },
   updatePoints: Ember.observer('facts', function(){
-    //This doesn't current;y update on search but we need to make it work.
-    this.addPoints(this.get('facts', true));
+    this.addPoints(this.get('facts'));
+    // Probably shouldn't have to destroy the whole map and recreate it to make it work
+    // update on search but that is what is happening here.
     if(!!this.map){
       this.map.setTarget(null);
       this.set('map', null);
@@ -65,7 +66,7 @@ export default Ember.Component.extend({
   didInsertElement: function(){
     Ember.run.once(this, function(){
       this.addPoints(this.get('facts'));
-      this.mapSetter();;
+      this.mapSetter();
     });
   }
 });
