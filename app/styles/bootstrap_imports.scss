@@ -1,5 +1,8 @@
 @import "bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-
+@import "bower_components/bootstrap-material-design/sass/material.scss";
+body{
+  margin-top: 60px;
+}
 main, header, footer{
   @extend .container-fluid;
 }
@@ -18,4 +21,38 @@ main, header, footer{
 
 .modal{
   display: block; // using bootstraps markup for modals but we'll use ember to show it
+}
+
+
+.navbar-toggle{
+  i.fa{
+    color: #fff;
+  }
+  &.active{
+    background-color: darken($brand-primary, 2%);
+    transition: background-color .5s;
+  }
+  transition: background-color .5s;
+}
+
+.btn-group{
+  transition: 1s all;
+  &:hover{
+    transition: 1s all;
+  }
+  @media(max-width: $screen-xs){
+    width: 100%;
+    > .btn{
+      float: none;
+      width: 100%;
+    }
+  }
+}
+
+.input-lg:focus {
+  border-radius: 6px;
+  font-size: 18px;
+  height: 46px;
+  line-height: 1.33333;
+  padding: 10px 16px;
 }

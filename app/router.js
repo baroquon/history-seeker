@@ -17,6 +17,7 @@ export default Router.map(function() {
       this.route('show', { path: ':curriculum_id'});
     });
     this.route('all-facts');
+    this.route('add-assignment');
   });
   this.route('session', function() {
     this.route('new', { path: '/' });

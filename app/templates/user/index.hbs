@@ -1,17 +1,19 @@
 {{#if isTeacher}}
-  <ul class="list-group">
+  <table class="table table-striped table-hover">
     {{#each current_user.students as |student|}}
       {{student-item student=student}}
     {{/each}}
-    <li class='list-group-item'>
-      <button class='styless-button' {{action 'toggleCreating'}}>
-        {{fa-icon "plus"}} add student
-      </button>
-      {{#liquid-if isCreating}}
-        {{create-student store=controller.store current_user=current_user action='toggleCreating'}}
-      {{/liquid-if}}
-    </li>
-  </ul>
+    <tr class='list-group-item'>
+      <td colspan='99'>
+        <button class='styless-button' {{action 'toggleCreating'}}>
+          {{fa-icon "plus"}} add student
+        </button>
+        {{#liquid-if isCreating}}
+          {{create-student store=controller.store current_user=current_user action='toggleCreating'}}
+        {{/liquid-if}}
+      </td>
+    </tr>
+  </table>
 
 {{else}}
   <h3> Teacher: {{current_user.teacher.fullName}} </h3>

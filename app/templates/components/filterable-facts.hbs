@@ -14,16 +14,14 @@
         Timeline View
       </button>
     </div>
-    <div class="panel panel-default">
+    <div class="panel panel-default facts-list-container">
       <!-- Default panel contents -->
-      <div class="panel-heading">
-        {{#if isForm}}
+      {{#if isForm}}
+        <div class="panel-heading">
           Choose Some Facts:
-        {{else}}
-          Here is a list of facts:
-        {{/if}}
-      </div>
-      <div class="panel-body">
+        </div>
+      {{/if}}
+      <div class="panel-body panel-top">
         <div class='row'>
           <div class='col-md-3'>
             {{bootstrap-datepicker
@@ -71,22 +69,7 @@
           </tbody>
         </table>
       {{else if mapType}}
-
-        <div class='map-container'>
-          {{google-map lat=centerLat
-                     lng=centerLng
-                     zoom=zoom
-                     markers=rangeFilteredContent
-                     gopt_zoomControl=false}}
-
-          <div class="controls">
-            <label>
-              {{zoom}}
-              Zoom:
-              {{input type="range" value=zoom min=0 max=18 step=1}}
-            </label>
-          </div>
-        </div>
+        {{ol3-map facts=rangeFilteredContent}}
       {{else if timeType}}
         {{fact-timeline facts=rangeFilteredContent}}
       {{/if}}

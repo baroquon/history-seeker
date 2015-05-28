@@ -1,6 +1,15 @@
 <header>
   {{navigation-component session=session current_user=current_user}}
 </header>
+{{#liquid-if alertPresent}}
+  <div class='alert alert-info'>
+    {{current_user.teacher.fullName}} has given you an assignment:
+    <strong>
+      {{current_user.assignment}}
+    </strong>
+    <button type="button" class="close" {{action 'dismissAlert'}}><span aria-hidden="true">&times;</span></button>
+  </div>
+{{/liquid-if}}
 <main>
   <div class='page-header'>
     <h2>
@@ -15,6 +24,7 @@
           {{#each current_user.teacher.curriculums as |curriculum|}}
             <li>{{#link-to 'user.curriculum.show' curriculum}}{{curriculum.title}}{{/link-to}}</li>
           {{/each}}
+          <li>{{#link-to 'user.add-curriculum'}}Create Curriculum{{/link-to}}</li>
         </ul>
       </div>
     {{/unless}}
