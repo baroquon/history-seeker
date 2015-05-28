@@ -65,8 +65,11 @@ export default Ember.Component.extend({
   }),
   didInsertElement: function(){
     Ember.run.once(this, function(){
-      this.addPoints(this.get('facts'));
-      this.mapSetter();
+      let facts = this.get('facts');
+      if(!!facts){
+        this.addPoints(facts);
+        this.mapSetter();
+      }
     });
   }
 });
