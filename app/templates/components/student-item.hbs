@@ -1,88 +1,76 @@
-<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>{{student.fullName}}</h4></div>
+<div class="panel-heading"><h4>{{student.fullName}}</h4></div>
 <div class="panel-body">
-  <div class="list-group">
-    <button class='styless-button list-group-item' {{action 'updateStudent'}}>
-      {{fa-icon "edit"}} Edit
+  {{#liquid-if isAddingAssignment}}
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class="form-group">
+          <label class='sr-only' for="last_name">Assignment</label>
+          {{textarea
+            value=student.assignment
+            placeholder='Assignment'
+            class='form-control'
+            }}
+        </div>
+      </div>
+    </div>
+    <button {{action 'giveAssignment'}} class='btn btn-primary'>Give Assignment</button>
+    <hr>
+  {{/liquid-if}}
+  {{#liquid-if isEditing}}
+    <div class="form-group">
+      <label class='sr-only' for="first_name">First Name</label>
+      {{input
+        type='text'
+        value=student.first_name
+        placeholder='First Name'
+        class='form-control'
+      }}
+    </div>
+    <div class="form-group">
+      <label class='sr-only' for="middle_name">Middle Name</label>
+      {{input
+        type='text'
+        placeholder='Middle Name'
+        value=student.middle_name
+        class='form-control'
+      }}
+    </div>
+    <div class="form-group">
+      <label class='sr-only' for="last_name">Last Name</label>
+      {{input
+        type='text'
+        value=student.last_name
+        placeholder='Last Name'
+        class='form-control'
+      }}
+    </div>
+    <div class="form-group">
+      <label class='sr-only' for="date_of_birth">Date of Birth</label>
+      {{bootstrap-datepicker
+        value=student.date_of_birth
+        startView=2
+        autoclose=true
+        placeholder='Date Of Birth'
+        class='form-control'
+      }}
+    </div>
+    <div class="form-group">
+      <label class='sr-only' for="email">Email</label>
+      {{input
+        type='text'
+        value=student.email
+        rlaceholder='Email'
+        class='form-control'
+      }}
+    </div>
+    <button {{action 'updateStudent'}} class='btn btn-primary'>Update Student</button>
+    <hr>
+  {{/liquid-if}}
+  <div class='action-buttons-container'>
+    <button class='btn btn-primary btn-fab mdi-image-edit' {{action 'updateStudent'}}>
     </button>
-    <button class='styless-button list-group-item' {{action 'giveAssignment'}}>
-      {{fa-icon "file-o"}} Give Assignment
+    <button class='btn btn-accent btn-fab mdi-editor-format-list-numbered' {{action 'giveAssignment'}}>
     </button>
   </div>
 </div>
 
-{{#liquid-if isAddingAssignment}}
-  <div class='row'>
-    <div class='col-md-12'>
-      <div class="form-group">
-        <label for="last_name">Assignment</label>
-        {{textarea
-          value=student.assignment
-          placeholder='Assignment'
-          class='form-control'
-          }}
-      </div>
-    </div>
-  </div>
-  <button {{action 'giveAssignment'}} class='btn btn-primary'>Update Student</button>
-{{/liquid-if}}
-{{#liquid-if isEditing}}
-  <div class='row'>
-    <div class='col-md-4'>
-      <div class="form-group">
-        <label for="first_name">First Name</label>
-        {{input
-          type='text'
-          value=student.first_name
-          placeholder='First Name'
-          class='form-control'
-          }}
-      </div>
-    </div>
-    <div class='col-md-4'>
-      <div class="form-group">
-        <label for="middle_name">Middle Name</label>
-        {{input
-          type='text'
-          placeholder='Middle Name'
-          value=student.middle_name
-          class='form-control'
-          }}
-      </div>
-    </div>
-    <div class='col-md-4'>
-      <div class="form-group">
-        <label for="last_name">Last Name</label>
-        {{input
-          type='text'
-          value=student.last_name
-          placeholder='Last Name'
-          class='form-control'
-          }}
-      </div>
-    </div>
-    <div class='col-md-4'>
-      <div class="form-group">
-        <label for="date_of_birth">Date of Birth</label>
-        {{bootstrap-datepicker
-          value=student.date_of_birth
-          startView=2
-          autoclose=true
-          placeholder='Date Of Birth'
-          class='form-control'
-          }}
-      </div>
-    </div>
-    <div class='col-md-4'>
-      <div class="form-group">
-        <label for="last_name">Email</label>
-        {{input
-          type='text'
-          value=student.email
-          placeholder='Email'
-          class='form-control'
-          }}
-      </div>
-    </div>
-  </div>
-  <button {{action 'updateStudent'}} class='btn btn-primary'>Update Student</button>
-{{/liquid-if}}
