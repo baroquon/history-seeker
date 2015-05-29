@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames: ['panel', 'panel-default', 'card', 'pull-right', 'create-card'],
   actions: {
     createStudent: function(){
       var firstName = this.get('newFirstName'),

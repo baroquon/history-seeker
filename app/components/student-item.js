@@ -1,8 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'tr',
-  classNames: 'list-group-item',
+  classNames: ['panel', 'panel-default', 'card'],
   isEditing: false,
   isAddingAssignment: false,
   actions: {

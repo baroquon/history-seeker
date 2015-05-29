@@ -18,16 +18,16 @@ export default Ember.Component.extend({
   }),
 
   minDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
-    return moment(this.get('sorted.arrangedContent.firstObject.start_date')).format('YYYY');
+    return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
   }),
   maxDate: Ember.computed('sorted.arrangedContent.@each.end_date', function(){
-    return moment().format('YYYY');
+    return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
   }),
   newFromDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
-    return moment(this.get('sorted.arrangedContent.firstObject.start_date')).format('YYYY');
+    return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
   }),
   newToDate: Ember.computed('', function(){
-    return moment().format('YYYY');
+    return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
   }),
   fromDate: Ember.computed('newFromDate', function() {
     return new Date(this.get('newFromDate'));

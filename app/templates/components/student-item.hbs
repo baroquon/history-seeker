@@ -1,16 +1,15 @@
-  <td>
-    {{student.fullName}}
-  </td>
-  <td>
-    <button class='styless-button' {{action 'updateStudent'}}>
+<div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>{{student.fullName}}</h4></div>
+<div class="panel-body">
+  <div class="list-group">
+    <button class='styless-button list-group-item' {{action 'updateStudent'}}>
       {{fa-icon "edit"}} Edit
     </button>
-  </td>
-  <td>
-    <button class='styless-button' {{action 'giveAssignment'}}>
+    <button class='styless-button list-group-item' {{action 'giveAssignment'}}>
       {{fa-icon "file-o"}} Give Assignment
     </button>
-  </td>
+  </div>
+</div>
+
 {{#liquid-if isAddingAssignment}}
   <div class='row'>
     <div class='col-md-12'>
