@@ -98,18 +98,4 @@ export default Ember.Component.extend({
       this.toggleProperty('showFilters');
     }
   },
-  didInsertElement: function(){
-    Ember.run.once(this, function(){
-      Ember.$('.facts-list-container').scroll(function(){
-        let containerTop = Ember.$(this).scrollTop();
-        let thisWidth = Ember.$(this).width();
-        if(containerTop>50){
-          Ember.$('.facts-list-container .panel-top').addClass('scrolled');
-          Ember.$('.facts-list-container .panel-top').css('width', thisWidth );
-        } else {
-          Ember.$('.facts-list-container .panel-top').removeClass('scrolled');
-        }
-      });
-    });
-  }
 });
