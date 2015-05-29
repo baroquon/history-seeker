@@ -6,6 +6,9 @@ body{
 main, header, footer{
   @extend .container-fluid;
 }
+main {
+  padding-top: 1em;
+}
 .breadcrumb > li + li:before {
   content: "/ ";
   font-weight: 600;

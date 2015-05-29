@@ -2,7 +2,7 @@
   {{#each current_user.students as |student|}}
     {{student-item student=student}}
   {{/each}}
-  <button class='btn btn-primary btn-fab mdi-social-person-add pull-right' {{action 'toggleCreating'}}>
+  <button class='btn btn-primary btn-fab mdi-social-person-add btn-add' {{action 'toggleCreating'}}>
   </button>
   {{#liquid-if isCreating}}
     {{create-student store=controller.store current_user=current_user action='toggleCreating'}}
