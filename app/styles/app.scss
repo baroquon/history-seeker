@@ -260,6 +260,7 @@ ul.banner-social-buttons {
       margin-right: 0;
     }
     &:hover{
+      transform: scale(1.05);
       box-shadow: 0 1px 8px rgba(0, 0, 0, .4);
       transition: 1s all;
       .action-buttons-container{
