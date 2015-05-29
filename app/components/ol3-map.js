@@ -6,6 +6,11 @@ export default Ember.Component.extend({
   map: null,
   mapSetter: function(){
     let element = this.get('element');
+    let center = this.findCenter(this.get('facts'));
+    let zoom = 3;
+    if(this.get('facts').length === 1){
+      zoom = 6;
+    }
     let map = this.map = new ol.Map({
       layers: [
         new ol.layer.Tile({
@@ -15,8 +20,8 @@ export default Ember.Component.extend({
       ],
       target: element,
       view: new ol.View({
-        center: [0, 0],
-        zoom: 2
+        center: ol.proj.transform(center, 'EPSG:4326', 'EPSG:3857'),
+        zoom: zoom
       })
     });
     // change mouse cursor when over marker
@@ -47,7 +52,6 @@ export default Ember.Component.extend({
       );
       let firstFeature = features[0];
       if(firstFeature){
-        console.log(firstFeature);
         _this.sendAction('action', 'facts.show', firstFeature.get('fact'));
       }
     });
@@ -105,5 +109,20 @@ export default Ember.Component.extend({
         this.mapSetter();
       }
     });
+  },
+  findCenter: function(facts){
+    let latitudes = facts.map(function(fact){
+      return fact.get('lat');
+    });
+    let longitudes = facts.map(function(fact){
+      return fact.get('lng');
+    });
+    let maxLat = Math.max.apply(null, latitudes);
+    let minLat = Math.min.apply(null, latitudes);
+    let maxLng = Math.max.apply(null, longitudes);
+    let minLng = Math.min.apply(null, longitudes);
+    let centerLat = minLat + (0.5 * (maxLat - minLat));
+    let centerLng = minLng + (0.5 * (maxLng - minLng));
+    return [centerLng, centerLat];
   }
 });
