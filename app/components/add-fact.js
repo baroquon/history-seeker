@@ -46,6 +46,10 @@ export default Ember.Component.extend({
     },
     toggleCreating: function(){
       this.toggleProperty('isCreating');
+    },
+    setLatLng: function(latlng){
+      this.set('newLat', latlng[0]);
+      this.set('newLng', latlng[1]);
     }
   }
 });
