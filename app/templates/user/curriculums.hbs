@@ -1,28 +1,29 @@
-<div class="tab-pane active">
-  <div class="panel panel-default">
-    <ul class="list-group">
-      {{#if isTeacher}}
-        {{#each current_user.curriculums as |curriculum|}}
-          <li class='list-group-item'>
-            {{#link-to 'user.curriculum.show' curriculum}}
-              {{curriculum.title}}
-            {{/link-to}}
-          </li>
-        {{/each}}
-        <li class='list-group-item'>
-          {{#link-to 'user.add-curriculum'}}
-            {{fa-icon "plus"}} add curriculum
-          {{/link-to}}
-        </li>
-      {{else}}
-        {{#each current_user.teacher.curriculums as |curriculum|}}
-          <li class='list-group-item'>
-            {{#link-to 'user.curriculum.show' curriculum}}
-              {{curriculum.title}}
-            {{/link-to}}
-          </li>
-        {{/each}}
-      {{/if}}
-    </ul>
-  </div>
+<div class='cards'>
+  {{#if isTeacher}}
+    {{#each current_user.curriculums as |curriculum|}}
+      <div class='card-grid'>
+        {{#link-to 'user.curriculum.show' curriculum}}
+          <div class='panel panel-default card'>
+            <div class='panel-body'>
+              <h4>
+                {{curriculum.title}}
+              </h4>
+              <hr>
+              <p>
+                {{curriculum.description}}
+              </p>
+            </div>
+          </div>
+        {{/link-to}}
+      </div>
+    {{/each}}
+  {{else}}
+    {{#each current_user.teacher.curriculums as |curriculum|}}
+      {{#link-to 'user.curriculum.show' curriculum}}
+        {{curriculum.title}}
+      {{/link-to}}
+    {{/each}}
+  {{/if}}
 </div>
+{{#link-to 'user.add-curriculum' class='btn btn-primary btn-fab mdi-content-add btn-add' }}
+{{/link-to}}
