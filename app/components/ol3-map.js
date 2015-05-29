@@ -5,18 +5,39 @@ export default Ember.Component.extend({
   vector: undefined,
   map: null,
   mapSetter: function(){
-    this.map = new ol.Map({
+    let element = this.get('element');
+    let map = this.map = new ol.Map({
       layers: [
         new ol.layer.Tile({
           source: new ol.source.MapQuest({layer: 'sat'})
         }),
         this.vector
       ],
-      target: 'map',
+      target: element,
       view: new ol.View({
         center: [0, 0],
         zoom: 2
       })
+    });
+    let vector = this.get('vector');
+    let _this = this;
+    map.on('click', function(e){
+      let features = [];
+      map.forEachFeatureAtPixel(
+        e.pixel,
+        function(feature, layer){
+          features.push(feature);
+        },
+        null,
+        function(layer){
+          return layer == vector;
+        }
+      );
+      let firstFeature = features[0];
+      if(firstFeature){
+        console.log(firstFeature);
+        _this.sendAction('action', 'facts.show', firstFeature.get('fact'));
+      }
     });
   },
   layerStyle: function(){
@@ -36,10 +57,11 @@ export default Ember.Component.extend({
   addPoints: function(facts){
     var markerSource = new ol.source.Vector();
 
-    facts.slice(0, 8).forEach(function(fact){
+    facts.forEach(function(fact){
       try{
         markerSource.addFeature(new ol.Feature({
-          geometry: new ol.geom.Point([fact.get('lng'), fact.get('lat')]).transform('EPSG:4326', 'EPSG:3857')
+          geometry: new ol.geom.Point([fact.get('lng'), fact.get('lat')]).transform('EPSG:4326', 'EPSG:3857'),
+          fact: fact
         }));
       } catch(e) {
         console.log('dangit, had an error at this [lat, long]:');
