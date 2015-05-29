@@ -1,5 +1,6 @@
 <div class="panel-body">
   <h4>{{student.fullName}}</h4>
+  <hr>
   {{#liquid-if isAddingAssignment}}
     <div class='row'>
       <div class='col-md-12'>
@@ -14,7 +15,6 @@
       </div>
     </div>
     <button {{action 'giveAssignment'}} class='btn btn-primary'>Give Assignment</button>
-    <hr>
   {{/liquid-if}}
   {{#liquid-if isEditing}}
     <div class="form-group">
@@ -64,7 +64,6 @@
       }}
     </div>
     <button {{action 'updateStudent'}} class='btn btn-primary'>Update Student</button>
-    <hr>
   {{/liquid-if}}
   <div class='action-buttons-container'>
     <button class='btn btn-primary btn-fab mdi-image-edit' {{action 'updateStudent'}}>

@@ -26,11 +26,12 @@ export default Ember.Controller.extend({
     },
     saveNewCurriculum: function(){
       var title = this.get('newTitle'),
-          description = this.get('newDescription');
+          description = this.get('newDescription'),
           user = this.get('current_user');
 
       var curriculum = this.store.createRecord('curriculum', {
         title: title,
+        description: description,
         user: user
       });
 
