@@ -12,15 +12,17 @@ export default Ember.Component.extend({
           end_date = this.get('newEndDate'),
           lng = this.get('newLng'),
           lat = this.get('newLat'),
+          tag_list = this.get('newTagList'),
           additional_info_link = this.get('newAdditionalInfoLink');
 
-      var new_fact = this.store.createRecord('fact', {
+      var new_fact = this.get('store').createRecord('fact', {
         title: title,
         description: description,
         start_date: start_date,
         end_date: end_date,
         lng: lng,
         lat: lat,
+        tag_list: tag_list,
         additional_info_link: additional_info_link
       });
 
@@ -40,12 +42,17 @@ export default Ember.Component.extend({
           .set('newEndDate', '')
           .set('newLng', '')
           .set('newLat', '')
+          .set('newTagList', '')
           .set('newAdditionalInfoLink', '');
 
       this.toggleProperty('isCreating');
     },
     toggleCreating: function(){
       this.toggleProperty('isCreating');
+    },
+    setLngLat: function(lnglat){
+      this.set('newLng', lnglat[0]);
+      this.set('newLat', lnglat[1]);
     }
   }
 });

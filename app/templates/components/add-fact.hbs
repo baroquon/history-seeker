@@ -53,26 +53,21 @@
               }}
           </div>
         </div>
+        <div class='col-md-12'>
+          <div class='map-picker-wrapper'>
+            {{ol3-map-picker action='setLngLat'}}
+          </div>
+        </div>
         <div class='col-md-6'>
           <div class="form-group">
             <label for="lat">Latitude</label>
-            {{input
-              type='text'
-              value=newLat
-              placeholder='Latitude'
-              class='form-control'
-              }}
+            {{newLat}}
           </div>
         </div>
         <div class='col-md-6'>
           <div class="form-group">
             <label for="lng">Longitude</label>
-            {{input
-              type='text'
-              value=newLng
-              placeholder='Longitude'
-              class='form-control'
-              }}
+            {{newLng}}
           </div>
         </div>
         <div class='col-md-6'>
@@ -82,6 +77,17 @@
               type='text'
               value=newAdditionalInfoLink
               placeholder='Link to Additional Information'
+              class='form-control'
+              }}
+          </div>
+        </div>
+        <div class='col-md-6'>
+          <div class="form-group">
+            <label for="tag_list">Tags</label>
+            {{input
+              type='text'
+              value=newTagList
+              placeholder='Comma-separated list of tags'
               class='form-control'
               }}
           </div>
