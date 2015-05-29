@@ -1,6 +1,9 @@
 <ul class="nav navbar-nav navbar-right">
   {{#if session.isAuthenticated}}
     <li>
+      {{link-to current_user.fullName 'user.index'}}
+    </li>
+    <li>
       <a {{action 'invalidateSession'}}>Logout</a>
     </li>
   {{else}}
