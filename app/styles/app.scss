@@ -73,7 +73,9 @@ button, a{
 
 // index header
 .brand-heading{
-  font-size: 5em;
+  @media(min-width:$screen-md) {
+    font-size: 5em;
+  }
   font-weight: 800;
   margin: 1em 0 0;
   text-transform: uppercase;
@@ -85,7 +87,9 @@ h1.brand-heading{
   text-shadow: 0px 2px 0px #444;
 }
 h2.brand-heading{
-  font-size: 3em;
+  @media(min-width:$screen-md) {
+    font-size: 3em;
+  }
   margin-bottom: 1em;
 }
 .intro-text{
@@ -111,7 +115,10 @@ ul.banner-social-buttons {
   .btn{
     border-radius: 50%;
     background-color: lighten($dark-gray, 40%);
-    font-size: 4em;
+    font-size: 2em;
+    @media(min-width:$screen-md) {
+      font-size: 4em;
+    }
     padding: 5px;
     transition: 1s all;
     &:hover{
@@ -127,15 +134,94 @@ ul.banner-social-buttons {
   }
 }
 
-@media(max-width:767px) {
-  ul.banner-social-buttons li {
-    display: block;
-    margin-bottom: 20px;
-    padding: 0;
-  }
+// end social footer buttons
 
-  ul.banner-social-buttons li:last-child {
-    margin-bottom: 0;
+// range slider
+.raw-date-input{
+  input{
+    text-align: center;
   }
 }
-// end social footer buttons
+.input-two-range{
+  overflow: hidden;
+  position: relative;
+  height: 35px;
+  margin: 1em 0 -1em;
+  input{
+    pointer-events: none;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    outline: none;
+    height: 18px;
+    &::-webkit-slider-thumb {
+      pointer-events: all;
+      position: relative;
+      z-index: 1;
+      outline: 0;
+    }
+    &::-moz-range-thumb {
+      pointer-events: all;
+      position: relative;
+      z-index: 10;
+      -moz-appearance: none;
+      background: linear-gradient(to bottom, #ededed 0%, #dedede 100%);
+      width: 11px;
+    }
+    &::-moz-range-track {
+      position: relative;
+      z-index: -1;
+      background-color: rgba(0, 0, 0, .15);
+      border: 0;
+    }
+    &:last-of-type::-moz-range-track {
+      -moz-appearance: none;
+      background: none transparent;
+      border: 0;
+    }
+    &:focus{
+      outline: none;
+    }
+  }
+}
+.filter-items{
+  float: right;
+}
+.btn.action-circle{
+  font-size: 2em;
+  border-radius: 50%;
+  background-color: $primary;
+  margin: 0;
+  width: 50px;
+  &:hover{
+    background-color: $primary;
+  }
+  .fa{
+    color: #eee;
+  }
+}
+.filters-control{
+  position: fixed;
+  top: 75px;
+  right: 85px;
+  z-index: 9999;
+  .liquid-container{
+    overflow: visible;
+    .liquid-child{
+      overflow: visible;
+    }
+  }
+  .filters-well{
+    background-color: #fff;
+    padding: 1em;
+    box-shadow: 0 0 3px $dark-gray;
+    overflow: hidden;
+    h3{
+      margin-top: 0;
+    }
+    .filter-input{
+      margin-bottom: 1em;
+    }
+  }
+}

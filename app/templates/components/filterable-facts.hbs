@@ -1,19 +1,86 @@
+<div class="filters-control">
+  {{#liquid-if showFilters}}
+    <div class='filters-well'>
+      <div class='row'>
+        <div class='col-md-12'>
+          <h3>
+            Search
+          </h3>
+          {{input
+            type='text'
+            placeholder='Search'
+            value=filter
+            class='form-control filter-input'
+          }}
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-12'>
+          <h3>
+            Date Range Filter
+          </h3>
+          <div class='row raw-date-input'>
+            <div class='col-md-4'>
+              {{input
+                value=newFromDate
+                class='form-control'}}
+            </div>
+            <div class='col-md-4 col-md-offset-4'>
+              {{input
+                value=newToDate
+                class='form-control'}}
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-12'>
+              <div class='input-two-range'>
+                {{input
+                  type='range'
+                  min=minDate
+                  max=newToDate
+                  class='pull-left'
+                  value=newFromDate}}
+                {{input
+                  type='range'
+                  min=newFromDate
+                  class='pull-right'
+                  max=maxDate
+                  value=newToDate}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/liquid-if}}
+</div>
 <div class='row'>
   <div class='col-md-12'>
-    <div class="btn-group fact-component" role="group" aria-label="...">
-      <button class="btn btn-default btn-lg {{if listType 'active'}}" {{action 'switchView' 'list'}}>
-        <i class="fa fa-bars"></i>
-        List View
-      </button>
-      <button class="btn btn-default btn-lg {{if mapType 'active'}}" {{action 'switchView' 'map'}}>
-        <i class="fa fa-map-marker"></i>
-        Map View
-      </button>
-      <button class="btn btn-default btn-lg {{if timeType 'active'}}"  {{action 'switchView' 'time'}}>
-        <i class="fa fa-pagelines"></i>
-        Timeline View
-      </button>
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class="btn-group fact-component" role="group" aria-label="...">
+          <button class="btn btn-default btn-lg {{if listType 'active'}}" {{action 'switchView' 'list'}}>
+            <i class="fa fa-bars"></i>
+            List View
+          </button>
+          <button class="btn btn-default btn-lg {{if mapType 'active'}}" {{action 'switchView' 'map'}}>
+            <i class="fa fa-map-marker"></i>
+            Map View
+          </button>
+          <button class="btn btn-default btn-lg {{if timeType 'active'}}"  {{action 'switchView' 'time'}}>
+            <i class="fa fa-pagelines"></i>
+            Timeline View
+          </button>
+        </div>
+        <div class='filter-items'>
+          <button class='btn action-circle' {{action 'toggleFilters'}}>
+            {{fa-icon 'search'}}
+          </button>
+        </div>
+      </div>
     </div>
+
+
     <div class="panel panel-default facts-list-container">
       <!-- Default panel contents -->
       {{#if isForm}}
@@ -21,35 +88,6 @@
           Choose Some Facts:
         </div>
       {{/if}}
-      <div class="panel-body panel-top">
-        <div class='row'>
-          <div class='col-md-3'>
-            {{bootstrap-datepicker
-              placeholder='From Date'
-              value=newFromDate
-              startView="decade"
-              class='form-control'
-            }}
-          </div>
-          <div class='col-md-3'>
-            {{bootstrap-datepicker
-              placeholder='To Date'
-              startView="decade"
-              value=newToDate
-              class='form-control'
-            }}
-        	</div>
-        	<div class='col-md-3 col-md-offset-3'>
-            {{input
-              type='text'
-              placeholder='Search'
-              value=filter
-              class='form-control'
-            }}
-          </div>
-        </div>
-      </div>
-
       {{#if listType}}
         <table class="table table-striped table-hover">
           <thead>

@@ -13,12 +13,14 @@ video#bgvid {
   background-size: cover;
 }
 cite{
-  display: block;
-  position: fixed;
   bottom: 0;
+  display: block;
   font-size: .875em;
   text-align: center;
+  position: fixed;
   width: 100%;
+  opacity: .5;
+  z-index: -90;
   a{
     color: $dark-gray;
   }

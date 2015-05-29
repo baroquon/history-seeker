@@ -1,15 +1,12 @@
 import Ember from 'ember';
+/* global moment */
 
 export default Ember.Component.extend({
   filter: '',
-  sorted: Ember.computed('content', function(){
-    return Ember.ArrayController.create({
-      content : this.get('content'),
-      sortProperties: ["start_date"]
-    });
-  }),
   isForm: true,
   viewType: 'list',
+  maxToDate: new Date(),
+  showFilters: false,
   listType: Ember.computed('viewType', function(){
     return this.get('viewType') === 'list';
   }),
@@ -19,13 +16,31 @@ export default Ember.Component.extend({
   timeType: Ember.computed('viewType', function(){
     return this.get('viewType') === 'time';
   }),
-  minFromDate:new Date().setFullYear(01),
-  maxToDate: new Date(),
+
+  minDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
+    return moment(this.get('sorted.arrangedContent.firstObject.start_date')).format('YYYY');
+  }),
+  maxDate: Ember.computed('sorted.arrangedContent.@each.end_date', function(){
+    return moment().format('YYYY');
+  }),
+  newFromDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
+    return moment(this.get('sorted.arrangedContent.firstObject.start_date')).format('YYYY');
+  }),
+  newToDate: Ember.computed('', function(){
+    return moment().format('YYYY');
+  }),
   fromDate: Ember.computed('newFromDate', function() {
     return new Date(this.get('newFromDate'));
   }),
   toDate: Ember.computed('newToDate', function() {
     return new Date(this.get('newToDate'));
+  }),
+
+  sorted: Ember.computed('content', function(){
+    return Ember.ArrayController.create({
+      content : this.get('content'),
+      sortProperties: ["start_date"]
+    });
   }),
 
   // This function handles the search filter
@@ -60,11 +75,7 @@ export default Ember.Component.extend({
       return facts;
     }
   }),
-  pageName: 'locations',
-  zoom: 12,
-  centerLat: 33.5206608,
-  centerLng: -86.80249,
-  locations: Ember.computed.alias('rangeFilteredContent'),
+
   actions: {
     // This action is triggered when one the facts is selected or unselected
     // the action is then sent up the chain to the controller with the fact object
@@ -77,8 +88,14 @@ export default Ember.Component.extend({
     showModal: function(template, factObject){
       this.sendAction('action', template, factObject);
     },
+    // This switches between list view, map view, and timeline view.
     switchView: function(viewType){
       this.set('viewType', viewType);
+    },
+
+    //this toggles between showing and hiding the filters and date range options
+    toggleFilters: function(){
+      this.toggleProperty('showFilters');
     }
   },
   didInsertElement: function(){
