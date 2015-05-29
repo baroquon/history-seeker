@@ -1,0 +1,10 @@
+.action-buttons-container{
+  margin: 1em 0 0;
+  text-align: right;
+}
+.btn-accent{
+  background-color: $accent;
+  &:hover{
+    background-color: darken($accent, 5%);
+  }
+}

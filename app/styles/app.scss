@@ -1,8 +1,8 @@
-$dark-gray: #555;
-
+@import "variables";
 @import "bootstrap_imports";
 @import "timeline";
 @import "video";
+@import "buttons";
 
 body{
   color: $dark-gray;
@@ -188,22 +188,6 @@ ul.banner-social-buttons {
 .filter-items{
   float: right;
 }
-.btn.action-circle{
-  font-size: 2em;
-  border-radius: 50%;
-  background-color: $primary;
-  margin: 0;
-  width: 50px;
-  height: 50px;
-  display: block;
-  padding: 0;
-  &:hover{
-    background-color: $primary;
-  }
-  .fa{
-    color: #eee;
-  }
-}
 .filters-control{
   position: fixed;
   top: 75px;
@@ -225,6 +209,26 @@ ul.banner-social-buttons {
     }
     .filter-input{
       margin-bottom: 1em;
+    }
+  }
+}
+
+.card{
+  vertical-align: top;
+  @media(min-width: $screen-md){
+    width: 20%;
+    display: inline-block;
+    margin-left: 5%;
+    transition: 1s all;
+    &:first-child{
+      margin-left: 0;
+    }
+    &:hover{
+      box-shadow: 0 1px 10px rgba(0, 0, 0, .8);
+      transition: 1s all;
+    }
+    &.create-card{
+      width: 50%;
     }
   }
 }

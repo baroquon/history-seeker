@@ -8,6 +8,14 @@ var app = new EmberApp();
 app.import('vendor/ol/ol.js');
 app.import('vendor/ol/ol.css');
 app.import('bower_components/moment/moment.js');
+app.import('bower_components/bootstrap-material-design/fonts/Material-Design-Icons.woff');
+app.import('bower_components/bootstrap-material-design/fonts/Material-Design-Icons.ttf');
 
 
-module.exports = app.toTree();
+var materialAssets = new Funnel('bower_components/bootstrap-material-design/fonts', {
+    srcDir: '/',
+    destDir: '/assets/material-font-path'
+});
+
+module.exports = app.toTree(materialAssets);
+
