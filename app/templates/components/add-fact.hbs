@@ -81,6 +81,17 @@
               }}
           </div>
         </div>
+        <div class='col-md-6'>
+          <div class="form-group">
+            <label for="tag_list">Tags</label>
+            {{input
+              type='text'
+              value=newTagList
+              placeholder='Comma-separated list of tags'
+              class='form-control'
+              }}
+          </div>
+        </div>
       </div>
       <button class='btn btn-primary create-new-fact-button' {{action 'createFact'}}>Create Fact</button>
     </div>
