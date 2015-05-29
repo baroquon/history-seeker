@@ -1,10 +1,3 @@
-<button class='btn btn-primary create-new-fact-button' {{action 'toggleCreating'}}>
-  {{#if isCreating}}
-    Cancel New Fact
-  {{else}}
-    Add New Fact
-  {{/if}}
-</button>
 {{#liquid-if isCreating}}
   <div class='panel panel-default'>
     <div class='panel-body'>
@@ -97,3 +90,10 @@
     </div>
   </div>
 {{/liquid-if}}
+<button class='btn btn-primary btn-fab btn-add {{if isCreating "mdi-content-remove" "mdi-content-add"}}' {{action 'toggleCreating'}}>
+</button>
+  {{#if isCreating}}
+    Cancel New Fact
+  {{else}}
+    Add New Fact
+  {{/if}}
