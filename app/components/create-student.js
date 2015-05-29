@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   classNames: ['panel', 'panel-default', 'card', 'pull-right', 'create-card'],
   actions: {
     createStudent: function(){
+      var store = this.get('store');
       var firstName = this.get('newFirstName'),
           lastName = this.get('newLastName'),
           middleName = this.get('newMiddleName'),
@@ -12,7 +13,7 @@ export default Ember.Component.extend({
           password = this.get('newPassword'),
           teacher = this.get('current_user');
 
-      var new_student = this.store.createRecord('user', {
+      var new_student = store.createRecord('user', {
         first_name: firstName,
         middle_name: middleName,
         last_name: lastName,
