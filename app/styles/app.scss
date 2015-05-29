@@ -2,6 +2,7 @@
 @import "bootstrap_imports";
 @import "timeline";
 @import "video";
+@import "buttons";
 
 body{
   color: $dark-gray;
@@ -213,6 +214,7 @@ ul.banner-social-buttons {
 }
 
 .card{
+  vertical-align: top;
   @media(min-width: $screen-md){
     width: 20%;
     display: inline-block;
