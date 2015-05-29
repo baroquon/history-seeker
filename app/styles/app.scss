@@ -279,6 +279,26 @@ ul.banner-social-buttons {
     &.fact-card{
       height: 250px;
       position: relative;
+      overflow: hidden;
+      ul.tags {
+        position: absolute;
+        top: .5em;
+        right: 0;
+        padding-left: 0;
+        li {
+          box-shadow: 0 0 1px $dark-gray;
+          list-style-type: none;
+          display: block;
+          padding: .25em;
+          background-color: #eee;
+          margin-bottom: .25em;
+          @for $i from 0 to 4 {
+            &.tag-#{$i} {
+              background-color: lighten($brand-primary, ($i * 20)),
+            }
+          }
+        }
+      }
       h4{
         min-height: 60px;
       }
@@ -329,4 +349,5 @@ ul.banner-social-buttons {
 .navbar{
   box-shadow: 0 0 5px $dark-gray;
 }
+
 
