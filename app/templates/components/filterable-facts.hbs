@@ -105,7 +105,7 @@
           </tbody>
         </table>
       {{else if mapType}}
-        {{ol3-map facts=rangeFilteredContent}}
+        {{ol3-map facts=rangeFilteredContent action='showModal'}}
       {{else if timeType}}
         {{fact-timeline facts=rangeFilteredContent}}
       {{/if}}

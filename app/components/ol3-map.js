@@ -5,41 +5,79 @@ export default Ember.Component.extend({
   vector: undefined,
   map: null,
   mapSetter: function(){
-    this.map = new ol.Map({
+    let element = this.get('element');
+    let center = this.findCenter(this.get('facts'));
+    let zoom = 3;
+    if(this.get('facts').length === 1){
+      zoom = 6;
+    }
+    let map = this.map = new ol.Map({
       layers: [
         new ol.layer.Tile({
           source: new ol.source.MapQuest({layer: 'sat'})
         }),
         this.vector
       ],
-      target: 'map',
+      target: element,
       view: new ol.View({
-        center: [0, 0],
-        zoom: 2
+        center: ol.proj.transform(center, 'EPSG:4326', 'EPSG:3857'),
+        zoom: zoom
       })
+    });
+    // change mouse cursor when over marker
+    $(map.getViewport()).on('mousemove', function(e) {
+      var pixel = map.getEventPixel(e.originalEvent);
+      var hit = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+        return true;
+      });
+      if (hit) {
+        map.getTarget().style.cursor = 'pointer';
+      } else {
+        map.getTarget().style.cursor = '';
+      }
+    });
+    let vector = this.get('vector');
+    let _this = this;
+    map.on('click', function(e){
+      let features = [];
+      map.forEachFeatureAtPixel(
+        e.pixel,
+        function(feature, layer){
+          features.push(feature);
+        },
+        null,
+        function(layer){
+          return layer == vector;
+        }
+      );
+      let firstFeature = features[0];
+      if(firstFeature){
+        _this.sendAction('action', 'facts.show', firstFeature.get('fact'));
+      }
     });
   },
   layerStyle: function(){
     return new ol.style.Style({
-      image: new ol.style.Circle({
-        radius: 5,
-        fill: new ol.style.Fill({
-          color: 'rgba(255, 0, 0, 0.4)'
-        }),
-        stroke: new ol.style.Stroke({
-          color: 'rgba(255, 204, 0, 0.2)',
-          width: 1
-        })
+      image: new ol.style.Icon({
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        opacity: 0.75,
+        src: '/assets/images/icon.png'
       })
     });
   },
   addPoints: function(facts){
-    var markerSource = new ol.source.Vector();
+    let markerSource = new ol.source.Vector();
 
-    facts.slice(0, 8).forEach(function(fact){
+    let iconStyle = new ol.style.Icon({
+    });
+
+    facts.forEach(function(fact){
       try{
         markerSource.addFeature(new ol.Feature({
-          geometry: new ol.geom.Point([fact.get('lng'), fact.get('lat')]).transform('EPSG:4326', 'EPSG:3857')
+          geometry: new ol.geom.Point([fact.get('lng'), fact.get('lat')]).transform('EPSG:4326', 'EPSG:3857'),
+          fact: fact
         }));
       } catch(e) {
         console.log('dangit, had an error at this [lat, long]:');
@@ -71,5 +109,20 @@ export default Ember.Component.extend({
         this.mapSetter();
       }
     });
+  },
+  findCenter: function(facts){
+    let latitudes = facts.map(function(fact){
+      return fact.get('lat');
+    });
+    let longitudes = facts.map(function(fact){
+      return fact.get('lng');
+    });
+    let maxLat = Math.max.apply(null, latitudes);
+    let minLat = Math.min.apply(null, latitudes);
+    let maxLng = Math.max.apply(null, longitudes);
+    let minLng = Math.min.apply(null, longitudes);
+    let centerLat = minLat + (0.5 * (maxLat - minLat));
+    let centerLng = minLng + (0.5 * (maxLng - minLng));
+    return [centerLng, centerLat];
   }
 });
