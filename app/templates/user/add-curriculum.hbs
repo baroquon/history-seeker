@@ -9,7 +9,13 @@
     value=newTitle
   }}
 </div>
-{{newTitle}}
+<div class='form-group'>
+  {{textarea
+    placeholder='Description'
+    class='form-control'
+    value=newDescription
+  }}
+</div>
 {{filterable-facts action='showModal' content=facts resetChecks=resetChecks addFactToCurriculum='addFactToCurriculum'}}
 <ul>
   {{#each factsToAdd as |addedFact|}}

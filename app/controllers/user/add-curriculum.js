@@ -26,11 +26,12 @@ export default Ember.Controller.extend({
     },
     saveNewCurriculum: function(){
       var title = this.get('newTitle'),
-          teacher = this.get('current_user');
+          description = this.get('newDescription');
+          user = this.get('current_user');
 
       var curriculum = this.store.createRecord('curriculum', {
         title: title,
-        user: teacher
+        user: user
       });
 
       this.get('factsToAdd').forEach(function(fact){
@@ -40,8 +41,9 @@ export default Ember.Controller.extend({
       curriculum.save();
 
       this.set('newTitle', '')
+          .set('newDescription', '')
           .set('resetChecks', true)
           .set('factsToAdd', []);
-    },
+    }
   }
 });
