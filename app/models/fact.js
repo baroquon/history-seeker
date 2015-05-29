@@ -10,7 +10,7 @@ export default DS.Model.extend({
   testable: DS.attr('boolean'),
   lat: DS.attr('number'),
   lng: DS.attr('number'),
-  tag_list: DS.attr('string'),
+  tag_list: DS.attr(),
 
   // relationships
   exam_questions: DS.hasMany('exam-question'),

@@ -1,4 +1,9 @@
 <div class="panel-body">
+  <ul class="tags">
+    {{#each fact.tag_list as |tag i|}}
+      <li class="tag-{{i}}">#{{tag}}</li>
+    {{/each}}
+  </ul>
   <h4>
     {{fact.title}}
   </h4>
