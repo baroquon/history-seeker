@@ -14,7 +14,7 @@ export default Ember.Component.extend({
           lat = this.get('newLat'),
           additional_info_link = this.get('newAdditionalInfoLink');
 
-      var new_fact = this.store.createRecord('fact', {
+      var new_fact = this.get('store').createRecord('fact', {
         title: title,
         description: description,
         start_date: start_date,
@@ -46,6 +46,10 @@ export default Ember.Component.extend({
     },
     toggleCreating: function(){
       this.toggleProperty('isCreating');
+    },
+    setLngLat: function(lnglat){
+      this.set('newLng', lnglat[0]);
+      this.set('newLat', lnglat[1]);
     }
   }
 });

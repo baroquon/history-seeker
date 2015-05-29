@@ -2,6 +2,7 @@ import Ember from 'ember';
 /* global ol */
 
 export default Ember.Component.extend({
+  classNames: ['map'],
   vector: undefined,
   map: null,
   mapSetter: function(){
@@ -69,9 +70,6 @@ export default Ember.Component.extend({
   },
   addPoints: function(facts){
     let markerSource = new ol.source.Vector();
-
-    let iconStyle = new ol.style.Icon({
-    });
 
     facts.forEach(function(fact){
       try{
