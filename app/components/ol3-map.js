@@ -19,6 +19,18 @@ export default Ember.Component.extend({
         zoom: 2
       })
     });
+    // change mouse cursor when over marker
+    $(map.getViewport()).on('mousemove', function(e) {
+      var pixel = map.getEventPixel(e.originalEvent);
+      var hit = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+        return true;
+      });
+      if (hit) {
+        map.getTarget().style.cursor = 'pointer';
+      } else {
+        map.getTarget().style.cursor = '';
+      }
+    });
     let vector = this.get('vector');
     let _this = this;
     map.on('click', function(e){
@@ -42,20 +54,20 @@ export default Ember.Component.extend({
   },
   layerStyle: function(){
     return new ol.style.Style({
-      image: new ol.style.Circle({
-        radius: 5,
-        fill: new ol.style.Fill({
-          color: 'rgba(255, 0, 0, 0.4)'
-        }),
-        stroke: new ol.style.Stroke({
-          color: 'rgba(255, 204, 0, 0.2)',
-          width: 1
-        })
+      image: new ol.style.Icon({
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        opacity: 0.75,
+        src: '/assets/images/icon.png'
       })
     });
   },
   addPoints: function(facts){
-    var markerSource = new ol.source.Vector();
+    let markerSource = new ol.source.Vector();
+
+    let iconStyle = new ol.style.Icon({
+    });
 
     facts.forEach(function(fact){
       try{
