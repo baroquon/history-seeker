@@ -1,23 +1,21 @@
-{{#if isForm}}
-  <td>
-    {{input
-      type='checkbox'
-      checked=isSelected
-    }}
-  </td>
-{{/if}}
-<td>
-  <button class='styless-button' {{action 'showModal' 'facts.show' fact }} >
+<div class="panel-body">
+  <h4>
     {{fact.title}}
-  </button>
-</td>
-<td>
-  <button class='styless-button' {{action 'showModal' 'facts.show' fact }} >
+  </h4>
+  <hr>
+  <div class='markdown-section'>
     {{markdown-section content=fact.description}}
-  </button>
-</td>
-<td>
-  <button class='styless-button' {{action 'showModal' 'facts.show' fact }} >
-    {{ago fact.start_date}}
-  </button>
-</td>
+  </div>
+  <div class='fact-actions'>
+    <button class='styless-button' {{action 'showModal' 'facts.show' fact }} >
+      <p>
+        {{moment fact.start_date 'MM/DD/YYYY'}}
+      </p>
+    </button>
+    {{#if isForm}}
+      <button {{action 'selectFact'}} class='styless-button pull-right'>
+        {{if isSelected 'Remove From Curriculum' 'Add this to Curriculum'}}
+      </button>
+    {{/if}}
+  </div>
+</div>

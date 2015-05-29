@@ -79,36 +79,28 @@
       </div>
     </div>
 
-    <div class="panel panel-default facts-list-container">
       <!-- Default panel contents -->
-      {{#if isForm}}
-        <div class="panel-heading">
-          Choose Some Facts:
-        </div>
-      {{/if}}
-      {{#if listType}}
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              {{#if isForm}}
-                <th>Add to Curriculum</th>
-              {{/if}}
-              <th>Title</th>
-              <th>What Happened</th>
-              <th>When it Happened</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each rangeFilteredContent as |fact|}}
-              {{add-fact-to-object action='showModal' fact=fact resetChecks=resetChecks addFactToCurriculum="addFactToCurriculum" isForm=isForm}}
-            {{/each}}
-          </tbody>
-        </table>
-      {{else if mapType}}
+    {{#if isForm}}
+      <h2>
+        Choose Some Facts:
+      </h2>
+    {{/if}}
+    {{#if listType}}
+      <div class='cards'>
+        {{#each rangeFilteredContent as |fact|}}
+          <div class='card-grid'>
+          {{add-fact-to-object action='showModal' fact=fact resetChecks=resetChecks addFactToCurriculum="addFactToCurriculum" isForm=isForm}}
+          </div>
+        {{/each}}
+      </div>
+    {{else if mapType}}
+      <div class="panel panel-default facts-list-container">
         {{ol3-map facts=rangeFilteredContent action='showModal'}}
-      {{else if timeType}}
+      </div>
+    {{else if timeType}}
+      <div class="panel panel-default facts-list-container">
         {{fact-timeline facts=rangeFilteredContent}}
-      {{/if}}
-    </div>
+      </div>
+    {{/if}}
   </div>
 </div>

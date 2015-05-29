@@ -1,9 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'tr',
+  classNames: ['panel', 'panel-default', 'card', 'fact-card'],
   isSelected: false,
-
   // This function resets the checkboxes to unchecked if a new model is saved.
   resetOnSave: Ember.observer('resetChecks', function() {
     var reset = this.get('resetChecks');
@@ -21,6 +20,9 @@ export default Ember.Component.extend({
   actions: {
     showModal: function(template, factObject){
       this.sendAction('action', template, factObject);
+    },
+    selectFact: function(){
+      this.toggleProperty('isSelected');
     }
   }
 });
