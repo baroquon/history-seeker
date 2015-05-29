@@ -1,0 +1,27 @@
+video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(images/history_bg.png) no-repeat;
+  background-size: cover;
+}
+cite{
+  bottom: 0;
+  display: block;
+  font-size: .875em;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  opacity: .5;
+  z-index: -90;
+  a{
+    color: $dark-gray;
+  }
+}
