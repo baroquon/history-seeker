@@ -1,15 +1,22 @@
 <div class='form-group'>
-  <label for='new-curriculum-title'>
+  <label class='sr-only' for='new-curriculum-title'>
     Title
   </label>
   {{input
     type='text'
+    placeholder='Title'
     name='new-curriculum-title'
     class='form-control'
     value=newTitle
   }}
 </div>
-{{newTitle}}
+<div class='form-group'>
+  {{textarea
+    placeholder='Description'
+    class='form-control'
+    value=newDescription
+  }}
+</div>
 {{filterable-facts action='showModal' content=facts resetChecks=resetChecks addFactToCurriculum='addFactToCurriculum'}}
 <ul>
   {{#each factsToAdd as |addedFact|}}
