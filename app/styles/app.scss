@@ -247,6 +247,15 @@ ul.banner-social-buttons {
     &:hover{
       box-shadow: 0 1px 8px rgba(0, 0, 0, .4);
       transition: 1s all;
+      .action-buttons-container{
+        margin-top: 1.25em;
+        transition: 1s all;
+        margin-bottom: .25em;
+        margin-right: .25em;
+      }
+    }
+    .action-buttons-container{
+      transition: 1s all;
     }
     &.create-card{
       width: 50%;
