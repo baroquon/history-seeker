@@ -259,15 +259,9 @@ ul.banner-social-buttons {
       margin-right: 0;
     }
     &:hover{
-      transform: scale(1.05);
-      box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.36);
+      transform: scale(1.01);
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.26);
       transition: 1s all;
-      .action-buttons-container{
-        margin-top: 1.25em;
-        transition: 1s all;
-        margin-bottom: .25em;
-        margin-right: .25em;
-      }
     }
     .action-buttons-container{
       transition: 1s all;
