@@ -53,7 +53,7 @@ button, a{
     &.scrolled{
       transition: 1s all;
       background-color: #eee;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+      box-shadow: $box-shadow;
       position: absolute;
       top: 50px;
       left: 15px;
@@ -202,7 +202,7 @@ ul.banner-social-buttons {
   .filters-well{
     background-color: #fff;
     padding: 1em;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+    box-shadow: $box-shadow;
     overflow: hidden;
     h3{
       margin-top: 0;
@@ -285,7 +285,7 @@ ul.banner-social-buttons {
         right: 0;
         padding-left: 0;
         li {
-          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+          box-shadow: $box-shadow;
           list-style-type: none;
           display: block;
           padding: .25em;
@@ -322,7 +322,7 @@ ul.banner-social-buttons {
   bottom: 1em;
   right: 1em;
   z-index: 9999999999999;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+  box-shadow: $box-shadow;
   transition: 1s all;
 }
 
@@ -332,7 +332,7 @@ ul.banner-social-buttons {
   bottom: 4em;
   right: 1em;
   z-index: 9999999999999;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+  box-shadow: $box-shadow;
   transition: 1s all;
   &:hover {
     background-color: #777;
@@ -342,11 +342,13 @@ ul.banner-social-buttons {
 .footer-cr{
   width: 100%;
   text-align: center;
-  position: fixed;
-  bottom: 15px;
-  z-index: 1;
   color: rgba(0, 0, 0, .3);
   text-shadow: 0px 2px 0px #fff;
+  @media(min-width:$screen-md) {
+    position: fixed;
+    bottom: 15px;
+    z-index: 1;
+  }
 }
 
 .fact-actions{
@@ -366,7 +368,7 @@ ul.banner-social-buttons {
 }
 
 .navbar{
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+  box-shadow: $box-shadow;
 }
 
 .clickable {
