@@ -64,7 +64,7 @@ export default Ember.Component.extend({
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
         opacity: 0.75,
-        src: '/assets/images/icon.png'
+        src: '/assets/images/marker.png'
       })
     });
   },
