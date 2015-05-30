@@ -53,7 +53,7 @@ button, a{
     &.scrolled{
       transition: 1s all;
       background-color: #eee;
-      box-shadow: 0 3px 4px #999;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
       position: absolute;
       top: 50px;
       left: 15px;
@@ -190,8 +190,8 @@ ul.banner-social-buttons {
 }
 .filters-control{
   position: fixed;
-  top: 75px;
-  right: 85px;
+  right: 7em;
+  bottom: 6em;
   z-index: 9999;
   .liquid-container{
     overflow: visible;
@@ -202,7 +202,7 @@ ul.banner-social-buttons {
   .filters-well{
     background-color: #fff;
     padding: 1em;
-    box-shadow: 0 0 3px $dark-gray;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
     overflow: hidden;
     h3{
       margin-top: 0;
@@ -248,7 +248,6 @@ ul.banner-social-buttons {
     font-weight: 200;
   }
   @media(min-width: $screen-md){
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     display: block;
     margin: 0 auto;
     transition: 1s all;
@@ -261,7 +260,7 @@ ul.banner-social-buttons {
     }
     &:hover{
       transform: scale(1.05);
-      box-shadow: 0 1px 8px rgba(0, 0, 0, .4);
+      box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.36);
       transition: 1s all;
       .action-buttons-container{
         margin-top: 1.25em;
@@ -286,7 +285,7 @@ ul.banner-social-buttons {
         right: 0;
         padding-left: 0;
         li {
-          box-shadow: 0 0 1px $dark-gray;
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
           list-style-type: none;
           display: block;
           padding: .25em;
@@ -323,6 +322,21 @@ ul.banner-social-buttons {
   bottom: 1em;
   right: 1em;
   z-index: 9999999999999;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+  transition: 1s all;
+}
+
+.btn-supplemental{
+  background-color: #999;
+  position: fixed;
+  bottom: 4em;
+  right: 1em;
+  z-index: 9999999999999;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+  transition: 1s all;
+  &:hover {
+    background-color: #777;
+  }
 }
 
 .footer-cr{
@@ -348,7 +362,7 @@ ul.banner-social-buttons {
 }
 
 .navbar{
-  box-shadow: 0 0 5px $dark-gray;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
 }
 
 
