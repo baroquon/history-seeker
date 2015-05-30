@@ -51,7 +51,8 @@ export default Ember.Component.extend({
 
     if(!!filter){
       return facts.filter(function(fact) {
-        return fact.get('title').match(rx) || fact.get('description').match(rx);
+        let tags = fact.get('tag_list').join(' ');
+        return fact.get('title').match(rx) || fact.get('description').match(rx) || tags.match(rx);
       });
     } else {
       return facts;
