@@ -12,5 +12,11 @@
     {{create-student store=controller.store current_user=current_user action='toggleCreating'}}
   {{/liquid-if}}
 {{else}}
-  <h3> Teacher: {{current_user.teacher.fullName}} </h3>
+  <div class='cards'>
+    {{#each current_user.teacher.curriculums as |curriculum|}}
+      {{curriculum-card curriculum=curriculum}}
+    {{/each}}
+  </div>
+  {{#link-to 'user.add-curriculum' class='btn btn-primary btn-fab mdi-content-add btn-add' }}
+  {{/link-to}}
 {{/if}}
