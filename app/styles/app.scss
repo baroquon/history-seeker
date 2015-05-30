@@ -353,6 +353,10 @@ ul.banner-social-buttons {
   bottom: 10px;
   position: absolute;
   width: 92%;
+  p{
+    display: inline-block;
+    width: 100px;
+  }
 }
 
 .map-picker-wrapper{
