@@ -1,4 +1,4 @@
-<div class="panel-body">
+<div class="panel-body clickable" {{action 'showModal' 'facts.show' fact}}>
   <ul class="tags">
     {{#each fact.tag_list as |tag i|}}
       <li class="tag-{{i}}">#{{tag}}</li>
@@ -12,13 +12,11 @@
     {{markdown-section content=fact.description}}
   </div>
   <div class='fact-actions'>
-    <button class='styless-button' {{action 'showModal' 'facts.show' fact }} >
-      <p>
-        {{moment fact.start_date 'MM/DD/YYYY'}}
-      </p>
-    </button>
+    <p>
+      {{moment fact.start_date 'MM/DD/YYYY'}}
+    </p>
     {{#if isForm}}
-      <button {{action 'selectFact'}} class='styless-button pull-right'>
+      <button {{action 'selectFact' bubbles=false}} class='styless-button pull-right'>
         {{if isSelected 'Remove From Curriculum' 'Add this to Curriculum'}}
       </button>
     {{/if}}
