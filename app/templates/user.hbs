@@ -5,7 +5,14 @@
   <div class='alert alert-info'>
     {{current_user.teacher.fullName}} has given you an assignment:
     <strong>
-      {{current_user.assignment}}
+      {{#each current_user.assignments as |assignment|}}
+        {{#unless assignment.is_complete}}
+          {{assignment.description}}
+          <button class='styless-button' {{action 'assignmentComplete' assignment}}>
+            Mark Complete
+          </button>
+        {{/unless}}
+      {{/each}}
     </strong>
     <button type="button" class="close" {{action 'dismissAlert'}}><span aria-hidden="true">&times;</span></button>
   </div>

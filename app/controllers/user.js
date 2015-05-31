@@ -14,6 +14,10 @@ export default Ember.Controller.extend({
   actions: {
     dismissAlert: function(){
       this.toggleProperty('dismissed');
+    },
+    assignmentComplete: function(assignment){
+      assignment.set('is_complete', true);
+      assignment.save();
     }
   }
 });

@@ -9,7 +9,6 @@ export default DS.Model.extend({
   notes: DS.attr('string'),
   date_of_birth: DS.attr('date'),
   role: DS.attr('string'),
-  assignment: DS.attr('string'),
   email: DS.attr('string'),
   password: DS.attr(), // this isn't right
   password_confirmation: DS.attr(),
@@ -26,6 +25,9 @@ export default DS.Model.extend({
     inverse: 'teacher',
     async: true
   }),
+  assignments: DS.hasMany('assignment', {
+    async: true
+  }),
   exams: DS.hasMany('exam', {async: true}),
   exam_templates: DS.hasMany('exam-template'),
   curriculums: DS.hasMany('curriculum', { async: true }),
@@ -37,8 +39,20 @@ export default DS.Model.extend({
   isTeacher: Ember.computed('role', function() {
     return this.get('role')==='teacher';
   }),
-  hasAssignment: Ember.computed('assignment', function() {
-    return !!this.get('assignment');
+  hasAssignment: Ember.computed('assignments', 'assignments.@each.is_complete', function() {
+    var assignmentActive = false;
+
+    if(!!this.get('assignments')){
+      let assignments = this.get('assignments').filterBy('is_complete', false);
+      if(assignments.get('length')> 0){
+        assignmentActive = true;
+      } else {
+        assignmentActive = false;
+      }
+    } else {
+      assignmentActive = false;
+    }
+    return assignmentActive;
   }),
 
 });

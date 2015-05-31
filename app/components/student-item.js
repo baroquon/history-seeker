@@ -16,13 +16,24 @@ export default Ember.Component.extend({
       this.toggleProperty('isEditing');
     },
     giveAssignment: function(){
-      let student = this.get('student');
-      if(student.get('isDirty')){
-        student.save();
-      }
       if(this.get('isEditing')){
         this.set('isEditing', false);
       }
+      if(this.get('assignmentDescription')){
+        let store = this.get('store'),
+            student = this.get('student'),
+            description = this.get('assignmentDescription');
+
+        let newAssignment = store.createRecord('assignment', {
+          description: description,
+          user: student
+        });
+
+        newAssignment.save();
+
+        this.set('assignmentDescription', '');
+      }
+
       this.toggleProperty('isAddingAssignment');
     }
   }
