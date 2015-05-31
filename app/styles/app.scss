@@ -3,6 +3,7 @@
 @import "timeline";
 @import "video";
 @import "buttons";
+@import "cards";
 
 body{
   color: $dark-gray;
@@ -212,112 +213,6 @@ ul.banner-social-buttons {
     }
   }
 }
-.cards{
-  @media(min-width: $screen-md){
-    margin: 0 auto;
-    .card-grid{
-      vertical-align: top;
-      width: 33%;
-      padding: .25em;
-      transition: 1s all;
-      display: inline-block;
-      margin-bottom: 1.25em;
-      &:hover{
-        padding: 0;
-        transition: 1s all;
-      }
-    }
-    a:hover{
-      text-decoration: none;
-    }
-  }
-}
-.card{
-  vertical-align: top;
-  border: 0;
-  hr{
-    width: 20%;
-    border: 2px solid lighten($accent, 30%);
-    margin: 0;
-  }
-  h4{
-    margin-bottom: .25em;
-  }
-  p{
-    margin-top: .25em;
-    font-weight: 200;
-  }
-  @media(min-width: $screen-md){
-    display: block;
-    margin: 0 auto;
-    transition: 1s all;
-    width: 95%;
-    &:first-child{
-      margin-left: 0;
-    }
-    &:nth-child(3n){
-      margin-right: 0;
-    }
-    &:hover{
-      transform: scale(1.01);
-      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.26);
-      transition: 1s all;
-    }
-    .action-buttons-container{
-      transition: 1s all;
-    }
-    &.create-card{
-      width: 50%;
-    }
-    &.fact-card{
-      height: 250px;
-      overflow: hidden;
-      h4{
-        min-height: 60px;
-      }
-      .markdown-section{
-        max-height: 100px;
-        overflow: hidden;
-        margin: 1em 0;
-      }
-      button.styless-button{
-        margin: 0;
-        padding: 0;
-      }
-    }
-    .fact-actions{
-      bottom: 10px;
-      position: absolute;
-      width: 92%;
-      p{
-        display: inline-block;
-        width: 100px;
-      }
-    }
-  }
-}
-.card.fact-card{
-  position: relative;
-  ul.tags {
-    position: absolute;
-    top: .5em;
-    right: 0;
-    padding-left: 0;
-    li {
-      box-shadow: $box-shadow;
-      list-style-type: none;
-      display: block;
-      padding: .25em;
-      background-color: #eee;
-      margin-bottom: .25em;
-      @for $i from 0 to 4 {
-        &.tag-#{$i} {
-          background-color: lighten($brand-primary, ($i * 20)),
-        }
-      }
-    }
-  }
-}
 
 .btn-add{
   position: fixed;
@@ -372,4 +267,17 @@ embed,
 object,
 iframe {
   max-width: 100%;
+}
+
+.alert-info{
+  a, button{
+    color: rgba(255, 255, 255, .6);
+    transition: 1s all;
+    text-decoration: none;
+    &:hover{
+      color: rgba(255, 255, 255, 1);
+      text-decoration: none;
+      transition: 1s all;
+    }
+  }
 }

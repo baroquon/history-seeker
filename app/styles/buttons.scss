@@ -7,4 +7,7 @@
   &:hover{
     background-color: darken($accent, 5%);
   }
+  &:focus, &:active{
+    color: #fff;
+  }
 }

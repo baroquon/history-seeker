@@ -1,6 +1,29 @@
 <div class="panel-body">
-  <h4>{{student.fullName}}</h4>
+  <h4 {{action 'toggleFullDetails'}}>{{student.fullName}}</h4>
   <hr>
+  {{#liquid-if showGrades}}
+    <ul class='assignment-details'>
+      {{#each completeAssignments as |ca|}}
+        <li>
+          {{grade-assignment assignment=ca}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/liquid-if}}
+  {{#liquid-if showPending}}
+    <ul class='assignment-details'>
+      {{#each pendingAssignments as |ca|}}
+        <li>{{ca.description}}</li>
+      {{/each}}
+    </ul>
+  {{/liquid-if}}
+  {{#liquid-if showComplete}}
+    <ul class='assignment-details'>
+      {{#each completeAssignments as |ca|}}
+        <li>{{ca.description}}</li>
+      {{/each}}
+    </ul>
+  {{/liquid-if}}
   {{#liquid-if isAddingAssignment}}
     <div class='row'>
       <div class='col-md-12'>
@@ -65,6 +88,26 @@
     </div>
     <button {{action 'updateStudent'}} class='btn btn-primary'>Update Student</button>
   {{/liquid-if}}
+  <div class='detail-items'>
+    <h5>Assignments</h5>
+    <ul>
+      <li {{action 'togglePending'}}>
+        Pending
+        <br>
+        {{student.assignmentsPending}}
+      </li>
+      <li {{action 'toggleComplete'}}>
+        Complete
+        <br>
+        {{student.assignmentsComplete}}
+      </li>
+      <li {{action 'toggleGrades'}}>
+        Grade
+        <br>
+        {{student.grade}}
+      </li>
+    </ul>
+  </div>
   <div class='action-buttons-container'>
     <button class='btn btn-primary btn-fab mdi-image-edit' {{action 'updateStudent'}}>
     </button>

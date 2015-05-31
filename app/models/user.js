@@ -54,5 +54,30 @@ export default DS.Model.extend({
     }
     return assignmentActive;
   }),
+  assignmentsComplete: Ember.computed('assignments.@each.is_complete',function(){
+    return this.get('assignments').filterBy('is_complete', true).get('length') || 0;
+  }),
+  assignmentsPending: Ember.computed('assignments.@each.is_complete', function(){
+    return this.get('assignments').filterBy('is_complete', false).get('length') || 0;
+  }),
+  grade: Ember.computed('assignments', 'assignments.@each.is_complete', 'assignments.@each.grade', function() {
+    if(!!this.get('assignments')){
+      var count = 0,
+          gradeSum = 0;
+      let assignments = this.get('assignments').filterBy('is_complete', true);
+
+      assignments.forEach(function(assignment){
+        if(!!assignment.get('grade')){
+          count++;
+          gradeSum = Number(gradeSum + assignment.get('grade'));
+        }
+      })
+    }
+    if(count>0){
+      return (gradeSum/count).toFixed(2);
+    } else {
+      return 'No Grades Yet'
+    }
+  }),
 
 });
