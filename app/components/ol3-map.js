@@ -1,5 +1,7 @@
 import Ember from 'ember';
 /* global ol */
+ /*jshint unused:false */
+ /*jshint eqeqeq:false */
 
 export default Ember.Component.extend({
   classNames: ['map'],
@@ -26,7 +28,7 @@ export default Ember.Component.extend({
       })
     });
     // change mouse cursor when over marker
-    $(map.getViewport()).on('mousemove', function(e) {
+    Ember.$(map.getViewport()).on('mousemove', function(e) {
       var pixel = map.getEventPixel(e.originalEvent);
       var hit = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
         return true;
@@ -107,6 +109,12 @@ export default Ember.Component.extend({
         this.mapSetter();
       }
     });
+  },
+  willDestroyElement: function(){
+    if ( !(this.get('isDestroyed') || this.get('isDestroying')) ) {
+      this.map.setTarget(null);
+      this.set('map', null);
+    }
   },
   findCenter: function(facts){
     let latitudes = facts.map(function(fact){

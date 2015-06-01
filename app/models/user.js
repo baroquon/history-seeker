@@ -61,9 +61,9 @@ export default DS.Model.extend({
     return this.get('assignments').filterBy('is_complete', false).get('length') || 0;
   }),
   grade: Ember.computed('assignments', 'assignments.@each.is_complete', 'assignments.@each.grade', function() {
+    var count = 0,
+        gradeSum = 0;
     if(!!this.get('assignments')){
-      var count = 0,
-          gradeSum = 0;
       let assignments = this.get('assignments').filterBy('is_complete', true);
 
       assignments.forEach(function(assignment){
@@ -71,12 +71,12 @@ export default DS.Model.extend({
           count++;
           gradeSum = Number(gradeSum + assignment.get('grade'));
         }
-      })
+      });
     }
     if(count>0){
       return (gradeSum/count).toFixed(2);
     } else {
-      return '-'
+      return '-';
     }
   }),
 

@@ -11,6 +11,7 @@ moduleForModel('exam', {
     'model:exam-response',
     'model:exam-question',
     'model:curriculum',
+    'model:assignment',
     'model:user'
   ]
 });
