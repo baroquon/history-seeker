@@ -76,7 +76,7 @@ export default DS.Model.extend({
     if(count>0){
       return (gradeSum/count).toFixed(2);
     } else {
-      return 'No Grades Yet'
+      return '-'
     }
   }),
 
