@@ -12,6 +12,7 @@ moduleForModel('user', {
     'model:curriculum',
     'model:exam-answer',
     'model:exam-response',
+    'model:assignment',
     'model:exam-question',
     'model:fact',
   ]

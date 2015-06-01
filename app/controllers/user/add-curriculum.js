@@ -45,6 +45,8 @@ export default Ember.Controller.extend({
           .set('newDescription', '')
           .set('resetChecks', true)
           .set('factsToAdd', []);
+
+      this.transitionTo('user.curriculums');
     }
   }
 });

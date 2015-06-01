@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   isCreating: false,
   curriculum: undefined,
+  addCreate: false,
   actions: {
     createFact: function(){
       var self = this;
@@ -46,6 +47,11 @@ export default Ember.Component.extend({
           .set('newAdditionalInfoLink', '');
 
       this.toggleProperty('isCreating');
+
+      if(this.get('addCreate')){
+        this.sendAction('addFactToCurriculum', new_fact, true);
+      }
+
     },
     toggleCreating: function(){
       this.toggleProperty('isCreating');

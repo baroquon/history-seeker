@@ -1,4 +1,6 @@
 import Ember from 'ember';
+/* global ol */
+ /*jshint unused:false */
 
 export default Ember.Component.extend({
   classNames: ['map'],
@@ -46,7 +48,7 @@ export default Ember.Component.extend({
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
         opacity: 0.75,
-        src: '/assets/images/icon.png'
+        src: '/assets/images/marker.png'
       })
     });
   },
@@ -54,5 +56,11 @@ export default Ember.Component.extend({
     Ember.run.once(this, function(){
       this.mapSetter();
     });
+  },
+  willDestroyElement: function(){
+    if ( !(this.get('isDestroyed') || this.get('isDestroying')) ) {
+      this.map.setTarget(null);
+      this.set('map', null);
+    }
   }
 });
