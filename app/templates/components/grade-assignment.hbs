@@ -1,0 +1,25 @@
+{{#if hasGrade}}
+  {{#if isEditingGrade}}
+    {{input
+      value=assignment.grade
+      class='form-control assignment-input'
+    }}
+    -
+    {{assignment.description}}
+    <button {{action 'updateGrade'}} class='styless-button'>Save Grade</button>
+  {{else}}
+    <span {{action 'updateGrade'}}>
+      {{assignment.grade}}
+    </span>
+    -
+    {{assignment.description}}
+  {{/if}}
+{{else}}
+  {{input
+    value=newGrade
+    class='form-control assignment-input'
+  }}
+  -
+  {{assignment.description}}
+  <button {{action 'saveGrade'}} class='styless-button'>Save Grade</button>
+{{/if}}

@@ -2,7 +2,7 @@
   <div class='cards'>
     {{#each current_user.students as |student|}}
       <div class='card-grid'>
-        {{student-item student=student}}
+        {{student-item store=controller.store student=student}}
       </div>
     {{/each}}
   </div>
