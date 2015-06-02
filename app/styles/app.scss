@@ -17,26 +17,6 @@ button, a{
   }
 }
 
-.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus{
-  outline: 0 none;
-}
-
-.styless-button{
-  background: transparent none;
-  border: 0 none transparent;
-  text-align: left;
-  color: $brand-primary;
-  &:hover{
-    text-decoration: underline;
-  }
-  *{
-    font-size: 16px;
-    font-weight: 400;
-    display: inline;
-    margin: 0;
-    padding: 0;
-  }
-}
 .fact-component{
   margin-bottom: 1em;
 }
@@ -214,28 +194,6 @@ ul.banner-social-buttons {
   }
 }
 
-.btn-add{
-  position: fixed;
-  bottom: 1em;
-  right: 1em;
-  z-index: 9999999999999;
-  box-shadow: $box-shadow;
-  transition: 1s all;
-}
-
-.btn-supplemental{
-  background-color: #999;
-  position: fixed;
-  bottom: 4em;
-  right: 1em;
-  z-index: 9999999999999;
-  box-shadow: $box-shadow;
-  transition: 1s all;
-  &:hover {
-    background-color: #777;
-  }
-}
-
 .footer-cr{
   width: 100%;
   text-align: center;
@@ -279,5 +237,25 @@ iframe {
       text-decoration: none;
       transition: 1s all;
     }
+  }
+}
+
+.notes-container{
+  position: fixed;
+  width: 90%;
+  max-width: 500px;
+  right: 2em;
+  top: 9em;
+  background-color: #fff;
+  z-index: 99999999999;
+  padding: 1em;
+  border-radius: 2px;
+  box-shadow: $box-shadow;
+  border: 1px solid #eee;
+  textarea{
+    min-height: 200px;
+    color: lighten($dark-gray, 20%);
+    font-size: 1.5em;
+    font-weight: 200;
   }
 }

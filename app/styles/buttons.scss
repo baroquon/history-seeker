@@ -11,3 +11,51 @@
     color: #fff;
   }
 }
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus{
+  outline: 0 none;
+}
+
+.styless-button{
+  background: transparent none;
+  border: 0 none transparent;
+  text-align: left;
+  color: $brand-primary;
+  &:hover{
+    text-decoration: underline;
+  }
+  *{
+    font-size: 16px;
+    font-weight: 400;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+}
+.btn-add{
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  z-index: 9999999999999;
+  box-shadow: $box-shadow;
+  transition: 1s all;
+}
+
+.btn-supplemental{
+  background-color: #999;
+  position: fixed;
+  bottom: 4em;
+  right: 1em;
+  z-index: 9999999999999;
+  box-shadow: $box-shadow;
+  transition: 1s all;
+  &:hover {
+    background-color: #777;
+  }
+}
+
+.notes-button{
+  position: fixed;
+  right: 2em;
+  top: 5em;
+  z-index: 9999999999999;
+}
