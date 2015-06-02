@@ -5,7 +5,7 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-export default Router.map(function() {
+Router.map(function() {
   this.route("about");
   this.route('user', function() {
     this.route('index', { path: '/' });
@@ -18,6 +18,7 @@ export default Router.map(function() {
     });
     this.route('all-facts');
     this.route('add-assignment');
+    this.route('my-facts');
   });
   this.route('session', function() {
     this.route('new', { path: '/' });
@@ -26,3 +27,5 @@ export default Router.map(function() {
   this.route('how-it-works');
   this.route('contact');
 });
+
+export default Router;

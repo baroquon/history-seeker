@@ -7,11 +7,9 @@ import Ember from 'ember';
 moduleForModel('fact', {
   // Specify the other units that are required for this test.
   needs: [
-    'model:exam-template',
-    'model:exam-answer',
-    'model:exam-response',
-    'model:exam-question',
-    'model:user'
+    'model:user',
+    'model:curriculum',
+    'model:assignment'
   ]
 });
 
@@ -21,18 +19,11 @@ test('it exists', function(assert) {
   assert.ok(!!model);
 });
 
-test('an event can have context', function(assert) {
+test('a fact can have a user', function(assert) {
   var fact = this.store().modelFor('fact');
-  var relationship = Ember.get(fact, 'relationshipsByName').get('context');
+  var user = Ember.get(fact, 'relationshipsByName').get('user');
 
-  assert.equal(relationship.key, 'context');
-  assert.equal(relationship.kind, 'belongsTo');
+  assert.equal(user.key, 'user');
+  assert.equal(user.kind, 'belongsTo');
 });
 
-test('A Context fact can have many events', function(assert) {
-  var fact = this.store().modelFor('fact');
-  var relationship = Ember.get(fact, 'relationshipsByName').get('historical_events');
-
-  assert.equal(relationship.key, 'historical_events');
-  assert.equal(relationship.kind, 'hasMany');
-});
