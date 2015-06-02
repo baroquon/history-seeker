@@ -23,7 +23,7 @@
     "broccoli-funnel": "^0.2.3",
     "broccoli-sass": "0.6.4",
     "divshot": "0.4.8",
-    "ember-cli": "0.2.5",
+    "ember-cli": "0.2.6",
     "ember-cli-app-version": "0.3.3",
     "ember-cli-babel": "^5.0.0",
     "ember-cli-bootstrap-datepicker": "0.4.0",
@@ -46,6 +46,7 @@
     "express": "^4.12.4",
     "glob": "^5.0.10",
     "liquid-fire": "ef4/liquid-fire",
-    "morgan": "^1.5.3"
+    "morgan": "^1.5.3",
+    "ember-export-application-global": "^1.0.2"
   }
 }
