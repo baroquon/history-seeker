@@ -14,6 +14,7 @@ export default Ember.Component.extend({
           lng = this.get('newLng'),
           lat = this.get('newLat'),
           tag_list = this.get('newTagList'),
+          user = this.get('current_user'),
           additional_info_link = this.get('newAdditionalInfoLink');
 
       var new_fact = this.get('store').createRecord('fact', {
@@ -24,6 +25,7 @@ export default Ember.Component.extend({
         lng: lng,
         lat: lat,
         tag_list: tag_list,
+        user: user,
         additional_info_link: additional_info_link
       });
 

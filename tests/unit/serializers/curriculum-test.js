@@ -8,9 +8,7 @@ moduleForModel('curriculum', {
   needs: [
     'serializer:curriculum',
     'model:user',
-    'model:exam',
-    'model:exam-template',
-    'model:exam-question',
+    'model:assignment',
     'model:fact'
   ]
 });

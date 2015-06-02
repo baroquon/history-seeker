@@ -13,12 +13,8 @@ export default DS.Model.extend({
   tag_list: DS.attr(),
 
   // relationships
-  exam_questions: DS.hasMany('exam-question'),
-  context: DS.belongsTo('fact', {
-    inverse: 'historical_events'
-  }),
-  historical_events: DS.hasMany('fact', {
-    inverse: 'context'
+  user: DS.belongsTo('user', {
+    async: true
   }),
 
   // computed

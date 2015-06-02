@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   viewType: 'list',
   maxToDate: new Date(),
   showFilters: false,
+  myFacts: false,
   listType: Ember.computed('viewType', function(){
     return this.get('viewType') === 'list';
   }),
@@ -38,7 +39,7 @@ export default Ember.Component.extend({
 
   sorted: Ember.computed('content', function(){
     return Ember.ArrayController.create({
-      content : this.get('content'),
+      content: this.get('content'),
       sortProperties: ["start_date"]
     });
   }),

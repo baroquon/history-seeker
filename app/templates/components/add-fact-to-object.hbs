@@ -1,15 +1,39 @@
 <div class="panel-body clickable" {{action 'showModal' 'facts.show' fact}}>
-  <ul class="tags">
-    {{#each fact.tag_list as |tag i|}}
-      <li class="tag-{{i}}">#{{tag}}</li>
-    {{/each}}
-  </ul>
+  {{#unless isEditing}}
+    <ul class="tags">
+      {{#each fact.tag_list as |tag i|}}
+        <li class="tag-{{i}}">
+          #{{tag}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/unless}}
   <h4>
-    {{fact.title}}
+    {{#if isEditing}}
+      {{input
+        class='form-control'
+        bubbles=false
+        value=fact.title}}
+    {{else}}
+      {{fact.title}}
+    {{/if}}
   </h4>
   <hr>
   <div class='markdown-section'>
-    {{markdown-section content=fact.description}}
+    {{#if isEditing}}
+      {{textarea
+        value=fact.description
+        class='form-control'
+        bubbles=false
+      }}
+      {{textarea
+        value=justTheTags
+        class='form-control'
+        bubbles=false
+      }}
+    {{else}}
+      {{markdown-section content=fact.description}}
+    {{/if}}
   </div>
   <div class='fact-actions'>
     <p>
@@ -19,6 +43,22 @@
       <button {{action 'selectFact' bubbles=false}} class='styless-button pull-right'>
         {{if isSelected 'Remove From Curriculum' 'Add this to Curriculum'}}
       </button>
+    {{/if}}
+    {{#if myFacts}}
+      <div class='edit-facts'>
+        <button class='btn btn-primary' {{action 'toggleEdit' fact bubbles=false}}>
+          {{#if isEditing}}
+            Update Fact
+          {{else}}
+            Edit Fact
+          {{/if}}
+        </button>
+        {{#if isEditing}}
+          <button class='btn btn-accent' {{action 'cancel' fact bubbles=false}}>
+            Cancel
+          </button>
+        {{/if}}
+      </div>
     {{/if}}
   </div>
 </div>

@@ -49,6 +49,24 @@
           margin: 0;
           padding: 0;
         }
+        .edit-facts{
+          .btn{
+            float: left;
+            &:first-child{
+              float: right;
+            }
+          }
+        }
+        &.editing{
+          height: 300px;
+          .edit-facts{
+            &:after, &:before{
+              content: '';
+              display: block;
+              clear: both;
+            }
+          }
+        }
       }
       .fact-actions{
         bottom: 10px;

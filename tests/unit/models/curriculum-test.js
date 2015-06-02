@@ -8,9 +8,6 @@ moduleForModel('curriculum', {
   needs: [
     'model:fact',
     'model:user',
-    'model:exam',
-    'model:exam-template',
-    'model:exam-question',
     'model:assignment'
   ]
 });

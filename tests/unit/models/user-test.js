@@ -7,13 +7,8 @@ import Ember from 'ember';
 moduleForModel('user', {
   // Specify the other units that are required for this test.
   needs: [
-    'model:exam',
-    'model:exam-template',
     'model:curriculum',
-    'model:exam-answer',
-    'model:exam-response',
     'model:assignment',
-    'model:exam-question',
     'model:fact',
   ]
 });
@@ -44,22 +39,6 @@ test('A Student can have one teacher', function(assert) {
 
   assert.equal(relationship.key, 'teacher');
   assert.equal(relationship.kind, 'belongsTo');
-});
-
-test('A User can have many exams', function(assert) {
-  var user = this.store().modelFor('user');
-  var relationship = Ember.get(user, 'relationshipsByName').get('exams');
-
-  assert.equal(relationship.key, 'exams');
-  assert.equal(relationship.kind, 'hasMany');
-});
-
-test('A User can have many exam templates', function(assert) {
-  var user = this.store().modelFor('user');
-  var relationship = Ember.get(user, 'relationshipsByName').get('exam_templates');
-
-  assert.equal(relationship.key, 'exam_templates');
-  assert.equal(relationship.kind, 'hasMany');
 });
 
 test('A User can have many curriculums', function(assert) {

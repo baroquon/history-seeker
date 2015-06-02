@@ -5,9 +5,6 @@ moduleForModel('assignment', 'Unit | Model | assignment', {
   needs: [
     'model:fact',
     'model:user',
-    'model:exam',
-    'model:exam-template',
-    'model:exam-question',
     'model:curriculum'
   ]
 });
