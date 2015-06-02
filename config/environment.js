@@ -24,7 +24,7 @@ module.exports = function(environment) {
       'connect-src': "'self' intense-castle-9219.herokuapp.com",
       'img-src': "'self' developer.mapquest.com otile0-s.mqcdn.com otile1-s.mqcdn.com otile2-s.mqcdn.com otile3-s.mqcdn.com otile4-s.mqcdn.com data:",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com localhost:4200 cdnjs.cloudflare.com",
-      'frame-src': ""
+      'frame-src': "www.youtube.com"
     }
   };
 

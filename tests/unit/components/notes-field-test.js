@@ -1,9 +1,6 @@
-import {
-  moduleForComponent,
-  test
-} from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('pre-auth-back-header', {
+moduleForComponent('notes-field', 'Unit | Component | notes field', {
   // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });
