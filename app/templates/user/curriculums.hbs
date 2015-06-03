@@ -1,13 +1,9 @@
 <div class='cards'>
-  {{#if isTeacher}}
-    {{#each current_user.curriculums as |curriculum|}}
-      {{curriculum-card curriculum=curriculum}}
-    {{/each}}
+  {{#each current_user.curriculums as |curriculum|}}
+    {{curriculum-card curriculum=curriculum}}
   {{else}}
-    {{#each current_user.teacher.curriculums as |curriculum|}}
-      {{curriculum-card curriculum=curriculum}}
-    {{/each}}
-  {{/if}}
+    {{empty-notice item='curriculums'}}
+  {{/each}}
 </div>
 {{#link-to 'user.add-curriculum' class='btn btn-primary btn-fab mdi-content-add btn-add' }}
 {{/link-to}}

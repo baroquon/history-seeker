@@ -4,12 +4,12 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   filter: '',
   isForm: true,
-  viewType: 'list',
+  viewType: 'card',
   maxToDate: new Date(),
   showFilters: false,
   myFacts: false,
-  listType: Ember.computed('viewType', function(){
-    return this.get('viewType') === 'list';
+  cardType: Ember.computed('viewType', function(){
+    return this.get('viewType') === 'card';
   }),
   mapType: Ember.computed('viewType', function(){
     return this.get('viewType') === 'map';
@@ -90,9 +90,12 @@ export default Ember.Component.extend({
     showModal: function(template, factObject){
       this.sendAction('action', template, factObject);
     },
-    // This switches between list view, map view, and timeline view.
+    // This switches between card view, map view, and timeline view.
     switchView: function(viewType){
       this.set('viewType', viewType);
+
+      this._super();
+      Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
     },
 
     //this toggles between showing and hiding the filters and date range options
@@ -100,4 +103,11 @@ export default Ember.Component.extend({
       this.toggleProperty('showFilters');
     }
   },
+  afterRenderEvent: function(){
+      let factsCont = Ember.$('.facts-list-container'),
+          docHeight = Ember.$(window).height(),
+          offsetTop = Ember.$('.facts-list-container').offset().top + 50;
+
+      factsCont.height(docHeight - offsetTop);
+  }
 });
