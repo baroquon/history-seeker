@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   classNameBindings: ['isEditing:editing'],
   isSelected: false,
   isEditing: false,
+  isDeleting: false,
   justTheTags: Ember.computed('fact.tag_list', function(){
     return this.get('fact.tag_list').join(', ');
   }),
@@ -40,6 +41,12 @@ export default Ember.Component.extend({
         fact.save();
       }
       this.toggleProperty('isEditing');
+    },
+    toggleDeleting: function(fact){
+      this.toggleProperty('isDeleting');
+    },
+    confirmDelete: function(fact){
+      fact.destroyRecord();
     },
     cancel: function (fact) {
 

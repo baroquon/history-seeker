@@ -259,10 +259,14 @@ iframe {
   }
 }
 .empty-text{
-  font-size: 3em;
   text-shadow: 0px 2px 0px #fff;
   color: lighten($dark-gray, 30%);
-  margin: 1em;
+  margin: 1.5em 0;
+  font-size: 2em;
+  @media(min-width: $screen-sm){
+    font-size: 3em;
+    margin: 1em;
+  }
 }
 .add-arrow{
   position: fixed;
@@ -291,6 +295,16 @@ iframe {
       fill: lighten($dark-gray, 30%);
       animation-duration: 2s;
       animation-name: showArrow;
+    }
+  }
+  @media(max-width: $screen-xs){
+    bottom: -4.2em;
+    right: 3em;
+    &:hover{
+      bottom: -4.65em;
+    }
+    svg{
+      width: 260px;
     }
   }
 }
@@ -322,22 +336,39 @@ iframe {
 @keyframes wholeBounce {
   0% {
     transform: scale(1);
-    bottom: -1em;
+    @media(min-width: $screen-sm){
+      bottom: -1em;
+    }
   }
   20% {
     transform: scale(1.2);
-    bottom: -1.65em;
+    @media(min-width: $screen-sm){
+      bottom: -1.65em;
+    }
   }
   40% {
     transform: scale(1);
-    bottom: -1em;
+    @media(min-width: $screen-sm){
+      bottom: -1em;
+    }
   }
   60% {
     transform: scale(1.2);
-    bottom: -1.65em;
+    @media(min-width: $screen-sm){
+      bottom: -1.65em;
+    }
   }
   100% {
     transform: scale(1);
-    bottom: -1em;
+    @media(min-width: $screen-sm){
+      bottom: -1em;
+    }
+  }
+}
+.navbar-header{
+  text-transform: uppercase;
+  font-weight: 800;
+  .light{
+    font-weight: 200;
   }
 }

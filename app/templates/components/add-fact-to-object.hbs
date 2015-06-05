@@ -57,6 +57,16 @@
           <button class='btn btn-accent' {{action 'cancel' fact bubbles=false}}>
             Cancel
           </button>
+        {{else}}
+          {{#if isDeleting}}
+            <button class='btn btn-primary' {{action 'confirmDelete' fact bubbles=false}}>
+              Are You sure?
+            </button>
+          {{else}}
+            <button class='btn btn-primary' {{action 'toggleDeleting' fact bubbles=false}}>
+              Delete Fact
+            </button>
+          {{/if}}
         {{/if}}
       </div>
     {{/if}}

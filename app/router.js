@@ -15,6 +15,7 @@ Router.map(function() {
 
     this.route('curriculum', function() {
       this.route('show', { path: ':curriculum_id'});
+      this.route('edit-curriculum', { path: 'edit/:curriculum_id'});
     });
     this.route('all-facts');
     this.route('add-assignment');
