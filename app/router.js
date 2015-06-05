@@ -20,6 +20,7 @@ Router.map(function() {
     this.route('all-facts');
     this.route('add-assignment');
     this.route('my-facts');
+    this.route('lessons');
   });
   this.route('session', function() {
     this.route('new', { path: '/' });

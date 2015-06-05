@@ -1,6 +1,7 @@
 $brand-primary: #95b35d;
 $primary: lighten($brand-primary, 5%);
-$accent: #413240;
+$accent-dark: #413240;
+$accent: lighten($accent-dark, 10%);
 
 $dark-gray: #555;
 
