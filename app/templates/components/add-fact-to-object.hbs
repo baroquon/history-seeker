@@ -37,7 +37,7 @@
   </div>
   <div class='fact-actions'>
     <p>
-      {{moment fact.start_date 'MM/DD/YYYY'}}
+      {{fact.formattedDate}}
     </p>
     {{#if isForm}}
       <button {{action 'selectFact' bubbles=false}} class='styless-button pull-right'>

@@ -7,7 +7,7 @@
     position: relative;
     hr{
       width: 20%;
-      border: 2px solid lighten($accent, 30%);
+      border: 2px solid $accent;
       margin: 0;
     }
     h4{

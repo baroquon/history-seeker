@@ -4,12 +4,12 @@ import Ember from 'ember';
 export default DS.Model.extend({
   title: DS.attr('string'),
   description: DS.attr('string'),
-  start_date: DS.attr('date'),
-  end_date: DS.attr('date'),
   additional_info_link: DS.attr('string'),
   testable: DS.attr('boolean'),
   lat: DS.attr('number'),
   lng: DS.attr('number'),
+  start_date: DS.attr(),
+  end_date: DS.attr(),
   tag_list: DS.attr(),
 
   // relationships
@@ -20,5 +20,31 @@ export default DS.Model.extend({
   // computed
   hasLink: Ember.computed('additional_info_link', function(){
     return !!this.get('additional_info_link');
+  }),
+  // this still does not handle BC dates - but it gets us closer.
+  // It also doesn't handle dates with five digits in the year
+  // field so in the year 10000 we'll be screwed.
+  start_year: Ember.computed('start_date', function(){
+    if(Number(this.get('start_date').substring(0, 4)) < 0){
+      return Number(this.get('start_date').substring(0, 5));
+    } else {
+      return Number(this.get('start_date').substring(0, 4));
+    }
+  }),
+  end_year: Ember.computed('end_date', function(){
+    if(Number(this.get('end_date').substring(0, 4)) < 0){
+      return Number(this.get('end_date').substring(0, 5));
+    } else {
+      return Number(this.get('end_date').substring(0, 4));
+    }
+  }),
+  formattedDate: Ember.computed('start_date', function(){
+    if(Number(this.get('start_date').substring(0, 4)) < 0){
+      return Number(this.get('start_date').substring(1, 5)) + ' B.C.';
+    } else if(Number(this.get('start_date').substring(0, 4)) < 1500){
+      return Number(this.get('start_date').substring(0, 4)) + ' A.D.';
+    } else {
+      return this.get('start_date');
+    }
   })
 });

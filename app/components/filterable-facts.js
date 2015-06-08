@@ -20,25 +20,25 @@ export default Ember.Component.extend({
 
   minDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
     //return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
-    return moment('0200').format('YYYY');
+    return -2900;
   }),
   maxDate: Ember.computed('sorted.arrangedContent.@each.end_date', function(){
     //return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
-    return moment('2100').format('YYYY');
+    return 2100;
   }),
   newFromDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
     //return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
-    return moment('0200').format('YYYY');
+    return -2900;
   }),
   newToDate: Ember.computed('', function(){
     //return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
-    return moment('2100').format('YYYY');
+    return 2100;
   }),
   fromDate: Ember.computed('newFromDate', function() {
-    return new Date(this.get('newFromDate'));
+    return this.get('newFromDate');
   }),
   toDate: Ember.computed('newToDate', function() {
-    return new Date(this.get('newToDate'));
+    return this.get('newToDate');
   }),
 
   sorted: Ember.computed('content', function(){
@@ -75,7 +75,7 @@ export default Ember.Component.extend({
 
     if(!!newFromDate && !!newToDate){
       return facts.filter(function(fact) {
-        return fact.get('start_date') >= fromDate && fact.get('start_date') <= toDate;
+        return fact.get('start_year') >= fromDate && fact.get('end_year') <= toDate;
       });
     } else {
       return facts;
