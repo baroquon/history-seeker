@@ -42,7 +42,7 @@ export default Ember.Component.extend({
       }
       this.toggleProperty('isEditing');
     },
-    toggleDeleting: function(fact){
+    toggleDeleting: function(){
       this.toggleProperty('isDeleting');
     },
     confirmDelete: function(fact){
