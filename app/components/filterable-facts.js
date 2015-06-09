@@ -1,15 +1,14 @@
 import Ember from 'ember';
-/* global moment */
 
 export default Ember.Component.extend({
   filter: '',
   isForm: true,
-  viewType: 'list',
+  viewType: 'card',
   maxToDate: new Date(),
   showFilters: false,
   myFacts: false,
-  listType: Ember.computed('viewType', function(){
-    return this.get('viewType') === 'list';
+  cardType: Ember.computed('viewType', function(){
+    return this.get('viewType') === 'card';
   }),
   mapType: Ember.computed('viewType', function(){
     return this.get('viewType') === 'map';
@@ -19,22 +18,26 @@ export default Ember.Component.extend({
   }),
 
   minDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
-    return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
+    //return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
+    return -2900;
   }),
   maxDate: Ember.computed('sorted.arrangedContent.@each.end_date', function(){
-    return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
+    //return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
+    return 2100;
   }),
   newFromDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
-    return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
+    //return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
+    return -2900;
   }),
   newToDate: Ember.computed('', function(){
-    return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
+    //return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
+    return 2100;
   }),
   fromDate: Ember.computed('newFromDate', function() {
-    return new Date(this.get('newFromDate'));
+    return this.get('newFromDate');
   }),
   toDate: Ember.computed('newToDate', function() {
-    return new Date(this.get('newToDate'));
+    return this.get('newToDate');
   }),
 
   sorted: Ember.computed('content', function(){
@@ -71,7 +74,7 @@ export default Ember.Component.extend({
 
     if(!!newFromDate && !!newToDate){
       return facts.filter(function(fact) {
-        return fact.get('start_date') >= fromDate && fact.get('start_date') <= toDate;
+        return fact.get('start_year') >= fromDate && fact.get('end_year') <= toDate;
       });
     } else {
       return facts;
@@ -90,9 +93,12 @@ export default Ember.Component.extend({
     showModal: function(template, factObject){
       this.sendAction('action', template, factObject);
     },
-    // This switches between list view, map view, and timeline view.
+    // This switches between card view, map view, and timeline view.
     switchView: function(viewType){
       this.set('viewType', viewType);
+
+      this._super();
+      Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
     },
 
     //this toggles between showing and hiding the filters and date range options
@@ -100,4 +106,11 @@ export default Ember.Component.extend({
       this.toggleProperty('showFilters');
     }
   },
+  afterRenderEvent: function(){
+      let factsCont = Ember.$('.facts-list-container'),
+          docHeight = Ember.$(window).height(),
+          offsetTop = Ember.$('.facts-list-container').offset().top + 50;
+
+      factsCont.height(docHeight - offsetTop);
+  }
 });

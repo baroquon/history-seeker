@@ -21,11 +21,11 @@
           <strong>
             Started:
           </strong>
-          {{moment model.start_date "MMMM Do YYYY"}}
+          {{model.formattedDate}}
           <strong>
             Ended:
           </strong>
-          {{moment model.end_date "MMMM Do YYYY"}}
+          {{model.formattedDate}}
         </p>
         {{#if model.hasLink}}
           <p>

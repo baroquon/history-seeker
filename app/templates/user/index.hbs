@@ -4,6 +4,8 @@
       <div class='card-grid'>
         {{student-item store=controller.store student=student}}
       </div>
+    {{else}}
+      {{empty-notice item='students'}}
     {{/each}}
   </div>
   <button class='btn btn-primary btn-fab mdi-social-person-add btn-add' {{action 'toggleCreating'}}>
@@ -15,6 +17,8 @@
   <div class='cards'>
     {{#each current_user.teacher.curriculums as |curriculum|}}
       {{curriculum-card curriculum=curriculum}}
+    {{else}}
+      {{empty-notice item='curriculums'}}
     {{/each}}
   </div>
   {{#link-to 'user.add-curriculum' class='btn btn-primary btn-fab mdi-content-add btn-add' }}

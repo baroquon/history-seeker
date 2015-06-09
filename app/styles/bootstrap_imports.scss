@@ -2,6 +2,7 @@
 @import "bower_components/bootstrap-material-design/sass/material.scss";
 body{
   margin-top: 60px;
+  padding-bottom: 3em;
 }
 main, header, footer{
   @extend .container-fluid;

@@ -4,7 +4,7 @@
       <i class="fa fa-bars"></i>
     </button>
     {{#link-to 'index' class='navbar-brand'}}
-      <i class="fa fa-history"></i> <span class="light">history</span>Seeker
+      <span class="light">History</span>Seeker
     {{/link-to}}
   </div>
   <div class="{{if mobileShow 'in' '' }} collapse navbar-collapse">
@@ -23,6 +23,9 @@
         {{/link-to}}
         {{#link-to 'user.all-facts' tagName='li' href=false}}
           {{link-to 'All Facts' 'user.all-facts'}}
+        {{/link-to}}
+        {{#link-to 'user.lessons' tagName='li' href=false}}
+          {{link-to 'Lessons' 'user.lessons'}}
         {{/link-to}}
       {{else}}
         <li class="hidden">
