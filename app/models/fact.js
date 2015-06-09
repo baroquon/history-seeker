@@ -21,7 +21,6 @@ export default DS.Model.extend({
   hasLink: Ember.computed('additional_info_link', function(){
     return !!this.get('additional_info_link');
   }),
-  // this still does not handle BC dates - but it gets us closer.
   // It also doesn't handle dates with five digits in the year
   // field so in the year 10000 we'll be screwed.
   start_year: Ember.computed('start_date', function(){
