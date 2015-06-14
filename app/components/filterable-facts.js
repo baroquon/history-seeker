@@ -17,20 +17,19 @@ export default Ember.Component.extend({
     return this.get('viewType') === 'time';
   }),
 
+
+
+  // This is far too complex --- must refactor
   minDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
-    //return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
     return -2900;
   }),
   maxDate: Ember.computed('sorted.arrangedContent.@each.end_date', function(){
-    //return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
     return 2100;
   }),
   newFromDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
-    //return moment(this.get('sorted.arrangedContent.firstObject.start_date')).subtract(1, 'years').format('YYYY');
     return -2900;
   }),
   newToDate: Ember.computed('', function(){
-    //return moment(this.get('sorted.arrangedContent.lastObject.end_date')).add(1, 'years').format('YYYY');
     return 2100;
   }),
   fromDate: Ember.computed('newFromDate', function() {
@@ -39,6 +38,8 @@ export default Ember.Component.extend({
   toDate: Ember.computed('newToDate', function() {
     return this.get('newToDate');
   }),
+  // This is far too complex --- must refactor
+
 
   sorted: Ember.computed('content', function(){
     return Ember.ArrayController.create({
@@ -66,16 +67,20 @@ export default Ember.Component.extend({
 
   // This function handles the date range filter
   rangeFilteredContent:  Ember.computed('filteredContent', 'newFromDate', 'newToDate', function() {
-    var fromDate = this.get('fromDate'),
-        toDate = this.get('toDate'),
-        newFromDate = this.get('newFromDate'),
+    var newFromDate = this.get('newFromDate'),
         newToDate = this.get('newToDate'),
         facts = this.get('filteredContent');
 
     if(!!newFromDate && !!newToDate){
-      return facts.filter(function(fact) {
-        return fact.get('start_year') >= fromDate && fact.get('end_year') <= toDate;
+      let filteredFacts = facts.filter(function(fact) {
+        return fact.get('start_year') >= newFromDate && fact.get('end_year') <= newToDate;
       });
+      if(filteredFacts.length===0){
+        return [{title: 'Nothing Matches Here.', description: 'There are no facts that match this date query.'}];
+      } else {
+        return filteredFacts;
+      }
+
     } else {
       return facts;
     }
