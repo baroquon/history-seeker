@@ -313,6 +313,25 @@ iframe {
     }
   }
 }
+.navbar-header{
+  .navbar-brand{
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    .light{
+      font-weight: 300;
+    }
+  }
+}
+.navbar .navbar-nav > li > a{
+  border-bottom: 0px solid transparent;
+  transition: padding .5s, border .5s;
+  &:hover{
+    padding-bottom: 16px;
+    border-bottom: 4px solid $accent;
+    transition: padding .5s, border .5s;
+  }
+}
 
 @keyframes drawOpacity {
   from {
@@ -370,20 +389,9 @@ iframe {
     }
   }
 }
-.navbar-header{
-  font-family: 'Raleway', sans-serif;
-  text-transform: uppercase;
-  font-weight: 800;
-  .light{
-    font-weight: 300;
-  }
-}
-.navbar .navbar-nav > li > a{
-  border-bottom: 0px solid transparent;
-  transition: padding .5s, border .5s;
-  &:hover{
-    padding-bottom: 16px;
-    border-bottom: 4px solid $accent;
-    transition: padding .5s, border .5s;
+
+.input-two-range{
+  input{
+    cursor: pointer;
   }
 }

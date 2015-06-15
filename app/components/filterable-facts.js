@@ -17,29 +17,37 @@ export default Ember.Component.extend({
     return this.get('viewType') === 'time';
   }),
 
+  rangeTriggerFrom: Ember.observer('newFromDate', function(){
+    let from = Number(this.get('newFromDate')),
+        to   = Number(this.get('newToDate'));
 
+    Ember.removeObserver(this, 'newToDate', this, 'rangeTriggerTo');
 
-  // This is far too complex --- must refactor
-  minDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
-    return -2900;
-  }),
-  maxDate: Ember.computed('sorted.arrangedContent.@each.end_date', function(){
-    return 2100;
-  }),
-  newFromDate: Ember.computed('sorted.arrangedContent.@each.start_date', function(){
-    return -2900;
-  }),
-  newToDate: Ember.computed('', function(){
-    return 2100;
-  }),
-  fromDate: Ember.computed('newFromDate', function() {
-    return this.get('newFromDate');
-  }),
-  toDate: Ember.computed('newToDate', function() {
-    return this.get('newToDate');
-  }),
-  // This is far too complex --- must refactor
+    if(from >= to){
+      this.set('newToDate', (from + 1));
+    }
 
+    Ember.addObserver(this, 'newToDate', this, 'rangeTriggerTo');
+
+  }),
+  rangeTriggerTo: Ember.observer('newToDate', function(){
+    let from = Number(this.get('newFromDate')),
+        to   = Number(this.get('newToDate'));
+
+    Ember.removeObserver(this, 'newFromDate', this, 'rangeTriggerFrom');
+
+    if(to <= from){
+      this.set('newFromDate', (to + 1));
+    }
+
+    Ember.addObserver(this, 'newFromDate', this, 'rangeTriggerFrom');
+  }),
+  // This is maybe a little too complex --- must refactor
+  maxDate: 2100,
+  minDate: -2900,
+  newFromDate: -2900,
+  newToDate: 2100,
+  // This is maybe a little too complex --- must refactor
 
   sorted: Ember.computed('content', function(){
     return Ember.ArrayController.create({
@@ -76,11 +84,10 @@ export default Ember.Component.extend({
         return fact.get('start_year') >= newFromDate && fact.get('end_year') <= newToDate;
       });
       if(filteredFacts.length===0){
-        return [{title: 'Nothing Matches Here.', description: 'There are no facts that match this date query.'}];
+        return [{title: 'Nothing Matches Here.', description: 'There are no facts that match this date query.', lat: '1', lng: '1'}];
       } else {
         return filteredFacts;
       }
-
     } else {
       return facts;
     }
@@ -112,10 +119,10 @@ export default Ember.Component.extend({
     }
   },
   afterRenderEvent: function(){
-      let factsCont = Ember.$('.facts-list-container'),
-          docHeight = Ember.$(window).height(),
-          offsetTop = Ember.$('.facts-list-container').offset().top + 50;
+    let factsCont = Ember.$('.facts-list-container'),
+        docHeight = Ember.$(window).height(),
+        offsetTop = Ember.$('.facts-list-container').offset().top + 50;
 
-      factsCont.height(docHeight - offsetTop);
+    factsCont.height(docHeight - offsetTop);
   }
 });
