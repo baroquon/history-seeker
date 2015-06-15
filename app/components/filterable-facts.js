@@ -84,7 +84,7 @@ export default Ember.Component.extend({
         return fact.get('start_year') >= newFromDate && fact.get('end_year') <= newToDate;
       });
       if(filteredFacts.length===0){
-        return [{title: 'Nothing Matches Here.', description: 'There are no facts that match this date query.', lat: '1', lng: '1'}];
+        return [{title: 'Nothing Matches Here.', description: 'There are no facts that match this date query.', lat: '33.5250', lng: '-86.8130'}];
       } else {
         return filteredFacts;
       }
