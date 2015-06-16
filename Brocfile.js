@@ -7,7 +7,6 @@ var app = new EmberApp();
 
 app.import('vendor/ol/ol.js');
 app.import('vendor/ol/ol.css');
-app.import('bower_components/moment/moment.js');
 app.import('bower_components/bootstrap-material-design/fonts/Material-Design-Icons.woff');
 app.import('bower_components/bootstrap-material-design/fonts/Material-Design-Icons.ttf');
 

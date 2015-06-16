@@ -1,3 +1,4 @@
+@import "functions";
 @import "variables";
 @import "bootstrap_imports";
 @import "timeline";
@@ -7,6 +8,7 @@
 
 body{
   color: $dark-gray;
+  font-family: 'Raleway', sans-serif;
 }
 
 // buttons
@@ -312,6 +314,25 @@ iframe {
     }
   }
 }
+.navbar-header{
+  .navbar-brand{
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    .light{
+      font-weight: 300;
+    }
+  }
+}
+.navbar .navbar-nav > li > a{
+  border-bottom: 0px solid transparent;
+  transition: padding .5s, border .5s;
+  &:hover{
+    padding-bottom: 16px;
+    border-bottom: 4px solid $accent;
+    transition: padding .5s, border .5s;
+  }
+}
 
 @keyframes drawOpacity {
   from {
@@ -369,19 +390,9 @@ iframe {
     }
   }
 }
-.navbar-header{
-  text-transform: uppercase;
-  font-weight: 800;
-  .light{
-    font-weight: 200;
-  }
-}
-.navbar .navbar-nav > li > a{
-  border-bottom: 0px solid transparent;
-  transition: padding .5s, border .5s;
-  &:hover{
-    padding-bottom: 16px;
-    border-bottom: 4px solid $accent;
-    transition: padding .5s, border .5s;
+
+.input-two-range{
+  input{
+    cursor: pointer;
   }
 }

@@ -1,0 +1,8 @@
+@function set-text-based-on-bg-color($bg-color) {
+  @if (lightness($bg-color) > 50) {
+    @return #333;
+  } @else {
+    @return #eee;
+  }
+}
+

@@ -92,9 +92,55 @@
           padding: .25em;
           background-color: #eee;
           margin-bottom: .25em;
-          @for $i from 0 to 4 {
-            &.tag-#{$i} {
-              background-color: lighten($brand-primary, ($i * 20)),
+          &.tag {
+            background-color: lighten($accent, 10%);
+            color: #fff;
+            transition: all .5s linear;
+            &:hover{
+              transition: all .5s linear;
+              background-color: $accent;
+            }
+            &.person{
+              background-color: #4169E1;
+              color: #fff;
+              &:hover{
+                background-color: darken(#4169E1, 7%);
+              }
+            }
+            &[class*='war'], &[class*='battle'], &[class*='military'], &[class*='politic'], &[class*='assassination'], &[class*='death']{
+              background-color: $brand-danger;
+              color: #fff;
+              &:hover{
+                background-color: darken($brand-danger, 7%);
+              }
+            }
+            &[class*='poetry'], &[class*='literature'], &[class*='art'], &[class*='theater'], &[class*='theatre']{
+              background-color: $brand-warning;
+              color: set-text-based-on-bg-color($brand-warning);
+              &:hover{
+                background-color: darken($brand-warning, 7%);
+              }
+            }
+            &[class*='religion'], &[class*='philosophy'], &[class*='christianity'], &[class*='jesus'], &[class*='god'], &[class*='christ']{
+              background-color: $brand-info;
+              color: set-text-based-on-bg-color($brand-info);
+              &:hover{
+                background-color: darken($brand-info, 7%);
+              }
+            }
+            &[class*='tech'], &[class*='comput'], &[class*='software'], &[class*='hardware'], &[class*='calc']{
+              background-color: $gray;
+              color: #fff;
+              &:hover{
+                background-color: darken($gray, 7%);
+              }
+            }
+            &[class*='science'], &[class*='physics'], &[class*='math'], &[class*='biology'], &[class*='chem']{
+              background-color: #000060;
+              color: #fff;
+              &:hover{
+                background-color: darken(#000060, 7%);
+              }
             }
           }
         }
