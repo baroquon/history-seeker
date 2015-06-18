@@ -5,6 +5,7 @@
 @import "video";
 @import "buttons";
 @import "cards";
+@import "spinner";
 
 body{
   color: $dark-gray;
@@ -395,4 +396,10 @@ iframe {
   input{
     cursor: pointer;
   }
+}
+.alert-danger{
+  background-color: desaturate($brand-danger, 20);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2em;
 }
