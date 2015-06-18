@@ -45,6 +45,20 @@ button, a{
   }
 }
 
+.input-two-range{
+  input{
+    cursor: pointer;
+  }
+}
+
+.alert-danger{
+  background-color: desaturate($brand-danger, 20);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+
 // Mailchimp form
 .mailing-list{
   .input-grouping{
@@ -390,16 +404,4 @@ iframe {
       bottom: -1em;
     }
   }
-}
-
-.input-two-range{
-  input{
-    cursor: pointer;
-  }
-}
-.alert-danger{
-  background-color: desaturate($brand-danger, 20);
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.2em;
 }
