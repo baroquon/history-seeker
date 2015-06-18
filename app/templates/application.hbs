@@ -1,2 +1,7 @@
+{{#if hasError}}
+  <div class="alert alert-danger" role="alert">
+    {{loginErrorMessage}}
+  </div>
+{{/if}}
 {{outlet}}
 {{outlet 'modal'}}
