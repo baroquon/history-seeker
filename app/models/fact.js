@@ -21,29 +21,41 @@ export default DS.Model.extend({
   hasLink: Ember.computed('additional_info_link', function(){
     return !!this.get('additional_info_link');
   }),
-  // It also doesn't handle dates with five digits in the year
+  // It doesn't handle dates with five digits in the year
   // field so in the year 10000 we'll be screwed.
   start_year: Ember.computed('start_date', function(){
-    if(Number(this.get('start_date').substring(0, 4)) < 0){
-      return Number(this.get('start_date').substring(0, 5));
-    } else {
-      return Number(this.get('start_date').substring(0, 4));
+    try{
+      if(Number(this.get('start_date').substring(0, 4)) < 0){
+        return Number(this.get('start_date').substring(0, 5));
+      } else {
+        return Number(this.get('start_date').substring(0, 4));
+      }
+    } catch(e) {
+      console.log(e);
     }
   }),
   end_year: Ember.computed('end_date', function(){
-    if(Number(this.get('end_date').substring(0, 4)) < 0){
-      return Number(this.get('end_date').substring(0, 5));
-    } else {
-      return Number(this.get('end_date').substring(0, 4));
+    try{
+      if(Number(this.get('end_date').substring(0, 4)) < 0){
+        return Number(this.get('end_date').substring(0, 5));
+      } else {
+        return Number(this.get('end_date').substring(0, 4));
+      }
+    } catch(e) {
+      console.log(e);
     }
   }),
   formattedDate: Ember.computed('start_date', function(){
-    if(Number(this.get('start_date').substring(0, 4)) < 0){
-      return Number(this.get('start_date').substring(1, 5)) + ' B.C.';
-    } else if(Number(this.get('start_date').substring(0, 4)) < 1500){
-      return Number(this.get('start_date').substring(0, 4)) + ' A.D.';
-    } else {
-      return this.get('start_date');
+    try{
+      if(Number(this.get('start_date').substring(0, 4)) < 0){
+        return Number(this.get('start_date').substring(1, 5)) + ' B.C.';
+      } else if(Number(this.get('start_date').substring(0, 4)) < 1500){
+        return Number(this.get('start_date').substring(0, 4)) + ' A.D.';
+      } else {
+        return this.get('start_date');
+      }
+    } catch(e) {
+      console.log(e);
     }
   })
 });

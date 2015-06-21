@@ -7,6 +7,10 @@ export default Ember.Component.extend({
   maxToDate: new Date(),
   showFilters: false,
   myFacts: false,
+  factsNotice: undefined,
+  isANotice: Ember.computed('factsNotice', function(){
+    return !!this.get('factsNotice');
+  }),
   cardType: Ember.computed('viewType', function(){
     return this.get('viewType') === 'card';
   }),
@@ -49,7 +53,7 @@ export default Ember.Component.extend({
   newToDate: 2100,
   // This is maybe a little too complex --- must refactor
 
-  sorted: Ember.computed('content', function(){
+  sortedFacts: Ember.computed('content', function(){
     return Ember.ArrayController.create({
       content: this.get('content'),
       sortProperties: ["start_date"]
@@ -57,20 +61,26 @@ export default Ember.Component.extend({
   }),
 
   // This function handles the search filter
-  filteredContent: Ember.computed('sorted.arrangedContent', 'filter', function() {
+  filteredContent: Ember.computed('sortedFacts.arrangedContent', 'filter', function() {
     var filter = this.get('filter'),
         rx = new RegExp(filter, 'gi'),
-        facts = this.get('sorted.arrangedContent');
+        facts = this.get('sortedFacts.arrangedContent');
 
     if(!!filter){
-      return facts.filter(function(fact) {
+      let filteredFacts = facts.filter(function(fact) {
         let tags = fact.get('tag_list').join(' ');
         return fact.get('title').match(rx) || fact.get('description').match(rx) || tags.match(rx);
       });
+      if(filteredFacts.length===0){
+        this.set('factsNotice', 'There are no matching facts.');
+        return facts;
+      } else {
+        this.set('factsNotice', undefined);
+        return filteredFacts;
+      }
     } else {
       return facts;
     }
-
   }),
 
   // This function handles the date range filter
@@ -84,11 +94,14 @@ export default Ember.Component.extend({
         return fact.get('start_year') >= newFromDate && fact.get('end_year') <= newToDate;
       });
       if(filteredFacts.length===0){
-        return [{title: 'Nothing Matches Here.', description: 'There are no facts that match this date query.', lat: '33.5250', lng: '-86.8130'}];
+        this.set('factsNotice', 'There are no matching facts.');
+        return facts;
       } else {
+        this.set('factsNotice', undefined);
         return filteredFacts;
       }
     } else {
+      this.set('factsNotice', undefined);
       return facts;
     }
   }),

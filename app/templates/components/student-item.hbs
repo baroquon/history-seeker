@@ -114,5 +114,17 @@
     <button class='btn btn-accent btn-fab mdi-editor-format-list-numbered' {{action 'giveAssignment'}}>
     </button>
   </div>
+  {{#liquid-if showFullDetails}}
+    <h5>Curriculums</h5>
+    <ul>
+      {{#each student.curriculums as |curriculum|}}
+        <li>
+          {{#link-to 'user.curriculum.show' curriculum.id}}
+            {{curriculum.title}}
+          {{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/liquid-if}}
 </div>
 
