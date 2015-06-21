@@ -5,9 +5,6 @@ export default Ember.Controller.extend({
   current_user: Ember.computed.alias('controllers.current-user.current_user'),
   factsToAdd: [],
   resetChecks: false,
-  facts: Ember.computed(function(){
-    return this.store.findAll('fact');
-  }),
   returnChecksToDefault: function(){
     // If a new curriculum has already been saved we need to reset this value to false
     // so that when we save again we can once again clear the selected checkboxes..

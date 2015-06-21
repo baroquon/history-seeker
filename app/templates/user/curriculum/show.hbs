@@ -1,5 +1,7 @@
 <h3>{{model.title}}</h3>
-{{link-to 'Edit' 'user.curriculum.edit-curriculum' model}}
-{{add-fact curriculum=facts store=controller.store current_user=current_user}}
+{{#if currentUserOwnsCurriculum}}
+  {{link-to 'Edit' 'user.curriculum.edit-curriculum' model}}
+  {{add-fact curriculum=facts store=controller.store current_user=current_user}}
+{{/if}}
 
 {{filterable-facts action='showModal' content=model.facts isForm=false}}
