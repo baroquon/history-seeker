@@ -116,15 +116,18 @@
   </div>
   {{#liquid-if showFullDetails}}
     <h5>Curriculums</h5>
-    <ul>
+    <ul class="list-group">
       {{#each student.curriculums as |curriculum|}}
-        <li>
+        <li class="list-group-item">
           {{#link-to 'user.curriculum.show' curriculum.id}}
             {{curriculum.title}}
           {{/link-to}}
         </li>
       {{/each}}
     </ul>
+    {{#link-to 'user.curriculum.show' curriculum.id}}
+      <h5>All Student Facts</h5>
+    {{/link-to}}
   {{/liquid-if}}
 </div>
 

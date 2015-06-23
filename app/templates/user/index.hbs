@@ -2,7 +2,7 @@
   <div class='cards'>
     {{#each current_user.students as |student|}}
       <div class='card-grid'>
-        {{student-item store=controller.store student=student}}
+        {{student-item store=store student=student}}
       </div>
     {{else}}
       {{empty-notice item='students'}}
@@ -11,7 +11,7 @@
   <button class='btn btn-primary btn-fab mdi-social-person-add btn-add' {{action 'toggleCreating'}}>
   </button>
   {{#liquid-if isCreating}}
-    {{create-student store=controller.store current_user=current_user action='toggleCreating'}}
+    {{create-student store=store current_user=current_user action='toggleCreating'}}
   {{/liquid-if}}
 {{else}}
   <div class='cards'>
