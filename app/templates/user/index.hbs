@@ -1,6 +1,6 @@
 {{#if isTeacher}}
   <div class='cards'>
-    {{#each current_user.students as |student|}}
+    {{#each current_user.students key='@index' as |student|}}
       <div class='card-grid'>
         {{student-item store=store student=student}}
       </div>
@@ -15,7 +15,7 @@
   {{/liquid-if}}
 {{else}}
   <div class='cards'>
-    {{#each current_user.teacher.curriculums as |curriculum|}}
+    {{#each current_user.teacher.curriculums key='@index' as |curriculum|}}
       {{curriculum-card curriculum=curriculum}}
     {{else}}
       {{empty-notice item='curriculums'}}

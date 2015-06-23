@@ -6,7 +6,7 @@
   <div class='alert alert-info'>
     {{current_user.teacher.fullName}} has given you an assignment:
     <strong>
-      {{#each current_user.assignments as |assignment|}}
+      {{#each current_user.assignments key='@index' as |assignment|}}
         {{#unless assignment.is_complete}}
           {{assignment.description}}
           <button class='styless-button' {{action 'assignmentComplete' assignment}}>

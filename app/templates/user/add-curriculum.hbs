@@ -20,7 +20,7 @@
 </div>
 {{filterable-facts action='showModal' content=model resetChecks=resetChecks addFactToCurriculum='addFactToCurriculum'}}
 <ul>
-  {{#each factsToAdd as |addedFact|}}
+  {{#each factsToAdd key='@index' as |addedFact|}}
     <li>{{addedFact.title}}</li>
   {{/each}}
 </ul>

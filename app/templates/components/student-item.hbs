@@ -3,7 +3,7 @@
   <hr>
   {{#liquid-if showGrades}}
     <ul class='assignment-details'>
-      {{#each completeAssignments as |ca|}}
+      {{#each completeAssignments key='@index' as |ca|}}
         <li>
           {{grade-assignment assignment=ca}}
         </li>
@@ -12,14 +12,14 @@
   {{/liquid-if}}
   {{#liquid-if showPending}}
     <ul class='assignment-details'>
-      {{#each pendingAssignments as |ca|}}
-        <li>{{ca.description}}</li>
+      {{#each pendingAssignments key='@index' as |pa|}}
+        <li>{{pa.description}}</li>
       {{/each}}
     </ul>
   {{/liquid-if}}
   {{#liquid-if showComplete}}
     <ul class='assignment-details'>
-      {{#each completeAssignments as |ca|}}
+      {{#each completeAssignments key='@index' as |ca|}}
         <li>{{ca.description}}</li>
       {{/each}}
     </ul>
@@ -117,7 +117,7 @@
   {{#liquid-if showFullDetails}}
     <h5>Curriculums</h5>
     <ul class="list-group">
-      {{#each student.curriculums as |curriculum|}}
+      {{#each student.curriculums key='@index' as |curriculum|}}
         <li class="list-group-item">
           {{#link-to 'user.curriculum.show' curriculum.id}}
             {{curriculum.title}}
