@@ -3,18 +3,29 @@
     Signup
   </h2>
   <p class='intro-text'>
-    Launching August 2015!
+    Welcome all! Signup below to get started.
   </p>
   <p class='intro-text'>
-    We aren&apos;t quite ready for registrations yet. But if you would like us to notify you when we are ready to launch, just leave a little information below and you will be among the first people we tell.
   </p>
   <div id="mc_embed_signup">
-    <form action="//historyseeker.us11.list-manage.com/subscribe/post?u=e294a3f00fde7c3db388e02a7&amp;id=e94cef63b5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <form {{action 'signup' on='submit'}}>
       <div id="mc_embed_signup_scroll">
         <div class="form-group input-group-lg">
           <label for="mce-EMAIL" class='sr-only'>Email Address  <span class="asterisk">*</span>
           </label>
+          {{input
+          }}
           <input type="email" placeholder='Email' value="" name="EMAIL" class="required email form-control input-lg" id="mce-EMAIL">
+        </div>
+        <div class="form-group input-group-lg">
+          <label for="password" class='sr-only'>Password<span class="asterisk">*</span>
+          </label>
+          <input type="password" placeholder='Password' value="" name="PASSWORD" class="required password form-control input-lg" id="register-password">
+        </div>
+        <div class="form-group input-group-lg">
+          <label for="password_confirmation" class='sr-only'>Password Confirmation<span class="asterisk">*</span>
+          </label>
+          <input type="password" placeholder='Password Confirmation' value="" name="PASSWORD_confirmation" class="required password form-control input-lg" id="register-password-confirmation">
         </div>
         <div class='row input-grouping'>
           <div class="col-md-6">
@@ -30,16 +41,14 @@
             </div>
           </div>
         </div>
-        <div class='row input-grouping'>
-          <div class="col-md-12">
-            <div id="mce-responses" class="clear">
-              <div class="response alert alert-error" id="mce-error-response" style="display:none"></div>
-              <div class="response alert alert-info" id="mce-success-response" style="display:none"></div>
-            </div>
-          </div>
-        </div>
-        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-        <div style="position: absolute; left: -5000px;"><input type="text" name="b_e294a3f00fde7c3db388e02a7_e94cef63b5" tabindex="-1" value=""></div>
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_YpKT2wlL7mlQ7QrAzx02BrZr"
+          data-amount="999"
+          data-name="History Seeker"
+          data-description="Renewing Monthly Subscription"
+          data-image="/assets/images/logo_sm.png">
+        </script>
         <div class='row input-grouping'>
           <div class="col-md-12">
             <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-lg">
