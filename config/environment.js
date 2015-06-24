@@ -55,6 +55,12 @@ module.exports = function(environment) {
     ENV.baseURL = '/';
     ENV.locationType = 'none';
 
+    // This keeps the test sessions from persisting and influencing different tests
+    ENV['simple-auth'] = {
+      store: 'simple-auth-session-store:ephemeral',
+      authorizer: 'simple-auth-authorizer:devise'
+    }
+
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
