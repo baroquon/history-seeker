@@ -1,4 +1,4 @@
-{{add-fact store=controller.store current_user=current_user addCreate=true addFactToCurriculum='addFactToCurriculum'}}
+{{add-fact store=store current_user=current_user addCreate=true addFactToCurriculum='addFactToCurriculum'}}
 <div class='form-group'>
   <label class='sr-only' for='new-curriculum-title'>
     Title
@@ -18,7 +18,13 @@
     value=newDescription
   }}
 </div>
-{{filterable-facts action='showModal' content=model resetChecks=resetChecks addFactToCurriculum='addFactToCurriculum'}}
+<h2>
+  Choose Some Facts:
+</h2>
+<h3>My Facts</h3>
+{{filterable-facts action='showModal' content=model.myFacts resetChecks=resetChecks addFactToCurriculum='addFactToCurriculum' myFactsAddCurriculum='myFacts'}}
+<h3>All Facts</h3>
+{{filterable-facts action='showModal' content=model.allFacts resetChecks=resetChecks addFactToCurriculum='addFactToCurriculum' myFactsAddCurriculum='allFacts'}}
 <ul>
   {{#each factsToAdd key='@index' as |addedFact|}}
     <li>{{addedFact.title}}</li>

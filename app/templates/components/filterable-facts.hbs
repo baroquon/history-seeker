@@ -76,18 +76,13 @@
           </button>
         </div>
         <div class='filter-items'>
-          <button class='btn btn-fab btn-raised mdi-action-search btn-supplemental' {{action 'toggleFilters'}}>
+          <button class='btn btn-fab btn-raised mdi-action-search btn-supplemental {{myFactsAddCurriculum}}' {{action 'toggleFilters'}}>
           </button>
         </div>
       </div>
     </div>
 
       <!-- Default panel contents -->
-    {{#if isForm}}
-      <h2>
-        Choose Some Facts:
-      </h2>
-    {{/if}}
     {{#if cardType}}
       <div class='cards'>
         {{#each rangeFilteredContent key="@index" as |fact|}}
