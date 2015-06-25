@@ -1,7 +1,7 @@
 <div class="panel-body clickable" {{action 'showModal' 'facts.show' fact}}>
   {{#unless isEditing}}
     <ul class="tags">
-      {{#each fact.tag_list as |tag|}}
+      {{#each fact.tag_list key="@index" as |tag|}}
         {{tag-list-item tag=tag}}
       {{/each}}
     </ul>

@@ -137,5 +137,8 @@ export default Ember.Component.extend({
         offsetTop = Ember.$('.facts-list-container').offset().top + 50;
 
     factsCont.height(docHeight - offsetTop);
+  },
+  didInsertElement: function(){
+    this.set('factsNotice', undefined);
   }
 });
