@@ -50,6 +50,36 @@
   transition: 1s all;
   &:hover {
     background-color: #777;
+    &:after{
+      background-color: $accent;
+      border-radius: 8px;
+      box-shadow: $box-shadow;
+      text-transform: capitalize;
+      content: 'Filter Facts';
+      clear: both;
+      color: #fff;
+      display: block;
+      font-size: 15px;
+      padding: 5px;
+      position: absolute;
+      right: 66px;
+      top: 14px;
+    }
+  }
+  &.myFacts{
+    bottom: 7em;
+    &:hover{
+      &:after{
+        content: 'Filter My Facts';
+      }
+    }
+  }
+  &.allFacts{
+    &:hover{
+      &:after{
+        content: 'Filter All Facts';
+      }
+    }
   }
 }
 

@@ -2,6 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(){
-    return this.store.findAll('fact');
+    let allFacts = this.store.query('fact', {queryParams: {user_id: 'none'}}),
+        myFacts  = this.modelFor('user').get('facts');
+    return Ember.RSVP.hash({
+      myFacts: myFacts,
+      allFacts: allFacts
+    });
   }
 });
