@@ -7,6 +7,11 @@ export default Ember.Component.extend({
   maxToDate: new Date(),
   showFilters: false,
   myFacts: false,
+  hasArrow: true,
+  personalReference: "this student does",
+  emptyNotice: Ember.computed('personalReference', function(){
+    return 'It looks like ' + this.get('personalReference') + ' not have any personal facts yet.';
+  }),
   factsNotice: undefined,
   isANotice: Ember.computed('factsNotice', function(){
     return !!this.get('factsNotice');
