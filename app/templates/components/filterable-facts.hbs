@@ -90,7 +90,7 @@
             {{add-fact-to-object action='showModal' fact=fact resetChecks=resetChecks addFactToCurriculum="addFactToCurriculum" isForm=isForm myFacts=myFacts}}
           </div>
         {{else}}
-          {{empty-notice item='personal facts'}}
+          {{empty-notice emptyNotice=emptyNotice hasArrow=hasArrow}}
         {{/each}}
       </div>
     {{else if mapType}}

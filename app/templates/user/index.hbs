@@ -5,7 +5,7 @@
         {{student-item store=store student=student}}
       </div>
     {{else}}
-      {{empty-notice item='students'}}
+      {{empty-notice emptyNotice='It looks like you do not have any students yet. <br> Why not add one?'}}
     {{/each}}
   </div>
   <button class='btn btn-primary btn-fab mdi-social-person-add btn-add' {{action 'toggleCreating'}}>
@@ -18,7 +18,7 @@
     {{#each current_user.teacher.curriculums key='@index' as |curriculum|}}
       {{curriculum-card curriculum=curriculum}}
     {{else}}
-      {{empty-notice item='curriculums'}}
+      {{empty-notice emptyNotice='It looks like you do not have any fact collections yet. <br> Why not create one?'}}
     {{/each}}
   </div>
   {{#link-to 'user.add-curriculum' class='btn btn-primary btn-fab mdi-content-add btn-add' }}

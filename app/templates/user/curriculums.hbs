@@ -2,7 +2,7 @@
   {{#each current_user.curriculums key='@index' as |curriculum|}}
     {{curriculum-card curriculum=curriculum}}
   {{else}}
-    {{empty-notice item='curriculums'}}
+    {{empty-notice emptyNotice='It looks like you do not have any fact collections yet. <br> Why not create one?'}}
   {{/each}}
 </div>
 {{#link-to 'user.add-curriculum' class='btn btn-primary btn-fab mdi-content-add btn-add' }}
