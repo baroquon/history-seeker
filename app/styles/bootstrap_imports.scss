@@ -25,6 +25,42 @@ main {
 
 .modal{
   display: block; // using bootstraps markup for modals but we'll use ember to show it
+  z-index: 9999999999;
+  .modal-dialog{
+    max-height: 90%;
+    box-shadow: $box-shadow;
+    overflow-y: scroll;
+    @media(max-width: $screen-sm){
+      .map-container{
+        max-height: 300px;
+      }
+    }
+    @media(min-width: $screen-sm){
+      width: 90%;
+      .map-container{
+        width: 50%;
+        float: right;
+        margin: 1em;
+        &:after{
+          clear: both;
+          display: block;
+          content: '';
+        }
+      }
+    }
+    .modal-body{
+      &:after{
+        clear: both;
+        content: "";
+        display: block;
+      }
+    }
+  }
+  .markdown{
+    img{
+      max-width: 100%;
+    }
+  }
 }
 
 
