@@ -23,6 +23,29 @@
           </div>
         </div>
         <div class='col-md-6'>
+          <div class='row'>
+            <div class='col-md-12'>
+              <div class='map-picker-wrapper'>
+                {{ol3-map-picker action='setLngLat'}}
+              </div>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-sm-6'>
+              <div class="form-group">
+                <label for="lat">Latitude</label>
+                {{newLat}}
+              </div>
+            </div>
+            <div class='col-sm-6'>
+              <div class="form-group">
+                <label for="lng">Longitude</label>
+                {{newLng}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='col-md-6'>
           <div class="form-group">
             <label for="start_date">Start Date</label>
             {{bootstrap-datepicker
@@ -33,8 +56,6 @@
               class='form-control'
               }}
           </div>
-        </div>
-        <div class='col-md-6'>
           <div class="form-group">
             <label for="end_date">End Date</label>
             {{bootstrap-datepicker
@@ -45,25 +66,6 @@
               class='form-control'
               }}
           </div>
-        </div>
-        <div class='col-md-12'>
-          <div class='map-picker-wrapper'>
-            {{ol3-map-picker action='setLngLat'}}
-          </div>
-        </div>
-        <div class='col-md-6'>
-          <div class="form-group">
-            <label for="lat">Latitude</label>
-            {{newLat}}
-          </div>
-        </div>
-        <div class='col-md-6'>
-          <div class="form-group">
-            <label for="lng">Longitude</label>
-            {{newLng}}
-          </div>
-        </div>
-        <div class='col-md-6'>
           <div class="form-group">
             <label for="additional_info_link">Link to Additional Information</label>
             {{input
@@ -73,8 +75,6 @@
               class='form-control'
               }}
           </div>
-        </div>
-        <div class='col-md-6'>
           <div class="form-group">
             <label for="tag_list">Tags</label>
             {{input
@@ -84,9 +84,11 @@
               class='form-control'
               }}
           </div>
+          <div class="form-group">
+            <button class='btn btn-primary create-new-fact-button' {{action 'createFact'}}>Create Fact</button>
+          </div>
         </div>
       </div>
-      <button class='btn btn-primary create-new-fact-button' {{action 'createFact'}}>Create Fact</button>
     </div>
   </div>
 {{/liquid-if}}

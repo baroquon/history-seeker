@@ -229,8 +229,14 @@ ul.banner-social-buttons {
 
 .map-picker-wrapper{
   .map {
-    height: 200px;
+    height: 300px;
   }
+}
+.panel.facts-list-container{ .map{
+   @media(min-width: $screen-sm){
+     height: 400px;
+   }
+ }
 }
 
 .navbar{

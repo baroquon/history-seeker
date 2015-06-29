@@ -6,13 +6,13 @@
         <h4 class="modal-title">{{model.title}}</h4>
       </div>
       <div class="modal-body">
-        <p>
-          {{markdown-section content=model.description}}
-        </p>
         <div class='map-container'>
           {{ol3-map}}
           {{ol3-map facts=markers}}
         </div>
+        <p>
+          {{markdown-section content=model.description}}
+        </p>
         <p>
           <strong>Latitude:</strong> {{model.lat}}
           <strong>Longitude:</strong> {{model.lng}}

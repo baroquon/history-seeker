@@ -34,7 +34,7 @@
 .btn-add{
   position: fixed;
   bottom: 1em;
-  right: 1em;
+  right: .25em;
   z-index: 9999999999999;
   box-shadow: $box-shadow;
   transition: 1s all;
@@ -44,7 +44,7 @@
   background-color: #999;
   position: fixed;
   bottom: 4em;
-  right: 1em;
+  right: .25em;
   z-index: 9999999999999;
   box-shadow: $box-shadow;
   transition: 1s all;
@@ -85,7 +85,7 @@
 
 .notes-button{
   position: fixed;
-  right: 2em;
+  right: .5em;
   top: 5em;
   z-index: 9999999999999;
 }
