@@ -60,3 +60,15 @@ main {
   line-height: 1.33333;
   padding: 10px 16px;
 }
+
+@media (min-width: 768px) {
+  /* This keeps the right nav bar section from wrapping when the right and left collide
+     it is not a terribly flexible solution and should be revisited. This should not
+     be a problem as the nav bar will have to be revisted anyway if any more items are added.
+   */
+  .navbar-right {
+    top: 0;
+    position: absolute;
+    right: 15px;
+  }
+}
