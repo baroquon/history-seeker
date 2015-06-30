@@ -1,6 +1,6 @@
-import DS from 'ember-data';
+import ActiveModelAdapter from 'active-model-adapter';
 
-export default DS.ActiveModelAdapter.extend({
+export default ActiveModelAdapter.extend({
   host: 'https://intense-castle-9219.herokuapp.com',
   //host: 'http://localhost:3000',
   headers: {

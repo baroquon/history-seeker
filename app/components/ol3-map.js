@@ -80,7 +80,7 @@ export default Ember.Component.extend({
           fact: fact
         }));
       } catch(e) {
-        console.log('dangit, had an error at this [lat, long]:');
+        console.log('We had an error at this [lat, long]:');
         console.log([fact.get('lat'), fact.get('lng')]);
       }
     });

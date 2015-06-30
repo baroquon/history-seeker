@@ -25,6 +25,42 @@ main {
 
 .modal{
   display: block; // using bootstraps markup for modals but we'll use ember to show it
+  z-index: 9999999999;
+  .modal-dialog{
+    max-height: 90%;
+    box-shadow: $box-shadow;
+    overflow-y: scroll;
+    @media(max-width: $screen-sm){
+      .map-container{
+        max-height: 300px;
+      }
+    }
+    @media(min-width: $screen-sm){
+      width: 90%;
+      .map-container{
+        width: 50%;
+        float: right;
+        margin: 1em;
+        &:after{
+          clear: both;
+          display: block;
+          content: '';
+        }
+      }
+    }
+    .modal-body{
+      &:after{
+        clear: both;
+        content: "";
+        display: block;
+      }
+    }
+  }
+  .markdown{
+    img{
+      max-width: 100%;
+    }
+  }
 }
 
 
@@ -59,4 +95,16 @@ main {
   height: 46px;
   line-height: 1.33333;
   padding: 10px 16px;
+}
+
+@media (min-width: 768px) {
+  /* This keeps the right nav bar section from wrapping when the right and left collide
+     it is not a terribly flexible solution and should be revisited. This should not
+     be a problem as the nav bar will have to be revisted anyway if any more items are added.
+   */
+  .navbar-right {
+    top: 0;
+    position: absolute;
+    right: 15px;
+  }
 }

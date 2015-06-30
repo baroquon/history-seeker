@@ -34,7 +34,7 @@
 .btn-add{
   position: fixed;
   bottom: 1em;
-  right: 1em;
+  right: .25em;
   z-index: 9999999999999;
   box-shadow: $box-shadow;
   transition: 1s all;
@@ -44,18 +44,48 @@
   background-color: #999;
   position: fixed;
   bottom: 4em;
-  right: 1em;
+  right: .25em;
   z-index: 9999999999999;
   box-shadow: $box-shadow;
   transition: 1s all;
   &:hover {
     background-color: #777;
+    &:after{
+      background-color: $accent;
+      border-radius: 8px;
+      box-shadow: $box-shadow;
+      text-transform: capitalize;
+      content: 'Filter Facts';
+      clear: both;
+      color: #fff;
+      display: block;
+      font-size: 15px;
+      padding: 5px;
+      position: absolute;
+      right: 66px;
+      top: 14px;
+    }
+  }
+  &.myFacts{
+    bottom: 7em;
+    &:hover{
+      &:after{
+        content: 'Filter My Facts';
+      }
+    }
+  }
+  &.allFacts{
+    &:hover{
+      &:after{
+        content: 'Filter All Facts';
+      }
+    }
   }
 }
 
 .notes-button{
   position: fixed;
-  right: 2em;
+  right: .5em;
   top: 5em;
   z-index: 9999999999999;
 }

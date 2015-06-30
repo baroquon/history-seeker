@@ -19,6 +19,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "active-model-adapter": "1.13.2",
     "broccoli-asset-rev": "^2.0.2",
     "broccoli-funnel": "^0.2.3",
     "broccoli-sass": "0.6.4",
@@ -37,16 +38,16 @@
     "ember-cli-qunit": "0.3.13",
     "ember-cli-simple-auth": "0.8.0-beta.3",
     "ember-cli-simple-auth-devise": "0.8.0-beta.3",
+    "ember-cli-simple-auth-testing": "0.8.0",
     "ember-cli-uglify": "^1.0.1",
-    "ember-data": "1.13.2",
+    "ember-data": "1.13.3",
     "ember-disable-proxy-controllers": "^0.7.0",
     "ember-export-application-global": "^1.0.2",
     "ember-marked": "0.0.5",
     "ember-moment": "1.1.1",
     "express": "^4.12.4",
     "glob": "^5.0.10",
-    "liquid-fire": "ef4/liquid-fire",
-    "morgan": "^1.5.3",
-    "ember-export-application-global": "^1.0.2"
+    "liquid-fire": "0.20.4",
+    "morgan": "^1.5.3"
   }
 }

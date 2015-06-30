@@ -7,6 +7,11 @@ export default Ember.Component.extend({
   maxToDate: new Date(),
   showFilters: false,
   myFacts: false,
+  hasArrow: true,
+  personalReference: "this student does",
+  emptyNotice: Ember.computed('personalReference', function(){
+    return 'It looks like ' + this.get('personalReference') + ' not have any personal facts yet.';
+  }),
   factsNotice: undefined,
   isANotice: Ember.computed('factsNotice', function(){
     return !!this.get('factsNotice');
@@ -121,21 +126,13 @@ export default Ember.Component.extend({
     // This switches between card view, map view, and timeline view.
     switchView: function(viewType){
       this.set('viewType', viewType);
-
-      this._super();
-      Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
     },
-
     //this toggles between showing and hiding the filters and date range options
     toggleFilters: function(){
       this.toggleProperty('showFilters');
     }
   },
-  afterRenderEvent: function(){
-    let factsCont = Ember.$('.facts-list-container'),
-        docHeight = Ember.$(window).height(),
-        offsetTop = Ember.$('.facts-list-container').offset().top + 50;
-
-    factsCont.height(docHeight - offsetTop);
+  didInsertElement: function(){
+    this.set('factsNotice', undefined);
   }
 });
