@@ -1,3 +1,12 @@
+.stripe-button-el{
+  width: 100%;
+  margin: 1em 0 !important;
+  span{
+    padding: .5em !important;
+    font-size: 1.5em !important;
+    height: auto !important;
+  }
+}
 .action-buttons-container{
   margin: 1em 0 0;
   text-align: right;
