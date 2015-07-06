@@ -15,7 +15,14 @@
   {{/liquid-if}}
 {{else}}
   <div class='cards'>
-    {{#each current_user.teacher.curriculums key='@index' as |curriculum|}}
+    <h3>Your Teacher&apos;s Fact Collections</h3>
+    {{#each current_user.teacher.curriculums as |curriculum|}}
+      {{curriculum-card curriculum=curriculum}}
+    {{else}}
+      {{empty-notice emptyNotice='It looks like your teacher does not have any fact collections yet.' hasArrow=false}}
+    {{/each}}
+    <h3>Your Fact Collections</h3>
+    {{#each current_user.curriculums as |curriculum|}}
       {{curriculum-card curriculum=curriculum}}
     {{else}}
       {{empty-notice emptyNotice='It looks like you do not have any fact collections yet. <br> Why not create one?'}}
