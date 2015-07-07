@@ -3,6 +3,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 moduleForComponent('fact-timeline', 'Unit | Component | fact timeline', {
   // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
+  unit: true
 });
 
 test('it renders', function(assert) {
