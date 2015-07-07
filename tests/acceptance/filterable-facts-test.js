@@ -4,7 +4,7 @@ import startApp from 'historicity/tests/helpers/start-app';
 
 var application;
 
-module('Acceptance | login', {
+module('Acceptance | filterable facts', {
   beforeEach: function() {
     application = startApp();
   },
@@ -14,14 +14,12 @@ module('Acceptance | login', {
   }
 });
 
-test('see if we can sign in successfully', function(assert){
-  assert.expect(1);
+test('visiting /user/all-facts', function(assert) {
   authenticateSession();
-  currentSession().set('content.secure.user_id', 1);
-  visit('/user');
+  visit('/user/all-facts');
 
-  andThen(function () {
-    assert.equal(currentURL(), '/user' , "we are not redirected when we are already signed in");
+  andThen(function() {
+
+    assert.equal(currentURL(), '/user/all-facts');
   });
 });
-
