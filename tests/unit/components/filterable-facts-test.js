@@ -4,37 +4,36 @@ import {
 } from 'ember-qunit';
 import Ember from 'ember';
 
-var obj1 = Ember.Object.create({
-  id: 1,
-  title: 'foo1',
-  description: 'Some other stuff.',
-  tag_list: ['some', 'tags'],
-  start_date: '1922-12-12',
-  end_date: '1922-12-12',
-  additional_info_link: 'http://www.baroquon.com',
-  testable: false,
-  lat: 1,
-  lng: 1,
-});
-var obj2 = Ember.Object.create({
-  id: 2,
-  title: 'foo1',
-  description: 'Some other stuff.',
-  tag_list: ['some', 'tags'],
-  start_date: '1922-12-12',
-  end_date: '1922-12-12',
-  additional_info_link: 'http://www.baroquon.com',
-  testable: false,
-  lat: 1,
-  lng: 1,
-});
-var content = Ember.ArrayController.create({
-  model: [
-    {obj1},
-    {obj2},
-  ],
-  sortProperties: ['start_date']
-});
+var facts = [
+  {
+    id: 1,
+    title: 'foo1',
+    description: 'Some other stuff.',
+    tag_list: ['some', 'tags'],
+    start_date: '0322-12-12 BC',
+    end_date: '0322-12-12 BC',
+    start_year: '-322',
+    end_year: '-322',
+    additional_info_link: 'http://www.baroquon.com',
+    testable: false,
+    lat: 1,
+    lng: 1,
+  },
+  {
+    id: 2,
+    title: 'foo1',
+    description: 'Some other stuff.',
+    tag_list: ['some', 'tags'],
+    start_date: '0012-12-12 BC',
+    end_date: '0012-12-12 BC',
+    start_year: '-12',
+    end_year: '-12',
+    additional_info_link: 'http://www.baroquon.com',
+    testable: false,
+    lat: 1,
+    lng: 1,
+  },
+];
 
 moduleForComponent('filterable-facts', {
   needs: [
@@ -52,8 +51,10 @@ test('it renders with data', function(assert) {
   assert.equal(component._state, 'preRender');
 
   Ember.run(function() {
-    component.set('content', content);
-    component.set('rangeFilteredContent', content.arrangedContent);
+    component.set('facts', facts);
+    // This tests that the filteredContent filters the facts properly
+
+    assert.equal(component.get('facts')[0], component.get('rangeFilteredContent')[1]);
   });
 
   // The template renders appropriately
@@ -64,4 +65,5 @@ test('it renders with data', function(assert) {
 
   // It's in the DOM - this is a meaningless test :D
   assert.equal(component._state, 'inDOM');
+
 });

@@ -26,6 +26,9 @@ export default Ember.Component.extend({
     return this.get('viewType') === 'time';
   }),
 
+  // perhaps this needs to be removed and all calls to this component should replace content with facts
+  facts: Ember.computed.alias('content'),
+
   rangeTriggerFrom: Ember.observer('newFromDate', function(){
     let from = Number(this.get('newFromDate')),
         to   = Number(this.get('newToDate'));
@@ -58,18 +61,15 @@ export default Ember.Component.extend({
   newToDate: 2100,
   // This is maybe a little too complex --- must refactor
 
-  sortedFacts: Ember.computed('content', function(){
-    return Ember.ArrayController.create({
-      content: this.get('content'),
-      sortProperties: ["start_date"]
-    });
+  sortedFacts: Ember.computed('facts', 'facts.@each.start_year', function(){
+    return this.get('facts').sortBy('start_year');
   }),
 
   // This function handles the search filter
-  filteredContent: Ember.computed('sortedFacts.arrangedContent', 'filter', function() {
+  filteredContent: Ember.computed('sortedFacts', 'filter', function() {
     var filter = this.get('filter'),
         rx = new RegExp(filter, 'gi'),
-        facts = this.get('sortedFacts.arrangedContent');
+        facts = this.get('sortedFacts');
 
     if(!!filter){
       let filteredFacts = facts.filter(function(fact) {
@@ -96,7 +96,11 @@ export default Ember.Component.extend({
 
     if(!!newFromDate && !!newToDate){
       let filteredFacts = facts.filter(function(fact) {
-        return fact.get('start_year') >= newFromDate && fact.get('end_year') <= newToDate;
+        try{
+          return fact.get('start_year') >= newFromDate && fact.get('end_year') <= newToDate;
+        } catch(e){
+          return fact;
+        }
       });
       if(filteredFacts.length===0){
         this.set('factsNotice', 'There are no matching facts.');
