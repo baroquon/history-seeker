@@ -28,13 +28,10 @@ var obj2 = Ember.Object.create({
   lat: 1,
   lng: 1,
 });
-var content = Ember.ArrayController.create({
-  model: [
-    {obj1},
-    {obj2},
-  ],
-  sortProperties: ['start_date']
-});
+var facts = [
+  {obj2},
+  {obj1},
+];
 
 moduleForComponent('filterable-facts', {
   needs: [
@@ -52,8 +49,7 @@ test('it renders with data', function(assert) {
   assert.equal(component._state, 'preRender');
 
   Ember.run(function() {
-    component.set('content', content);
-    component.set('rangeFilteredContent', content.arrangedContent);
+    component.set('facts', facts);
   });
 
   // The template renders appropriately
@@ -64,4 +60,7 @@ test('it renders with data', function(assert) {
 
   // It's in the DOM - this is a meaningless test :D
   assert.equal(component._state, 'inDOM');
+
+  // failing test for new, simplified search/sort of facts
+  assert.equal(component.facts[0].id, component.rangeFilteredContent[1].id);
 });
