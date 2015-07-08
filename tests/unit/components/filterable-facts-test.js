@@ -52,8 +52,8 @@ test('it renders with data', function(assert) {
 
   Ember.run(function() {
     component.set('facts', facts);
-    // This tests that the filteredContent filters the facts properly
 
+    // This tests that the filteredContent filters the facts properly
     assert.equal(component.get('facts')[0], component.get('rangeFilteredContent')[1]);
   });
 
