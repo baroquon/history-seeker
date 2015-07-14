@@ -11,7 +11,8 @@ export default Ember.Component.extend({
           date_of_birth = this.get('newDateOfBirth'),
           email = this.get('newEmail'),
           password = this.get('newPassword'),
-          teacher = this.get('current_user');
+          teacher = this.get('current_user'),
+          account = this.get('current_user.account');
 
       var new_student = store.createRecord('user', {
         first_name: firstName,
@@ -22,7 +23,8 @@ export default Ember.Component.extend({
         password: password,
         password_confirmation: password,
         role: 'student',
-        teacher: teacher
+        teacher: teacher,
+        account: account
       });
 
       new_student.save();

@@ -30,6 +30,7 @@ export default DS.Model.extend({
   }),
   curriculums: DS.hasMany('curriculum', { async: true }),
   facts: DS.hasMany('fact', { async: true }),
+  account: DS.belongsTo('account', { async: true }),
 
   // Computed Properties
   fullName: Ember.computed('first_name', 'last_name', function() {
