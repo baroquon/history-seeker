@@ -1,28 +1,40 @@
-<header>
-  {{notes-field user=model store=store}}
-  {{navigation-component session=session current_user=current_user}}
-</header>
-{{#liquid-if alertPresent}}
-  <div class='alert alert-info'>
-    {{current_user.teacher.fullName}} has given you an assignment:
-    <strong>
-      {{#each current_user.assignments key='@index' as |assignment|}}
-        {{#unless assignment.is_complete}}
-          {{assignment.description}}
-          <button class='styless-button' {{action 'assignmentComplete' assignment}}>
-            Mark Complete
-          </button>
-        {{/unless}}
-      {{/each}}
-    </strong>
-    <button type="button" class="close" {{action 'dismissAlert'}}><span aria-hidden="true">&times;</span></button>
-  </div>
-{{/liquid-if}}
-<main>
-  <div class='row'>
-    <div class="col-md-12">
-      {{outlet}}
+{{#if model.account.active}}
+  <header>
+    {{notes-field user=model store=store}}
+    {{navigation-component session=session current_user=current_user}}
+  </header>
+  {{#liquid-if alertPresent}}
+    <div class='alert alert-info'>
+      {{current_user.teacher.fullName}} has given you an assignment:
+      <strong>
+        {{#each current_user.assignments key='@index' as |assignment|}}
+          {{#unless assignment.is_complete}}
+            {{assignment.description}}
+            <button class='styless-button' {{action 'assignmentComplete' assignment}}>
+              Mark Complete
+            </button>
+          {{/unless}}
+        {{/each}}
+      </strong>
+      <button type="button" class="close" {{action 'dismissAlert'}}><span aria-hidden="true">&times;</span></button>
     </div>
-  </div>
-</main>
-{{post-footer}}
+  {{/liquid-if}}
+  <main>
+    <div class='row'>
+      <div class="col-md-12">
+        {{outlet}}
+      </div>
+    </div>
+  </main>
+  {{post-footer}}
+{{else}}
+  <p class="intro-text">
+    Hi {{model.first_name}},
+    <br>
+    <br>
+    Your account is not active. Please subscribe to get your history learning on.
+    <br>
+    <br>
+    <a {{action 'invalidateSession'}}>Logout</a>
+  </p>
+{{/if}}
