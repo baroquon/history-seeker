@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classNames: ['panel', 'panel-default', 'card', 'pull-right', 'create-card'],
+  passwordsMatch: Ember.computed('newPassword', 'newPasswordConfirmation', function(){
+    return this.get('newPassword') === this.get('newPasswordConfirmation');
+  }),
   actions: {
     createStudent: function(){
       var store = this.get('store');
@@ -11,6 +14,7 @@ export default Ember.Component.extend({
           date_of_birth = this.get('newDateOfBirth'),
           email = this.get('newEmail'),
           password = this.get('newPassword'),
+          password_confirmation = this.get('newPasswordConfirmation'),
           teacher = this.get('current_user'),
           account = this.get('current_user.account');
 
@@ -21,7 +25,7 @@ export default Ember.Component.extend({
         date_of_birth: date_of_birth,
         email: email,
         password: password,
-        password_confirmation: password,
+        password_confirmation: password_confirmation,
         role: 'student',
         teacher: teacher,
         account: account
