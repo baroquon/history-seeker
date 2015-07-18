@@ -53,6 +53,11 @@
   }
   input{
     border: 3px solid $light-gray;
+    &:focus{
+      border: 3px solid $medium-gray;
+    }
+  }
+  input, input:focus{
     border-radius: 8px;
     padding: 1.2em;
     font-size: 1em;
