@@ -58,8 +58,9 @@
     }
   }
   input, input:focus{
+    height: auto;
     border-radius: 8px;
-    padding: 1.2em;
+    padding: 10px;
     font-size: 1em;
   }
   button{
