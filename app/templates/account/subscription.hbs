@@ -1,8 +1,8 @@
 <div class='personal-info'>
   {{#if model.account.active}}
-    <h3>
+    <h4>
       Your account is currently active and you have the {{formattedSubscriptionType}} subscription.
-    </h3>
+    </h4>
     <hr>
     <button class='btn btn-lg btn-danger account-action' {{action 'deactivate-account'}}>
       {{fa-icon "fa-exclamation-triangle"}}

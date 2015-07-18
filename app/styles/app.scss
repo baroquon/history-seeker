@@ -395,7 +395,15 @@ iframe {
     }
   }
 }
-
+.login-button{
+  button{
+    width: 100%;
+  }
+}
+.reset-password{
+  margin: 1em 0;
+  text-align: left;
+}
 @keyframes drawOpacity {
   from {
     opacity: 0;
@@ -452,3 +460,4 @@ iframe {
     }
   }
 }
+
