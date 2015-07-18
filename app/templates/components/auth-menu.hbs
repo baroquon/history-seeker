@@ -1,7 +1,18 @@
 <ul class="nav navbar-nav navbar-right">
   {{#if session.isAuthenticated}}
-    <li>
-      {{link-to current_user.fullName 'user.index'}}
+    <li class="dropdown">
+      <button class="styless-button dropdown-toggle">
+        {{current_user.fullName}}
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          {{link-to 'Account Dashboard' 'account'}}
+        </li>
+        <li>
+          {{link-to 'Subscription' 'account.subscription'}}
+        </li>
+      </ul>
     </li>
     <li>
       <a {{action 'invalidateSession'}}>Logout</a>

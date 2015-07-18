@@ -1,3 +1,10 @@
+.btn{
+  transition: background-color .5s linear, box-shadow .5s linear;
+  white-space: normal;
+  &:hover{
+    transition: background-color .5s linear, box-shadow .5s linear;
+  }
+}
 .stripe-button-el{
   width: 100%;
   margin: 1em 0 !important;
@@ -97,4 +104,10 @@
   right: .5em;
   top: 5em;
   z-index: 9999999999999;
+}
+.btn-danger{
+  background-color: $brand-danger;
+  &:hover{
+    background-color: darken($brand-danger, 20%);
+  }
 }

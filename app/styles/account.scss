@@ -1,0 +1,63 @@
+.account-content{
+  max-width: 70em;
+  margin: 2em auto 0;
+}
+.account-nav{
+  border-bottom: 1px solid #bbb;
+  margin-bottom: 2em;
+  font-size: 1.2em;
+  ul{
+    margin: 0;
+    padding: 0;
+    li{
+      @media(min-width: $screen-md){
+        display: inline-block;
+      }
+      padding: .5em;
+      a{
+        color: $medium-gray;
+        text-decoration: none;
+        transition: color .5s linear;
+        &:hover{
+          color: $dark-gray;
+          transition: color .5s linear;
+        }
+      }
+      &.active{
+        a{
+          color: $dark-gray;
+          cursor: text;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+.gravatar-container{
+  img{
+    margin-right: 1em;
+  }
+  vertical-align: top;
+  font-size: 1.5em;
+  color: $medium-gray;
+  margin-bottom: 1em;
+}
+.personal-info{
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  padding: 1em;
+  border-radius: 8px;
+  font-size: 1.5em;
+  hr{
+    margin: 1em -15px;
+  }
+  input{
+    border: 3px solid $light-gray;
+    border-radius: 8px;
+    padding: 1.2em;
+    font-size: 1em;
+  }
+  button{
+    font-size: 1em;
+  }
+}
