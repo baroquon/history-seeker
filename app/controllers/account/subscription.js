@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
     }
   }),
   actions: {
-    deactivate-account: function(){
+    deactivateAccount: function(){
       Ember.$.ajax({
         //url: 'http://localhost:3000/charges',
         url: 'https://api.historyseeker.com/charges',

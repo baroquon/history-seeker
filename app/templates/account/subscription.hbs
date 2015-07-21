@@ -4,7 +4,7 @@
       Your account is currently active and you have the {{formattedSubscriptionType}} subscription.
     </h4>
     <hr>
-    <button class='btn btn-lg btn-danger account-action' {{action 'deactivate-account'}}>
+    <button class='btn btn-lg btn-danger account-action' {{action 'deactivateAccount'}}>
       {{fa-icon "fa-exclamation-triangle"}}
       Click here to deactivate your account.
     </button>
@@ -13,7 +13,7 @@
       Your account is not active.
     </h3>
     <hr>
-    <button class='btn btn-lg btn-info account-action' {{action 'reactivate-account'}}>
+    <button class='btn btn-lg btn-info account-action' {{action 'reactivateAccount'}}>
       Click here to reactivate your account.
     </button>
   {{/if}}
