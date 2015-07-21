@@ -1,0 +1,20 @@
+<div class='personal-info'>
+  {{#if model.account.active}}
+    <h4>
+      Your account is currently active and you have the {{formattedSubscriptionType}} subscription.
+    </h4>
+    <hr>
+    <button class='btn btn-lg btn-danger account-action' {{action 'deactivate-account'}}>
+      {{fa-icon "fa-exclamation-triangle"}}
+      Click here to deactivate your account.
+    </button>
+  {{else}}
+    <h3>
+      Your account is not active.
+    </h3>
+    <hr>
+    <button class='btn btn-lg btn-info account-action' {{action 'reactivate-account'}}>
+      Click here to reactivate your account.
+    </button>
+  {{/if}}
+</div>

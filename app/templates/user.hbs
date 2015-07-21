@@ -1,4 +1,14 @@
-{{#if model.account.active}}
+{{#unless model.account.active}}
+  <p class="intro-text">
+    Hi {{model.first_name}},
+    <br>
+    <br>
+    Your account is not active. Please subscribe to get your history learning on.
+    <br>
+    <br>
+    <a {{action 'invalidateSession'}}>Logout</a>
+  </p>
+{{else}}
   <header>
     {{notes-field user=model store=store}}
     {{navigation-component session=session current_user=current_user}}
@@ -27,14 +37,4 @@
     </div>
   </main>
   {{post-footer}}
-{{else}}
-  <p class="intro-text">
-    Hi {{model.first_name}},
-    <br>
-    <br>
-    Your account is not active. Please subscribe to get your history learning on.
-    <br>
-    <br>
-    <a {{action 'invalidateSession'}}>Logout</a>
-  </p>
-{{/if}}
+{{/unless}}

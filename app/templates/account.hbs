@@ -1,0 +1,50 @@
+<header>
+  {{notes-field user=model store=store}}
+  {{navigation-component session=session current_user=current_user}}
+</header>
+{{#liquid-if alertPresent}}
+  <div class='alert alert-info'>
+    {{current_user.teacher.fullName}} has given you an assignment:
+    <strong>
+      {{#each current_user.assignments key='@index' as |assignment|}}
+      {{#unless assignment.is_complete}}
+      {{assignment.description}}
+      <button class='styless-button' {{action 'assignmentComplete' assignment}}>
+        Mark Complete
+      </button>
+      {{/unless}}
+      {{/each}}
+    </strong>
+    <button type="button" class="close" {{action 'dismissAlert'}}><span aria-hidden="true">&times;</span></button>
+  </div>
+{{/liquid-if}}
+<main>
+  <div class='account-content'>
+    <div class="row">
+      <div class="col-xs-12">
+        <nav class="account-nav" id="account-navigation">
+          <ul>
+            {{#link-to 'account.profile' tagName='li' class='nav-item list-item' href=false}}
+              {{link-to 'Dashboard' 'account.profile' class="nav-item-link list-item-link"}}
+            {{/link-to}}
+            {{#link-to 'account.subscription' tagName='li' class='nav-item list-item' href=false}}
+              {{link-to 'Subscription' 'account.subscription' class="nav-item-link list-item-link"}}
+            {{/link-to}}
+            <li class="nav-item list-item">
+              <a href="#" class="nav-item-link list-item-link">History</a>
+            </li>
+            <li class="nav-item list-item">
+              <a href="#" class="nav-item-link list-item-link">Students</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col-md-12">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</main>
+{{post-footer}}

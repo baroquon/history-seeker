@@ -1,0 +1,52 @@
+<div class='gravatar-container'>
+  {{gravatar-image-component email=model.email}}
+  Avatar managed by Gravatar
+</div>
+<div class='personal-info'>
+  <form {{action 'updateInfo' on='submit'}}>
+    <div class='form-group'>
+      <label>
+        First Name
+      </label>
+      {{input value=model.first_name class='form-control'}}
+    </div>
+    <div class='form-group'>
+      <label>
+        Last Name
+      </label>
+      {{input value=model.last_name class='form-control'}}
+    </div>
+    <div class='form-group'>
+      <label>
+        Email
+      </label>
+      {{input value=model.email class='form-control'}}
+    </div>
+    <hr>
+    <div class='form-group'>
+      <label>
+       New Password
+      </label>
+      {{input value=newPassword class='form-control' type='password'}}
+    </div>
+    <div class='form-group'>
+      <label>
+       New Password Confirmation
+      </label>
+      {{input value=newPasswordConfirmation class='form-control' type='password'}}
+    </div>
+    <hr>
+    <div class='form-group'>
+      <p>
+        Please enter your current password to confirm changes:
+      </p>
+      <label>
+       Current Password
+      </label>
+      {{input value=currentPassword class='form-control' type='password'}}
+    </div>
+    <div class='form-group'>
+      <button class='btn btn-primary' value='submit'>Update Information</button>
+    </div>
+  </form>
+</div>

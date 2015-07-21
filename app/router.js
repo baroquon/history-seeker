@@ -23,6 +23,10 @@ Router.map(function() {
     this.route('student-facts', { path: 'student-facts/:user_id'});
     this.route('lessons');
   });
+  this.route('account', function() {
+    this.route('profile', { path: '/' });
+    this.route('subscription');
+  });
   this.route('session', function() {
     this.route('new', { path: '/' });
   });

@@ -6,6 +6,8 @@
 @import "buttons";
 @import "cards";
 @import "spinner";
+@import "account";
+@import "gravatar-image";
 
 body{
   color: $dark-gray;
@@ -345,16 +347,63 @@ iframe {
     }
   }
 }
-.navbar .navbar-nav > li > a{
-  border-bottom: 0px solid transparent;
-  transition: padding .5s, border .5s;
-  &:hover{
-    padding-bottom: 16px;
-    border-bottom: 4px solid $accent;
-    transition: padding .5s, border .5s;
+.navbar .navbar-nav > li.dropdown:hover{
+  @extend .open;
+}
+@media(max-width: $screen-sm){
+  .navbar .navbar-nav > li.dropdown ul.dropdown-menu{
+    display: block;
+    position: static;
+    width: 100%;
+    background-color: transparent;
+    box-shadow: transparent 0 0 0;
+    li{
+      display: block;
+      font-size: 1em;
+      padding: 20px 0;
+      line-height: 20px;
+      a{
+        color: #fff;
+      }
+    }
+  }
+  .navbar-fixed-top .navbar-collapse{
+    max-height: 1000px;
   }
 }
-
+.navbar .navbar-nav > li > button{
+  display: inline-block;
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  line-height: 20px;
+  &:hover{
+    text-decoration: none;
+  }
+  span.caret{
+    display: inline-block;
+  }
+}
+@media(min-width: $screen-md){
+  .navbar .navbar-nav > li > a{
+    border-bottom: 0px solid transparent;
+    transition: padding .5s, border .5s;
+    &:hover{
+      padding-bottom: 16px;
+      border-bottom: 4px solid $accent;
+      transition: padding .5s, border .5s;
+    }
+  }
+}
+.login-button{
+  button{
+    width: 100%;
+  }
+}
+.reset-password{
+  margin: 1em 0;
+  text-align: left;
+}
 @keyframes drawOpacity {
   from {
     opacity: 0;
@@ -411,3 +460,4 @@ iframe {
     }
   }
 }
+
