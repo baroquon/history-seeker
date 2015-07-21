@@ -6,16 +6,24 @@ export default Ember.Controller.extend({
     switch (subscription_type) {
       case 'hs1':
         return 'Single Student';
-        break;
       case 'hs2':
         return 'Two Student';
-        break;
       case 'hs3':
         return 'Three Student';
-        break;
       default:
         return 'Multi-Student';
-        break;
     }
-  })
+  }),
+  actions: {
+    deactivate-account: function(){
+      Ember.$.ajax({
+        //url: 'http://localhost:3000/charges',
+        url: 'https://api.historyseeker.com/charges',
+        type: 'DELETE',
+        success: function(result) {
+          console.log('You have successfully deactivated your account.');
+        }
+      });
+    }
+  }
 });
