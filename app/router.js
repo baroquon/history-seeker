@@ -32,6 +32,16 @@ Router.map(function() {
   });
   this.route('how-it-works');
   this.route('contact');
+  this.route('terms-and-conditions');
+});
+
+Router.reopen({
+  notifyGoogleAnalytics: function() {
+    return ga('send', 'pageview', {
+        'page': this.get('url'),
+        'title': this.get('url')
+      });
+  }.on('didTransition')
 });
 
 export default Router;
