@@ -4,6 +4,13 @@ export default Ember.Component.extend({
   isCreating: false,
   curriculum: undefined,
   addCreate: false,
+  hideArrowClass: Ember.observer('isCreating', function(){
+    if(this.get('isCreating')){
+      $('body').addClass('isCreating');
+    } else {
+      $('body').removeClass('isCreating');
+    }
+  }),
   actions: {
     createFact: function(){
       var self = this;
