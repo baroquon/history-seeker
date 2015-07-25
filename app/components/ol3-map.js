@@ -104,9 +104,12 @@ export default Ember.Component.extend({
   didInsertElement: function(){
     Ember.run.once(this, function(){
       let facts = this.get('facts');
+      let maximize = this.get('maximize') || false;
       if(!!facts){
-        // make it take up the remaining height
-        $(this.element).height($(window).height() - $(this.element).offset()["top"])
+        if(maximize){
+          // make it take up the remaining height
+          $(this.element).height($(window).height() - $(this.element).offset()["top"])
+        }
         this.addPoints(facts);
         this.mapSetter();
       }
