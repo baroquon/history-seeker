@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
         url: 'https://api.historyseeker.com/charges',
         type: 'DELETE',
         success: function(result) {
-          console.log('You have successfully deactivated your account.');
+          console.log(result);
         }
       });
     }

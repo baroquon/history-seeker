@@ -108,7 +108,7 @@ export default Ember.Component.extend({
       if(!!facts){
         if(maximize){
           // make it take up the remaining height
-          $(this.element).height($(window).height() - $(this.element).offset()["top"])
+          Ember.$(this.element).height(Ember.$(window).height() - Ember.$(this.element).offset()["top"]);
         }
         this.addPoints(facts);
         this.mapSetter();

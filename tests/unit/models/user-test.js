@@ -9,6 +9,7 @@ moduleForModel('user', {
   needs: [
     'model:curriculum',
     'model:assignment',
+    'model:account',
     'model:fact',
   ]
 });
