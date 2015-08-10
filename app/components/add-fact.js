@@ -6,9 +6,9 @@ export default Ember.Component.extend({
   addCreate: false,
   hideArrowClass: Ember.observer('isCreating', function(){
     if(this.get('isCreating')){
-      $('body').addClass('isCreating');
+      Ember.$('body').addClass('isCreating');
     } else {
-      $('body').removeClass('isCreating');
+      Ember.$('body').removeClass('isCreating');
     }
   }),
   actions: {
