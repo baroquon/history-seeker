@@ -94,6 +94,18 @@
       </div>
     </div>
   {{/unless}}
+  {{#if thereAreErrors}}
+    <div class='row'>
+      <div class='col-md-12'>
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span>There was an error saving your student.
+          {{#each errors as |error|}}
+            <p>{{error.details.title}}</p>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  {{/if}}
   <div class='row'>
     <div class='col-md-12'>
       {{#if passwordsMatch}}
