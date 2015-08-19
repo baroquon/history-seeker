@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   passwordsMatch: Ember.computed('newPassword', 'newPasswordConfirmation', function(){
     return this.get('newPassword') === this.get('newPasswordConfirmation');
   }),
+  thereAreErrors: false,
   actions: {
     createStudent: function(){
       var store = this.get('store');
@@ -31,15 +32,22 @@ export default Ember.Component.extend({
         account: account
       });
 
-      new_student.save();
+      var onSuccess = () => {
+        this.set('newFirstName', '')
+            .set('newLastName', '')
+            .set('newMiddleName', '')
+            .set('newEmail', '')
+            .set('newPassword', '')
+            .set('newDateOfBirth', '');
+        this.sendAction();
+      };
 
-      this.set('newFirstName', '')
-          .set('newLastName', '')
-          .set('newMiddleName', '')
-          .set('newEmail', '')
-          .set('newPassword', '')
-          .set('newDateOfBirth', '');
-      this.sendAction();
+      var onError = (err) => {
+        console.log(err.errors);
+        this.set('thereAreErrors', true)
+            .set('errors', err.errors);
+      }
+      new_student.save().then(onSuccess, onError);
     }
   }
 });

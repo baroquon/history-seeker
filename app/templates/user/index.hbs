@@ -1,9 +1,11 @@
 {{#if isTeacher}}
   <div class='cards'>
     {{#each current_user.students key='@index' as |student|}}
-      <div class='card-grid'>
-        {{student-item store=store student=student}}
-      </div>
+      {{#if student.id}}
+        <div class='card-grid'>
+          {{student-item store=store student=student}}
+        </div>
+      {{/if}}
     {{else}}
       {{empty-notice emptyNotice='It looks like you do not have any students yet. <br> Why not add one?'}}
     {{/each}}
