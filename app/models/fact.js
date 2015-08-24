@@ -31,7 +31,6 @@ export default DS.Model.extend({
         return Number(this.get('start_date').substring(0, 4));
       }
     } catch(e) {
-      console.log(e);
     }
   }),
   end_year: Ember.computed('end_date', function(){

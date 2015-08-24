@@ -1,9 +1,36 @@
 import Ember from 'ember';
+import turnIntoDate from './../utils/turn-into-date';
 
 export default Ember.Component.extend({
   isCreating: false,
   curriculum: undefined,
   addCreate: false,
+  dateStartError: false,
+  dateEndError: false,
+  startSuffix: 'AD',
+  endSuffix: 'AD',
+  dateSuffix: [
+    'BC',
+    'AD'
+  ],
+  formattedStartDate: '',
+  formattedEndDate: '',
+  startDateFormatter: Ember.observer('newStartDate', function(){
+    let dateLength = this.get('newStartDate').length;
+    this.checkForNumbers(this.newStartDate, 'start');
+
+    if( dateLength === 2 || dateLength === 5){
+      this.set('newStartDate', this.newStartDate + '/');
+    }
+  }),
+  endDateFormatter: Ember.observer('newEndDate', function(){
+    let dateLength = this.get('newEndDate').length;
+    this.checkForNumbers(this.newEndDate, 'end');
+
+    if( dateLength === 2 || dateLength === 5){
+      this.set('newEndDate', this.newEndDate + '/');
+    }
+  }),
   hideArrowClass: Ember.observer('isCreating', function(){
     if(this.get('isCreating')){
       Ember.$('body').addClass('isCreating');
@@ -13,18 +40,24 @@ export default Ember.Component.extend({
   }),
   actions: {
     createFact: function(){
-      var self = this;
-      var title = this.get('newTitle'),
+      let self = this;
+
+      let preStartDate = this.get('newStartDate');
+      let preStartSuffix = this.get('startSuffix');
+      let preEndDate = this.get('newEndDate');
+      let preEndSuffix = this.get('endSuffix');
+
+      let title = this.get('newTitle'),
           description = this.get('newDescription'),
-          start_date = this.get('newStartDate'),
-          end_date = this.get('newEndDate'),
+          start_date = turnIntoDate(preStartDate, preStartSuffix),
+          end_date = turnIntoDate(preEndDate, preEndSuffix),
           lng = this.get('newLng'),
           lat = this.get('newLat'),
           tag_list = this.get('newTagList'),
           user = this.get('current_user'),
           additional_info_link = this.get('newAdditionalInfoLink');
 
-      var new_fact = this.get('store').createRecord('fact', {
+      let new_fact = this.get('store').createRecord('fact', {
         title: title,
         description: description,
         start_date: start_date,
@@ -68,6 +101,18 @@ export default Ember.Component.extend({
     setLngLat: function(lnglat){
       this.set('newLng', lnglat[0]);
       this.set('newLat', lnglat[1]);
+    }
+  },
+  checkForNumbers: function(date, range){
+    // Here we are removing the slashes so that we can check
+    // to see that only numbers are entered
+    var internalValue = (date).replace(/-|\//g, '');
+
+    // If the date passed in is NaN we set the proper error to true
+    if(range === 'start'){
+      this.set('dateStartError', isNaN(internalValue));
+    } else {
+      this.set('dateEndError', isNaN(internalValue));
     }
   }
 });
