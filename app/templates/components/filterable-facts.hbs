@@ -85,7 +85,7 @@
       <!-- Default panel contents -->
     {{#if cardType}}
       <div class='cards'>
-        {{#each rangeFilteredContent key="@index" as |fact|}}
+        {{#each rangeFilteredContent as |fact|}}
           <div class='card-grid'>
             {{add-fact-to-object action='showModal' fact=fact resetChecks=resetChecks addFactToCurriculum="addFactToCurriculum" isForm=isForm myFacts=myFacts}}
           </div>

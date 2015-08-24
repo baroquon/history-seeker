@@ -46,7 +46,7 @@ export default Ember.Component.extend({
         console.log(err.errors);
         this.set('thereAreErrors', true)
             .set('errors', err.errors);
-      }
+      };
       new_student.save().then(onSuccess, onError);
     }
   }
