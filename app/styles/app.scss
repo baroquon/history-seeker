@@ -53,6 +53,10 @@ button, a{
   }
 }
 
+.date-select{
+  width: 100%;
+  height: 28px;
+}
 .alert-danger{
   background-color: desaturate($brand-danger, 20);
   color: #fff;
@@ -520,8 +524,4 @@ iframe {
 }
 .terms-section{
   text-align: left;
-}
-.date-select{
-  width: 100%;
-  height: 28px;
 }
