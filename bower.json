@@ -14,9 +14,10 @@
     "qunit": "~1.17.1",
     "bootstrap-datepicker": "~1.4",
     "ember-cli-moment-shim": "~0.1.0",
-    "ember-simple-auth": "0.8.0",
     "moment": "~2.10.3",
-    "blueimp-md5": "~1.1.0"
+    "blueimp-md5": "~1.1.0",
+    "firebase": "^3.0.0",
+    "font-awesome": "~4.5.0"
   },
   "devDependencies": {
     "bootstrap-sass-official": "~3.3.4",

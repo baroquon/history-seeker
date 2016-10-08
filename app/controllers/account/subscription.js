@@ -15,15 +15,8 @@ export default Ember.Controller.extend({
     }
   }),
   actions: {
-    deactivateAccount: function(){
-      Ember.$.ajax({
-        //url: 'http://localhost:3000/charges',
-        url: 'https://api.historyseeker.com/charges',
-        type: 'DELETE',
-        success: function(result) {
-          console.log(result);
-        }
-      });
+    deactivateAccount(){
+      return true;
     }
   }
 });
