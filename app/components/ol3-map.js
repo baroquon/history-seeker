@@ -17,7 +17,10 @@ export default Ember.Component.extend({
     let map = this.map = new ol.Map({
       layers: [
         new ol.layer.Tile({
-          source: new ol.source.OSM()
+          //source: new ol.source.OSM()
+          source: new ol.source.XYZ({
+            url: 'https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmFyb3F1b24iLCJhIjoiY2l1Mm4xYnVhMGoyejJ1cXR6eGs3MnZkMSJ9.qM5pVGQz_wYawLaZyX3U5A'
+          })
         }),
         this.vector
       ],
