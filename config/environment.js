@@ -38,7 +38,7 @@ module.exports = function(environment) {
   ENV['simple-auth-devise'] = {
     tokenAttributeName: 'token',
     identificationAttributeName: 'email',
-    serverTokenEndpoint: 'https://api.historyseeker.com/users/sign_in',
+    serverTokenEndpoint: 'https://history-seeker-api.herokuapp.com/users/sign_in',
     authorizer: 'devise'
   }
 

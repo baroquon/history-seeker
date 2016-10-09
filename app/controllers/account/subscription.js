@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
     deactivateAccount: function(){
       Ember.$.ajax({
         //url: 'http://localhost:3000/charges',
-        url: 'https://api.historyseeker.com/charges',
+        url: 'https://history-seeker-api.herokuapp.com/charges',
         type: 'DELETE',
         success: function(result) {
           console.log(result);
