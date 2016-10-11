@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" {{action 'closeModal'}} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{#link-to 'user.all-facts' class='close'}}<span aria-hidden="true">&times;</span>{{/link-to}}
         <h4 class="modal-title">{{model.title}}</h4>
       </div>
       <div class="modal-body">
